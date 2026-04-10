@@ -1,0 +1,137 @@
+/**
+ * 家田内科 — script.js（V3）
+ * ヘッダースクロール検知 / ハンバーガーメニュー /
+ * ヒーロースライドショー / スクロールフェードイン / 著作権年
+ */
+
+'use strict';
+
+const $ = (sel, ctx = document) => ctx.querySelector(sel);
+const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
+
+
+/* ============================================================
+   ヘッダー：スクロールで影を付与
+   ============================================================ */
+(function initHeaderScroll() {
+  const header = $('#siteHeader');
+  if (!header) return;
+
+  const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+
+/* ============================================================
+   ハンバーガーメニュー（ドロワー開閉）
+   ============================================================ */
+(function initDrawer() {
+  const btn     = $('#hamburger');
+  const drawer  = $('#drawer');
+  const overlay = $('#drawerOverlay');
+  const links   = $$('.drawer-link', drawer);
+  if (!btn || !drawer || !overlay) return;
+
+  const openDrawer = () => {
+    btn.classList.add('is-open');
+    btn.setAttribute('aria-expanded', 'true');
+    drawer.classList.add('is-open');
+    drawer.setAttribute('aria-hidden', 'false');
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeDrawer = () => {
+    btn.classList.remove('is-open');
+    btn.setAttribute('aria-expanded', 'false');
+    drawer.classList.remove('is-open');
+    drawer.setAttribute('aria-hidden', 'true');
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+  };
+
+  btn.addEventListener('click', () => drawer.classList.contains('is-open') ? closeDrawer() : openDrawer());
+  overlay.addEventListener('click', closeDrawer);
+  links.forEach(l => l.addEventListener('click', closeDrawer));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer.classList.contains('is-open')) {
+      closeDrawer();
+      btn.focus();
+    }
+  });
+})();
+
+
+/* ============================================================
+   ヒーロースライドショー
+   ============================================================ */
+(function initHeroSlider() {
+  const slides = $$('.hero-slide');
+  if (slides.length < 2) return;
+
+  const INTERVAL = 5000;
+  let current = 0;
+
+  setInterval(() => {
+    slides[current].classList.remove('is-active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('is-active');
+  }, INTERVAL);
+})();
+
+
+/* ============================================================
+   スクロールフェードイン
+   ============================================================ */
+(function initScrollFade() {
+  const targets = $$('.js-fade');
+  if (!targets.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  targets.forEach((el, i) => {
+    el.style.transitionDelay = `${Math.min(i * 0.08, 0.30)}s`;
+    observer.observe(el);
+  });
+})();
+
+
+/* ============================================================
+   フッター著作権年
+   ============================================================ */
+(function initYear() {
+  const el = $('#year');
+  if (el) el.textContent = new Date().getFullYear();
+})();
+
+
+/* ============================================================
+   スムーズスクロール補完（iOS 14以下向け）
+   ============================================================ */
+(function initSmoothScroll() {
+  $$('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const id = anchor.getAttribute('href');
+      if (id === '#') return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      const headerH = document.querySelector('.site-header')?.offsetHeight ?? 0;
+      const top = target.getBoundingClientRect().top + window.scrollY - headerH;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+})();
