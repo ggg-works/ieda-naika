@@ -1,8 +1,7 @@
 /* ============================================================
    家田内科 — style.css（V4）
-   デザインコンセプト：Aloha Lux（案C）
-   エメラルドグリーン × ゴールデンサンド × ウォームアイボリー
-   高級ハワイリゾートホテルのような上品さと清潔感
+   デザインコンセプト：Coastal Healing
+   エメラルドブルー × サンドベージュ × クリーンホワイト
    ============================================================ */
 
 
@@ -11,17 +10,15 @@
    ============================================================ */
 :root {
   /* カラー */
-  --c-em:          #00A896;   /* エメラルドグリーン（メイン） */
-  --c-em-dark:     #007A6E;   /* ディープエメラルド（ホバー・アクセント） */
-  --c-em-light:    #E6F7F5;   /* 薄エメラルド（背景アクセント） */
-  --c-gold:        #C8A96E;   /* ゴールデンサンド（高級感アクセント） */
-  --c-gold-light:  #F5ECD9;   /* 薄ゴールド（バッジ背景等） */
-  --c-ivory:       #FAF6EE;   /* ウォームアイボリー（サブ背景） */
+  --c-em:          #2ABFBF;   /* エメラルドブルー（メイン） */
+  --c-em-dark:     #0E8080;   /* ディープエメラルド（ホバー・アクセント） */
+  --c-em-light:    #E0F5F5;   /* 薄エメラルド（背景アクセント） */
+  --c-ivory:       #F5F0E8;   /* サンドベージュ（サブ背景） */
   --c-white:       #FEFEFE;   /* オフホワイト（メイン背景） */
-  --c-text:        #1A1208;   /* ディープブラウン（本文） */
-  --c-text-muted:  #8C7B5C;   /* ライトサンド（サブテキスト） */
-  --c-border:      #E2D9C8;   /* ウォームベージュボーダー */
-  --c-border-em:   #B2DDD9;   /* エメラルドみのあるボーダー */
+  --c-text:        #2C2C2C;   /* ダークグレー（本文） */
+  --c-text-muted:  #6B7280;   /* ミューテッドグレー（サブテキスト） */
+  --c-border:      #DDE8E8;   /* エメラルドみのあるボーダー */
+  --c-border-em:   #B2DDD9;   /* エメラルドボーダー（強調） */
 
   /* タイポグラフィ */
   --font-ja:  'Zen Kaku Gothic New', sans-serif;
@@ -36,8 +33,8 @@
   --r: 8px;
 
   /* 影 */
-  --shadow-sm: 0 2px 12px rgba(26,18,8,.06);
-  --shadow-md: 0 6px 28px rgba(26,18,8,.10);
+  --shadow-sm: 0 2px 12px rgba(44,44,44,.06);
+  --shadow-md: 0 6px 28px rgba(44,44,44,.10);
 
   /* トランジション（ゆっくり・上品） */
   --ease: 0.30s ease;
@@ -94,7 +91,7 @@ address { font-style:normal; }
 
 /* スクロール時に影を追加 */
 .site-header.is-scrolled {
-  box-shadow: 0 2px 16px rgba(26,18,8,.08);
+  box-shadow: 0 2px 16px rgba(44,44,44,.08);
 }
 
 .header-inner {
@@ -127,12 +124,12 @@ address { font-style:normal; }
   position: relative;
 }
 
-/* ゴールドの右下アクセント */
+/* 右下アクセントドット */
 .logo-mark-inner {
   display: block;
   width: 10px;
   height: 10px;
-  background-color: var(--c-gold);
+  background-color: var(--c-em-dark);
   position: absolute;
   bottom: -3px;
   right: -3px;
@@ -156,7 +153,7 @@ address { font-style:normal; }
   font-size: 0.56rem;
   font-weight: 300;
   letter-spacing: 0.18em;
-  color: var(--c-gold);
+  color: var(--c-em);
   margin-top: 2px;
 }
 
@@ -187,7 +184,7 @@ address { font-style:normal; }
   left: 12px;
   right: 12px;
   height: 1px;
-  background-color: var(--c-gold);
+  background-color: var(--c-em);
   transform: scaleX(0);
   transform-origin: center;
   transition: transform var(--ease);
@@ -223,12 +220,12 @@ address { font-style:normal; }
 }
 
 /* WEB予約・LINE予約：ゴールドサンド塗り（高級感） */
-.hbtn--web  { background-color: var(--c-gold); color: var(--c-text); }
-.hbtn--line { background-color: var(--c-gold); color: var(--c-text); }
+.hbtn--web  { background-color: var(--c-em); color: #fff; }
+.hbtn--line { background-color: var(--c-em); color: #fff; }
 
 /* WEB予約ホバー：ゴールドが濃くなる */
 .hbtn--web:hover,
-.hbtn--line:hover { background-color: #b8966a; }
+.hbtn--line:hover { background-color: var(--c-em-dark); }
 
 /* 電話：エメラルドボーダー→ホバーで塗りに変換 */
 .hbtn--tel {
@@ -291,7 +288,7 @@ address { font-style:normal; }
   transition: transform 0.32s cubic-bezier(0.4,0,0.2,1);
   overflow-y: auto;
   /* 左にゴールドのボーダーライン */
-  border-left: 2px solid var(--c-gold);
+  border-left: 2px solid var(--c-em);
 }
 
 .drawer.is-open { transform: translateX(0); }
@@ -336,8 +333,8 @@ address { font-style:normal; }
 }
 
 /* ゴールド塗り */
-.drawer-btn--gold { background-color: var(--c-gold); color: var(--c-text); }
-.drawer-btn--gold:hover { background-color: #b8966a; }
+.drawer-btn--gold { background-color: var(--c-em); color: #fff; }
+.drawer-btn--gold:hover { background-color: var(--c-em-dark); }
 
 /* エメラルド塗り */
 .drawer-btn--em { background-color: var(--c-em); color: #fff; }
@@ -359,7 +356,7 @@ address { font-style:normal; }
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(26,18,8,0.40);
+  background: rgba(44,44,44,0.40);
   z-index: 98;
 }
 
@@ -404,9 +401,9 @@ address { font-style:normal; }
   z-index: 1;
   background: linear-gradient(
     100deg,
-    rgba(0,60,55,0.72) 0%,
-    rgba(0,120,110,0.45) 50%,
-    rgba(26,18,8,0.55) 100%
+    rgba(14,128,128,0.75) 0%,
+    rgba(42,191,191,0.40) 50%,
+    rgba(44,44,44,0.50) 100%
   );
 }
 
@@ -417,7 +414,7 @@ address { font-style:normal; }
   top: 20%;
   bottom: 20%;
   width: 1px;
-  background: linear-gradient(to bottom, transparent, var(--c-gold), transparent);
+  background: linear-gradient(to bottom, transparent, var(--c-em), transparent);
   z-index: 2;
   opacity: 0.60;
 }
@@ -439,7 +436,7 @@ address { font-style:normal; }
   font-size: clamp(0.58rem, 1.5vw, 0.72rem);
   font-weight: 300;
   letter-spacing: 0.28em;
-  color: var(--c-gold);
+  color: var(--c-em);
   margin-bottom: 18px;
   animation: luxFade 1.0s ease 0.2s both;
 }
@@ -469,7 +466,7 @@ address { font-style:normal; }
 .hero-sep {
   width: 40px;
   height: 1px;
-  background-color: var(--c-gold);
+  background-color: var(--c-em);
   margin-bottom: 32px;
   animation: luxFade 1.0s ease 0.80s both;
 }
@@ -496,13 +493,13 @@ address { font-style:normal; }
   transition: background-color var(--ease), color var(--ease), border-color var(--ease);
 }
 
-/* ゴールドサンド塗り（メインCTA） */
+/* エメラルド塗り（メインCTA） */
 .hero-btn--gold {
-  background-color: var(--c-gold);
-  color: var(--c-text);
+  background-color: var(--c-em);
+  color: #fff;
 }
 
-.hero-btn--gold:hover { background-color: #b8966a; }
+.hero-btn--gold:hover { background-color: var(--c-em-dark); }
 
 /* エメラルドボーダー→ホバーで塗り変換（セカンダリCTA） */
 .hero-btn--em {
@@ -543,7 +540,7 @@ address { font-style:normal; }
   display: block;
   width: 1px;
   height: 48px;
-  background: linear-gradient(to bottom, var(--c-gold), transparent);
+  background: linear-gradient(to bottom, var(--c-em), transparent);
   animation: scrollDrop 2.0s ease infinite;
 }
 
@@ -577,7 +574,7 @@ address { font-style:normal; }
   font-size: 0.70rem;
   font-weight: 300;
   letter-spacing: 0.32em;
-  color: var(--c-gold);
+  color: var(--c-em);
   margin-bottom: 10px;
 }
 
@@ -601,7 +598,7 @@ address { font-style:normal; }
   transform: translateX(-50%);
   width: 32px;
   height: 1px;
-  background-color: var(--c-gold);
+  background-color: var(--c-em);
 }
 
 .section-sub {
@@ -628,13 +625,13 @@ address { font-style:normal; }
   white-space: nowrap;
 }
 
-/* ゴールドサンド塗り */
+/* エメラルド塗り */
 .btn--primary {
-  background-color: var(--c-gold);
-  color: var(--c-text);
+  background-color: var(--c-em);
+  color: #fff;
 }
 
-.btn--primary:hover { background-color: #b8966a; }
+.btn--primary:hover { background-color: var(--c-em-dark); }
 
 /* エメラルドボーダー→ホバーで塗り変換 */
 .btn--outline {
@@ -666,7 +663,7 @@ address { font-style:normal; }
 .lux-link-bar {
   display: block;
   height: 1px;
-  background-color: var(--c-gold);
+  background-color: var(--c-em);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform var(--ease);
@@ -731,7 +728,7 @@ address { font-style:normal; }
   font-size: 2.8rem;
   font-weight: 700;
   letter-spacing: -0.04em;
-  color: var(--c-gold-light);
+  color: var(--c-em-light);
   line-height: 1;
   margin-bottom: 16px;
   /* 背景テキストとして重ねる */
@@ -792,8 +789,8 @@ address { font-style:normal; }
   right: -8px;
   width: 24px;
   height: 24px;
-  border-right: 2px solid var(--c-gold);
-  border-bottom: 2px solid var(--c-gold);
+  border-right: 2px solid var(--c-em);
+  border-bottom: 2px solid var(--c-em);
 }
 
 /* 情報エリア */
@@ -804,7 +801,7 @@ address { font-style:normal; }
   font-size: 0.68rem;
   font-weight: 300;
   letter-spacing: 0.22em;
-  color: var(--c-gold);
+  color: var(--c-em);
   margin-bottom: 6px;
 }
 
@@ -820,7 +817,7 @@ address { font-style:normal; }
 .doctor-sep {
   width: 32px;
   height: 1px;
-  background-color: var(--c-gold);
+  background-color: var(--c-em);
   margin-bottom: 16px;
 }
 
@@ -942,7 +939,7 @@ address { font-style:normal; }
   background: var(--c-white);
   border: 1px solid var(--c-border);
   /* 左にゴールドライン */
-  border-left: 3px solid var(--c-gold);
+  border-left: 3px solid var(--c-em);
   border-radius: var(--r);
   overflow: hidden;
 }
@@ -985,7 +982,7 @@ address { font-style:normal; }
 
 /* バッジカラー（エメラルド＆ゴールド系で統一） */
 .badge--closed  { background-color: var(--c-em-light);  color: var(--c-em-dark); }
-.badge--service { background-color: var(--c-gold-light); color: #7A5E30; }
+.badge--service { background-color: var(--c-em-light); color: var(--c-em-dark); }
 .badge--info    { background-color: var(--c-ivory);      color: var(--c-text-muted); border: 1px solid var(--c-border); }
 .badge--vaccine { background-color: var(--c-em-light);   color: var(--c-em-dark); }
 
@@ -1139,7 +1136,7 @@ address { font-style:normal; }
 }
 
 .reserve-summary::-webkit-details-marker { display: none; }
-.reserve-summary:hover { background-color: var(--c-gold-light); }
+.reserve-summary:hover { background-color: var(--c-em-light); }
 
 .reserve-summary-text {
   font-size: 0.87rem;
@@ -1161,7 +1158,7 @@ address { font-style:normal; }
 .reserve-summary-icon::after {
   content: '';
   position: absolute;
-  background-color: var(--c-gold);
+  background-color: var(--c-em);
   transition: transform var(--ease), opacity var(--ease);
 }
 
@@ -1198,7 +1195,7 @@ address { font-style:normal; }
 }
 
 .reserve-table thead th {
-  background-color: var(--c-gold-light);
+  background-color: var(--c-em-light);
   color: var(--c-text);
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -1241,8 +1238,8 @@ address { font-style:normal; }
   display: inline-flex;
   align-items: center;
   padding: 3px 10px;
-  background-color: var(--c-gold);
-  color: var(--c-text);
+  background-color: var(--c-em);
+  color: #fff;
   font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -1313,7 +1310,7 @@ address { font-style:normal; }
 
 .reserve-card-arrow {
   font-size: 0.9rem;
-  color: var(--c-gold);
+  color: var(--c-em);
   flex-shrink: 0;
   transition: transform var(--ease);
 }
@@ -1351,7 +1348,7 @@ address { font-style:normal; }
   color: var(--c-text);
   margin-bottom: 14px;
   padding-bottom: 12px;
-  border-bottom: 1px solid var(--c-gold);
+  border-bottom: 1px solid var(--c-em);
 }
 
 .access-address {
@@ -1399,7 +1396,7 @@ address { font-style:normal; }
   width: 16px;
   height: 16px;
   flex-shrink: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Crect x='1' y='1' width='14' height='14' stroke='%23C8A96E' stroke-width='1.2' fill='%23F5ECD9'/%3E%3Cpath d='M4.5 8l2.5 2.5 4.5-5' stroke='%2300A896' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Crect x='1' y='1' width='14' height='14' stroke='%232ABFBF' stroke-width='1.2' fill='%23E0F5F5'/%3E%3Cpath d='M4.5 8l2.5 2.5 4.5-5' stroke='%230E8080' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -1423,7 +1420,7 @@ address { font-style:normal; }
 /* フッタートップのゴールドライン */
 .footer-gold-top {
   height: 2px;
-  background: linear-gradient(to right, transparent, var(--c-gold), transparent);
+  background: linear-gradient(to right, transparent, var(--c-em), transparent);
 }
 
 .footer-inner {
@@ -1460,7 +1457,7 @@ address { font-style:normal; }
   display: block;
   width: 10px;
   height: 10px;
-  background-color: var(--c-gold);
+  background-color: var(--c-em-dark);
   position: absolute;
   bottom: -3px;
   right: -3px;
@@ -1484,7 +1481,7 @@ address { font-style:normal; }
   font-size: 0.55rem;
   font-weight: 300;
   letter-spacing: 0.18em;
-  color: var(--c-gold);
+  color: var(--c-em);
   margin-top: 2px;
 }
 
@@ -1502,13 +1499,13 @@ address { font-style:normal; }
   color: rgba(250,246,238,0.65);
   text-decoration: underline;
   text-underline-offset: 3px;
-  text-decoration-color: rgba(200,169,110,0.40);
+  text-decoration-color: rgba(42,191,191,0.40);
   transition: color var(--ease), text-decoration-color var(--ease);
 }
 
 .footer-contact-link:hover {
-  color: var(--c-gold);
-  text-decoration-color: var(--c-gold);
+  color: var(--c-em);
+  text-decoration-color: var(--c-em);
 }
 
 /* フッターナビ */
@@ -1524,13 +1521,13 @@ address { font-style:normal; }
   padding-bottom: 2px;
 }
 
-.footer-nav-link:hover { color: var(--c-gold); }
+.footer-nav-link:hover { color: var(--c-em); }
 
 /* コピーライト */
 .footer-bottom {
   text-align: center;
   padding: 16px var(--container-px);
-  border-top: 1px solid rgba(200,169,110,0.20);
+  border-top: 1px solid rgba(42,191,191,0.20);
   font-size: 0.72rem;
   color: rgba(250,246,238,0.35);
   letter-spacing: 0.08em;
@@ -1550,7 +1547,7 @@ address { font-style:normal; }
   background: rgba(254,254,254,0.97);
   border-top: 1px solid var(--c-border);
   backdrop-filter: blur(10px);
-  box-shadow: 0 -2px 12px rgba(26,18,8,.08);
+  box-shadow: 0 -2px 12px rgba(44,44,44,.08);
   padding-bottom: env(safe-area-inset-bottom);
 }
 
@@ -1568,13 +1565,13 @@ address { font-style:normal; }
 
 .fixed-btn:hover { opacity: 0.80; }
 
-/* ゴールドサンド */
-.fixed-btn--web  { background-color: var(--c-gold); color: var(--c-text); }
+/* エメラルド */
+.fixed-btn--web  { background-color: var(--c-em); color: #fff; }
 /* エメラルド */
 .fixed-btn--line { background-color: var(--c-em);   color: #fff; }
 /* アウトライン */
 .fixed-btn--tel  {
-  border-top: 2px solid var(--c-gold);
+  border-top: 2px solid var(--c-em);
   color: var(--c-em-dark);
   background: var(--c-white);
 }
