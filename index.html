@@ -73,11 +73,11 @@
 
   <!-- ===========================
        Google Fonts
-       Noto Sans JP（日本語）+ DM Serif Display（見出し英字）
+       Zen Kaku Gothic New（日本語）+ Montserrat（英字・見出し）
   =========================== -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -90,14 +90,10 @@
   <header class="site-header" id="siteHeader">
     <div class="header-inner">
 
-      <!-- ロゴ -->
+      <!-- ロゴ：エメラルド＋ゴールドの組み合わせ -->
       <a class="header-logo" href="#top" aria-label="家田内科 トップへ">
         <span class="logo-mark" aria-hidden="true">
-          <!-- 葉のアイコン（SVGインライン） -->
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M10 2C6 2 2 6 2 10c0 4.4 3.6 8 8 8 1.5 0 2-1 2-2V4c0-1.1-.9-2-2-2z" fill="#fff" opacity=".9"/>
-            <path d="M10 2c4 0 8 4 8 8 0 4.4-3.6 8-8 8" stroke="#fff" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-          </svg>
+          <span class="logo-mark-inner"></span>
         </span>
         <span class="logo-text">
           <span class="logo-ja">家田内科</span>
@@ -118,8 +114,10 @@
       <!-- ヘッダー右側 -->
       <div class="header-right">
         <div class="header-btns" aria-label="予約・電話">
+          <!-- 予約ボタン：ゴールドサンド塗り（ラグジュアリー） -->
           <a class="hbtn hbtn--web"  href="https://example.com" target="_blank" rel="noopener noreferrer">WEB予約</a>
           <a class="hbtn hbtn--line" href="https://example.com" target="_blank" rel="noopener noreferrer">LINE予約</a>
+          <!-- 電話：エメラルドアウトライン -->
           <a class="hbtn hbtn--tel"  href="tel:000-0000-0000">電話</a>
         </div>
 
@@ -144,8 +142,8 @@
         <a class="drawer-link" href="#access">アクセス</a>
       </nav>
       <div class="drawer-btns">
-        <a class="drawer-btn drawer-btn--web"  href="https://example.com" target="_blank" rel="noopener noreferrer">WEB予約</a>
-        <a class="drawer-btn drawer-btn--line" href="https://example.com" target="_blank" rel="noopener noreferrer">LINE予約</a>
+        <a class="drawer-btn drawer-btn--gold" href="https://example.com" target="_blank" rel="noopener noreferrer">WEB予約</a>
+        <a class="drawer-btn drawer-btn--em"   href="https://example.com" target="_blank" rel="noopener noreferrer">LINE予約</a>
         <a class="drawer-btn drawer-btn--tel"  href="tel:000-0000-0000">電話する</a>
       </div>
     </div>
@@ -165,37 +163,33 @@
         <div class="hero-slide"           style="background-image:url('images/hero-3.jpg');"></div>
         <div class="hero-slide"           style="background-image:url('images/hero-5.jpg');"></div>
       </div>
-      <!-- グリーングラデーションオーバーレイ -->
+      <!-- 深みのあるダークオーバーレイ（ラグジュアリー感） -->
       <div class="hero-overlay" aria-hidden="true"></div>
+
+      <!-- 左端のゴールド縦ライン装飾 -->
+      <div class="hero-deco" aria-hidden="true"></div>
 
       <!-- コンテンツ -->
       <div class="hero-content">
-        <!-- 縦ライン + クリニック名（左側アクセント） -->
-        <div class="hero-tag">
-          <span class="hero-tag-line" aria-hidden="true"></span>
-          <span class="hero-tag-text">家田内科 / Internal Medicine</span>
-        </div>
+        <p class="hero-label">Ieda Internal Medicine Clinic</p>
         <h1 class="hero-title">やさしく、ていねいに。</h1>
         <p class="hero-lead">30年、地域に寄り添うかかりつけパートナー。</p>
+        <!-- ゴールドの細いセパレーター -->
+        <div class="hero-sep" aria-hidden="true"></div>
         <div class="hero-btns">
-          <a class="hero-btn hero-btn--primary"   href="https://example.com" target="_blank" rel="noopener noreferrer">WEB予約</a>
-          <a class="hero-btn hero-btn--secondary" href="#hours">診療時間を確認</a>
+          <!-- メインCTA：ゴールドサンド塗り -->
+          <a class="hero-btn hero-btn--gold" href="https://example.com" target="_blank" rel="noopener noreferrer">WEB予約</a>
+          <!-- サブCTA：エメラルドボーダー（ホバーで塗り変換） -->
+          <a class="hero-btn hero-btn--em" href="#hours">診療時間を確認</a>
         </div>
       </div>
 
       <!-- スクロール誘導 -->
       <div class="hero-scroll" aria-hidden="true">
-        <span class="hero-scroll-dot"></span>
-        <span class="hero-scroll-dot"></span>
-        <span class="hero-scroll-dot"></span>
+        <span class="hero-scroll-label">Scroll</span>
+        <span class="hero-scroll-bar"></span>
       </div>
     </section>
-
-    <!-- ===========================
-         グリーンアクセントバー
-         （ヒーローとコンテンツの境界を明示）
-    =========================== -->
-    <div class="accent-bar" aria-hidden="true"></div>
 
     <!-- ===========================
          当院の特徴セクション
@@ -203,7 +197,7 @@
     <section class="section section--philosophy" id="philosophy" aria-label="当院の特徴">
       <div class="container">
         <div class="section-head js-fade">
-          <span class="section-eyebrow">Philosophy</span>
+          <p class="section-label">Philosophy</p>
           <h2 class="section-title">当院の特徴</h2>
           <p class="section-sub">30年以上、春日井市で地域医療に携わってきた家田内科の3つのこだわり。</p>
         </div>
@@ -211,21 +205,26 @@
         <div class="philosophy-grid">
 
           <div class="philosophy-card js-fade">
-            <div class="philosophy-num" aria-hidden="true">01</div>
-            <h3 class="philosophy-title">ていねいな診察</h3>
-            <p class="philosophy-text">診察内容や治療方針を、わかりやすくお伝えします。</p>
+            <!-- ゴールドのナンバー -->
+            <span class="p-number" aria-hidden="true">01</span>
+            <!-- エメラルドのトップライン -->
+            <div class="p-topline" aria-hidden="true"></div>
+            <h3 class="p-title">ていねいな診察</h3>
+            <p class="p-text">診察内容や治療方針を、わかりやすくお伝えします。</p>
           </div>
 
           <div class="philosophy-card js-fade">
-            <div class="philosophy-num" aria-hidden="true">02</div>
-            <h3 class="philosophy-title">生活をふまえた医療</h3>
-            <p class="philosophy-text">日々の暮らしをふまえながら、必要な医療を的確に行います。</p>
+            <span class="p-number" aria-hidden="true">02</span>
+            <div class="p-topline" aria-hidden="true"></div>
+            <h3 class="p-title">生活をふまえた医療</h3>
+            <p class="p-text">日々の暮らしをふまえながら、必要な医療を的確に行います。</p>
           </div>
 
           <div class="philosophy-card js-fade">
-            <div class="philosophy-num" aria-hidden="true">03</div>
-            <h3 class="philosophy-title">地域に根ざしたかかりつけ医</h3>
-            <p class="philosophy-text">30年以上、地域とともに歩み、世代を超えて相談を受けてきました。</p>
+            <span class="p-number" aria-hidden="true">03</span>
+            <div class="p-topline" aria-hidden="true"></div>
+            <h3 class="p-title">地域に根ざしたかかりつけ医</h3>
+            <p class="p-text">30年以上、地域とともに歩み、世代を超えて相談を受けてきました。</p>
           </div>
 
         </div>
@@ -238,22 +237,28 @@
     <section class="section section--doctor" id="doctor" aria-label="医師紹介">
       <div class="container">
         <div class="section-head js-fade">
-          <span class="section-eyebrow">Doctor</span>
+          <p class="section-label">Doctor</p>
           <h2 class="section-title">医師紹介</h2>
           <p class="section-sub">専門領域と診療への考え方</p>
         </div>
 
-        <div class="doctor-wrap js-fade">
-          <figure class="doctor-photo">
+        <div class="doctor-card js-fade">
+          <!-- 写真エリア（ゴールドの角飾り付き） -->
+          <div class="doctor-photo-wrap">
             <img src="images/doctor.jpg" alt="院長 家田研人医師" loading="lazy" />
-          </figure>
+            <span class="doctor-corner" aria-hidden="true"></span>
+          </div>
+          <!-- 情報エリア -->
           <div class="doctor-info">
-            <p class="doctor-role">院長／内科</p>
+            <p class="doctor-role">院長 / 内科</p>
             <h3 class="doctor-name">家田 研人</h3>
-            <blockquote class="doctor-motto">
-              <p>丁寧な診察を心がけております。</p>
-            </blockquote>
-            <a class="text-link" href="#"><!-- ※リンク先未作成 -->詳しく見る <span aria-hidden="true">→</span></a>
+            <!-- ゴールドのセパレーター -->
+            <div class="doctor-sep" aria-hidden="true"></div>
+            <p class="doctor-motto">丁寧な診察を心がけております。</p>
+            <a class="lux-link" href="#"><!-- ※リンク先未作成 -->
+              <span>詳しく見る</span>
+              <span class="lux-link-bar" aria-hidden="true"></span>
+            </a>
           </div>
         </div>
       </div>
@@ -265,7 +270,7 @@
     <section class="section section--hours" id="hours" aria-label="診療時間">
       <div class="container">
         <div class="section-head js-fade">
-          <span class="section-eyebrow">Hours</span>
+          <p class="section-label">Hours</p>
           <h2 class="section-title">診療時間</h2>
           <p class="section-sub">診療日・休診日・受付時間のご案内</p>
         </div>
@@ -273,8 +278,8 @@
         <div class="hours-body js-fade">
           <!-- 凡例 -->
           <div class="hours-legend">
-            <span class="legend-item"><b class="mark--full">●</b> 9:00–12:00 / 16:00–19:00</span>
-            <span class="legend-item"><b class="mark--half">▲</b> 8:30–13:30</span>
+            <span class="legend-item"><b class="mark-full">●</b> 9:00–12:00 / 16:00–19:00</span>
+            <span class="legend-item"><b class="mark-half">▲</b> 8:30–13:30</span>
           </div>
 
           <!-- テーブル -->
@@ -316,7 +321,7 @@
 
           <p class="hours-note">
             休診日：水曜・日曜・祝日（臨時休診あり）<br>
-            <span class="note-sub">※ 最新の休診情報はお知らせをご確認ください。</span>
+            <span class="note-muted">※ 最新の休診情報はお知らせをご確認ください。</span>
           </p>
           <div class="hours-cta">
             <a class="btn btn--primary" href="#reserve">予約・受付はこちら</a>
@@ -331,25 +336,25 @@
     <section class="section section--news" id="news" aria-label="お知らせ">
       <div class="container">
         <div class="section-head js-fade">
-          <span class="section-eyebrow">News</span>
+          <p class="section-label">News</p>
           <h2 class="section-title">お知らせ</h2>
           <p class="section-sub">休診・診療案内等のご案内</p>
         </div>
 
-        <ul class="news-list js-fade" aria-label="お知らせ一覧">
+        <div class="news-list js-fade" aria-label="お知らせ一覧">
 
-          <li class="news-item">
+          <article class="news-item">
             <time class="news-date" datetime="2026-03-03">2026.03.03</time>
             <span class="news-badge badge--closed">休診</span>
-            <p class="news-title">3/3（火）午後は臨時休診です</p>
-          </li>
+            <h3 class="news-title">3/3（火）午後は臨時休診です</h3>
+          </article>
 
-          <li class="news-item">
+          <article class="news-item">
             <time class="news-date" datetime="2026-03-01">2026.03.01</time>
             <span class="news-badge badge--service">診療</span>
             <details class="news-details">
               <summary class="news-summary">
-                <p class="news-title">禁煙外来を開始しました</p>
+                <h3 class="news-title">禁煙外来を開始しました</h3>
                 <span class="news-toggle" aria-hidden="true">詳細</span>
               </summary>
               <div class="news-body">
@@ -358,28 +363,28 @@
                 <p>予約はLINE予約 / WEB予約をご利用ください。</p>
               </div>
             </details>
-          </li>
+          </article>
 
-          <li class="news-item">
+          <article class="news-item">
             <time class="news-date" datetime="2026-01-09">2026.01.09</time>
             <span class="news-badge badge--info">お知らせ</span>
-            <p class="news-title">ホームページをテスト公開しました</p>
-          </li>
+            <h3 class="news-title">ホームページをテスト公開しました</h3>
+          </article>
 
-          <li class="news-item">
+          <article class="news-item">
             <time class="news-date" datetime="2026-01-05">2026.01.05</time>
             <span class="news-badge badge--vaccine">予防接種</span>
-            <p class="news-title">インフルエンザ予防接種のご案内</p>
-          </li>
+            <h3 class="news-title">インフルエンザ予防接種のご案内</h3>
+          </article>
 
-          <li class="news-item">
+          <article class="news-item">
             <time class="news-date" datetime="2025-12-20">2025.12.20</time>
             <span class="news-badge badge--closed">休診</span>
-            <p class="news-title">年末年始の診療予定</p>
-          </li>
+            <h3 class="news-title">年末年始の診療予定</h3>
+          </article>
 
-        </ul>
-        <p class="news-footnote">※ 最新のご案内を表示しています。</p>
+        </div>
+        <p class="news-note">※ 最新のご案内を表示しています。</p>
       </div>
     </section>
 
@@ -389,7 +394,7 @@
     <section class="section section--services" id="services" aria-label="診療内容">
       <div class="container">
         <div class="section-head js-fade">
-          <span class="section-eyebrow">Services</span>
+          <p class="section-label">Services</p>
           <h2 class="section-title">診療内容</h2>
           <p class="section-sub">医療を通して、日々の暮らしをトータルに支えます。</p>
         </div>
@@ -398,92 +403,72 @@
 
           <article class="service-card js-fade">
             <div class="service-icon"><img src="icons/service-general.svg"     alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="service-body">
-              <h3 class="service-title">一般内科</h3>
-              <p class="service-text">かぜや発熱、頭痛、めまいなどの急な体調不良から、花粉症などのアレルギー症状まで幅広く診療しています。</p>
-              <a class="text-link" href="#"><!-- ※リンク先未作成 -->詳細はこちら <span aria-hidden="true">→</span></a>
-            </div>
+            <h3 class="service-title">一般内科</h3>
+            <p class="service-text">かぜや発熱、頭痛、めまいなどの急な体調不良から、花粉症などのアレルギー症状まで幅広く診療しています。</p>
+            <a class="lux-link" href="#"><!-- ※リンク先未作成 --><span>詳細はこちら</span><span class="lux-link-bar" aria-hidden="true"></span></a>
           </article>
 
           <article class="service-card js-fade">
             <div class="service-icon"><img src="icons/service-lifestyle.svg"   alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="service-body">
-              <h3 class="service-title">生活習慣病</h3>
-              <p class="service-text">高血圧、糖尿病、脂質異常症、高尿酸血症などの生活習慣病を継続的に管理します。生活背景もふまえた無理のない治療を大切にしています。</p>
-              <a class="text-link" href="#"><!-- ※リンク先未作成 -->詳細はこちら <span aria-hidden="true">→</span></a>
-            </div>
+            <h3 class="service-title">生活習慣病</h3>
+            <p class="service-text">高血圧、糖尿病、脂質異常症、高尿酸血症などの生活習慣病を継続的に管理します。生活背景もふまえた無理のない治療を大切にしています。</p>
+            <a class="lux-link" href="#"><!-- ※リンク先未作成 --><span>詳細はこちら</span><span class="lux-link-bar" aria-hidden="true"></span></a>
           </article>
 
           <article class="service-card js-fade">
             <div class="service-icon"><img src="icons/service-nephrology.svg"  alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="service-body">
-              <h3 class="service-title">腎臓内科</h3>
-              <p class="service-text">慢性腎臓病、尿蛋白、血尿、腎機能低下など腎臓の異常を評価し、進行予防を目的とした管理を行います。</p>
-              <a class="text-link" href="#"><!-- ※リンク先未作成 -->詳細はこちら <span aria-hidden="true">→</span></a>
-            </div>
+            <h3 class="service-title">腎臓内科</h3>
+            <p class="service-text">慢性腎臓病、尿蛋白、血尿、腎機能低下など腎臓の異常を評価し、進行予防を目的とした管理を行います。</p>
+            <a class="lux-link" href="#"><!-- ※リンク先未作成 --><span>詳細はこちら</span><span class="lux-link-bar" aria-hidden="true"></span></a>
           </article>
 
           <article class="service-card js-fade">
             <div class="service-icon"><img src="icons/service-cardiology.svg"  alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="service-body">
-              <h3 class="service-title">循環器</h3>
-              <p class="service-text">動悸や胸の違和感、不整脈など心臓に関する症状を評価します。必要に応じて専門医療機関へのご紹介も行います。</p>
-              <a class="text-link" href="#"><!-- ※リンク先未作成 -->詳細はこちら <span aria-hidden="true">→</span></a>
-            </div>
+            <h3 class="service-title">循環器</h3>
+            <p class="service-text">動悸や胸の違和感、不整脈など心臓に関する症状を評価します。必要に応じて専門医療機関へのご紹介も行います。</p>
+            <a class="lux-link" href="#"><!-- ※リンク先未作成 --><span>詳細はこちら</span><span class="lux-link-bar" aria-hidden="true"></span></a>
           </article>
 
           <article class="service-card js-fade">
             <div class="service-icon"><img src="icons/service-respiratory.svg" alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="service-body">
-              <h3 class="service-title">呼吸器</h3>
-              <p class="service-text">長引く咳や息切れ、気管支喘息、COPDなど呼吸器の症状や疾患の診療を行います。</p>
-              <a class="text-link" href="#"><!-- ※リンク先未作成 -->詳細はこちら <span aria-hidden="true">→</span></a>
-            </div>
+            <h3 class="service-title">呼吸器</h3>
+            <p class="service-text">長引く咳や息切れ、気管支喘息、COPDなど呼吸器の症状や疾患の診療を行います。</p>
+            <a class="lux-link" href="#"><!-- ※リンク先未作成 --><span>詳細はこちら</span><span class="lux-link-bar" aria-hidden="true"></span></a>
           </article>
 
           <article class="service-card js-fade">
             <div class="service-icon"><img src="icons/service-gastro.svg"      alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="service-body">
-              <h3 class="service-title">消化器</h3>
-              <p class="service-text">腹痛、胸やけ、便秘、下痢などの消化器症状や、肝機能異常などの評価と治療を行います。</p>
-              <a class="text-link" href="#"><!-- ※リンク先未作成 -->詳細はこちら <span aria-hidden="true">→</span></a>
-            </div>
+            <h3 class="service-title">消化器</h3>
+            <p class="service-text">腹痛、胸やけ、便秘、下痢などの消化器症状や、肝機能異常などの評価と治療を行います。</p>
+            <a class="lux-link" href="#"><!-- ※リンク先未作成 --><span>詳細はこちら</span><span class="lux-link-bar" aria-hidden="true"></span></a>
           </article>
 
           <article class="service-card js-fade">
             <div class="service-icon"><img src="icons/service-sas.svg"         alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="service-body">
-              <h3 class="service-title">睡眠時無呼吸症候群</h3>
-              <p class="service-text">いびきや日中の眠気などの症状に対し、睡眠時無呼吸症候群の検査からCPAP治療まで対応しています。</p>
-              <a class="text-link" href="#"><!-- ※リンク先未作成 -->詳細はこちら <span aria-hidden="true">→</span></a>
-            </div>
+            <h3 class="service-title">睡眠時無呼吸症候群</h3>
+            <p class="service-text">いびきや日中の眠気などの症状に対し、睡眠時無呼吸症候群の検査からCPAP治療まで対応しています。</p>
+            <a class="lux-link" href="#"><!-- ※リンク先未作成 --><span>詳細はこちら</span><span class="lux-link-bar" aria-hidden="true"></span></a>
           </article>
 
           <article class="service-card js-fade">
             <div class="service-icon"><img src="icons/service-vaccine.svg"     alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="service-body">
-              <h3 class="service-title">予防接種</h3>
-              <p class="service-text">インフルエンザ、コロナウイルス、帯状疱疹、子宮頸がん、肺炎球菌など各種ワクチン接種を行っています。</p>
-              <a class="text-link" href="#"><!-- ※リンク先未作成 -->詳細はこちら <span aria-hidden="true">→</span></a>
-            </div>
+            <h3 class="service-title">予防接種</h3>
+            <p class="service-text">インフルエンザ、コロナウイルス、帯状疱疹、子宮頸がん、肺炎球菌など各種ワクチン接種を行っています。</p>
+            <a class="lux-link" href="#"><!-- ※リンク先未作成 --><span>詳細はこちら</span><span class="lux-link-bar" aria-hidden="true"></span></a>
           </article>
 
           <article class="service-card js-fade">
             <div class="service-icon"><img src="icons/service-checkup.svg"     alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="service-body">
-              <h3 class="service-title">健康診断・がん検診</h3>
-              <p class="service-text">特定健診や各種がん検診、企業健診など健康管理や病気の早期発見を目的とした検査を行っています。</p>
-              <a class="text-link" href="#"><!-- ※リンク先未作成 -->詳細はこちら <span aria-hidden="true">→</span></a>
-            </div>
+            <h3 class="service-title">健康診断・がん検診</h3>
+            <p class="service-text">特定健診や各種がん検診、企業健診など健康管理や病気の早期発見を目的とした検査を行っています。</p>
+            <a class="lux-link" href="#"><!-- ※リンク先未作成 --><span>詳細はこちら</span><span class="lux-link-bar" aria-hidden="true"></span></a>
           </article>
 
           <article class="service-card js-fade">
             <div class="service-icon"><img src="icons/service-private.svg"     alt="" aria-hidden="true" loading="lazy" /></div>
-            <div class="service-body">
-              <h3 class="service-title">自由診療</h3>
-              <p class="service-text">各種点滴やAGA治療などの自由診療にも対応しています。内容と費用をご説明したうえでご案内します。</p>
-              <a class="text-link" href="#"><!-- ※リンク先未作成 -->詳細はこちら <span aria-hidden="true">→</span></a>
-            </div>
+            <h3 class="service-title">自由診療</h3>
+            <p class="service-text">各種点滴やAGA治療などの自由診療にも対応しています。内容と費用をご説明したうえでご案内します。</p>
+            <a class="lux-link" href="#"><!-- ※リンク先未作成 --><span>詳細はこちら</span><span class="lux-link-bar" aria-hidden="true"></span></a>
           </article>
 
         </div>
@@ -497,7 +482,7 @@
     <section class="section section--reserve" id="reserve" aria-label="予約・受付">
       <div class="container">
         <div class="section-head js-fade">
-          <span class="section-eyebrow">Reserve</span>
+          <p class="section-label">Reserve</p>
           <h2 class="section-title">予約・受付</h2>
           <p class="section-sub">オンライン予約がおすすめ。電話受付・窓口受付もございます。</p>
         </div>
@@ -505,7 +490,7 @@
         <!-- 診療別予約方法（開閉式） -->
         <details class="reserve-details js-fade">
           <summary class="reserve-summary">
-            <span class="reserve-summary-title">診療ごとの予約方法を確認する</span>
+            <span class="reserve-summary-text">診療ごとの予約方法を確認する</span>
             <span class="reserve-summary-icon" aria-hidden="true"></span>
           </summary>
           <div class="reserve-details-body">
@@ -534,7 +519,7 @@
         <!-- オンライン予約 -->
         <div class="reserve-block js-fade">
           <h3 class="reserve-block-title">
-            <span class="block-badge block-badge--online">24時間受付</span>
+            <span class="block-badge">24時間受付</span>
             オンライン予約（LINE / WEB）
           </h3>
           <div class="reserve-cards">
@@ -542,17 +527,17 @@
               <div class="reserve-card-icon"><img src="icons/reserve-line.svg" alt="LINE" loading="lazy" /></div>
               <div class="reserve-card-body">
                 <h4 class="reserve-card-title">LINE予約</h4>
-                <p class="reserve-card-sub">LINEをご利用の方<br><span class="reserve-card-em">ID・パスワード不要！</span></p>
+                <p class="reserve-card-sub">LINEをご利用の方<br><span class="reserve-em">ID・パスワード不要！</span></p>
               </div>
-              <span class="reserve-card-cta">予約へ進む</span>
+              <span class="reserve-card-arrow" aria-hidden="true">→</span>
             </a>
             <a class="reserve-card" href="https://example.com" target="_blank" rel="noopener noreferrer">
               <div class="reserve-card-icon"><img src="icons/reserve-web.svg" alt="WEB" loading="lazy" /></div>
               <div class="reserve-card-body">
                 <h4 class="reserve-card-title">WEB予約</h4>
-                <p class="reserve-card-sub">LINEをご利用でない方<br><span class="reserve-card-em">スマホでもPCでも！</span></p>
+                <p class="reserve-card-sub">LINEをご利用でない方<br><span class="reserve-em">スマホでもPCでも！</span></p>
               </div>
-              <span class="reserve-card-cta">予約へ進む</span>
+              <span class="reserve-card-arrow" aria-hidden="true">→</span>
             </a>
           </div>
         </div>
@@ -560,7 +545,7 @@
         <!-- 電話・窓口 -->
         <div class="reserve-block js-fade">
           <h3 class="reserve-block-title">
-            <span class="block-badge block-badge--desk">当日受付</span>
+            <span class="block-badge block-badge--sub">当日受付</span>
             電話 / 窓口受付
           </h3>
           <div class="reserve-cards">
@@ -573,7 +558,7 @@
                   <span class="day">土 </span>8:30–13:00
                 </p>
               </div>
-              <span class="reserve-card-cta">電話する</span>
+              <span class="reserve-card-arrow" aria-hidden="true">→</span>
             </a>
             <a class="reserve-card" href="#access">
               <div class="reserve-card-icon"><img src="icons/reserve-desk.svg" alt="窓口" loading="lazy" /></div>
@@ -584,7 +569,7 @@
                   <span class="day">土 </span>8:00–13:00
                 </p>
               </div>
-              <span class="reserve-card-cta">アクセス</span>
+              <span class="reserve-card-arrow" aria-hidden="true">→</span>
             </a>
           </div>
         </div>
@@ -599,13 +584,12 @@
     <section class="section section--access" id="access" aria-label="アクセス">
       <div class="container">
         <div class="section-head js-fade">
-          <span class="section-eyebrow">Access</span>
+          <p class="section-label">Access</p>
           <h2 class="section-title">アクセス</h2>
           <p class="section-sub">所在地・来院時のご案内</p>
         </div>
 
         <div class="access-grid">
-
           <!-- 所在地（NAP情報） -->
           <div class="access-card js-fade">
             <h3 class="access-card-title">所在地</h3>
@@ -617,7 +601,7 @@
             </address>
             <div class="access-btns">
               <a class="btn btn--primary" href="https://maps.google.com" target="_blank" rel="noopener noreferrer">地図を開く</a>
-              <a class="btn btn--outline" href="tel:000-0000-0000">電話する</a>
+              <a class="btn btn--outline"  href="tel:000-0000-0000">電話する</a>
             </div>
           </div>
 
@@ -632,7 +616,6 @@
             </ul>
             <p class="access-note">※ 予約は画面上部「予約」から、LINE予約 / WEB予約をお選びください。</p>
           </div>
-
         </div>
       </div>
     </section>
@@ -643,14 +626,14 @@
        フッター
   =========================== -->
   <footer class="site-footer">
+    <!-- ゴールドのトップライン -->
+    <div class="footer-gold-top" aria-hidden="true"></div>
+
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="footer-logo">
-          <span class="logo-mark footer-logo-mark" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M10 2C6 2 2 6 2 10c0 4.4 3.6 8 8 8 1.5 0 2-1 2-2V4c0-1.1-.9-2-2-2z" fill="#fff" opacity=".7"/>
-              <path d="M10 2c4 0 8 4 8 8 0 4.4-3.6 8-8 8" stroke="#fff" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-            </svg>
+          <span class="footer-logo-mark" aria-hidden="true">
+            <span class="footer-logo-mark-inner"></span>
           </span>
           <span class="footer-logo-text">
             <strong>家田内科</strong>

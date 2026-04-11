@@ -1,5 +1,6 @@
 /**
- * 家田内科 — script.js（V3）
+ * 家田内科 — script.js（V4）
+ * デザインコンセプト：Aloha Lux（案C）
  * ヘッダースクロール検知 / ハンバーガーメニュー /
  * ヒーロースライドショー / スクロールフェードイン / 著作権年
  */
@@ -51,7 +52,9 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
     document.body.style.overflow = '';
   };
 
-  btn.addEventListener('click', () => drawer.classList.contains('is-open') ? closeDrawer() : openDrawer());
+  btn.addEventListener('click', () =>
+    drawer.classList.contains('is-open') ? closeDrawer() : openDrawer()
+  );
   overlay.addEventListener('click', closeDrawer);
   links.forEach(l => l.addEventListener('click', closeDrawer));
 
@@ -65,7 +68,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
 
 /* ============================================================
-   ヒーロースライドショー
+   ヒーロースライドショー（5秒間隔クロスフェード）
    ============================================================ */
 (function initHeroSlider() {
   const slides = $$('.hero-slide');
@@ -84,6 +87,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
 /* ============================================================
    スクロールフェードイン
+   .js-fade の要素がビューポートに入ったらフェードイン
    ============================================================ */
 (function initScrollFade() {
   const targets = $$('.js-fade');
@@ -104,6 +108,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
   targets.forEach((el, i) => {
+    // 連続する要素を少しずつ遅延させて上品に見せる
     el.style.transitionDelay = `${Math.min(i * 0.08, 0.30)}s`;
     observer.observe(el);
   });
@@ -111,7 +116,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
 
 /* ============================================================
-   フッター著作権年
+   フッター著作権年（自動更新）
    ============================================================ */
 (function initYear() {
   const el = $('#year');
@@ -124,7 +129,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
    ============================================================ */
 (function initSmoothScroll() {
   $$('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
+    anchor.addEventListener('click', () => {
       const id = anchor.getAttribute('href');
       if (id === '#') return;
       const target = document.querySelector(id);
