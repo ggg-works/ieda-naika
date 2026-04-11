@@ -691,7 +691,7 @@ address { font-style:normal; }
    当院の特徴（Philosophy）
    ゴールドナンバー＋エメラルドトップライン
    ============================================================ */
-.section--philosophy { background-color: var(--c-ivory); }
+.section--philosophy { background-color: var(--c-white); }
 
 .philosophy-grid {
   display: grid;
@@ -757,7 +757,7 @@ address { font-style:normal; }
    医師紹介（Doctor）
    ゴールドの角飾りとセパレーター
    ============================================================ */
-.section--doctor { background-color: var(--c-white); }
+.section--doctor { background-color: var(--c-ivory); }
 
 .doctor-card {
   display: flex;
@@ -836,7 +836,7 @@ address { font-style:normal; }
 /* ============================================================
    診療時間（Hours）
    ============================================================ */
-.section--hours { background-color: var(--c-ivory); }
+.section--hours { background-color: var(--c-white); }
 
 .hours-body {
   max-width: 620px;
@@ -934,7 +934,7 @@ address { font-style:normal; }
 /* ============================================================
    お知らせ（News）
    ============================================================ */
-.section--news { background-color: var(--c-white); }
+.section--news { background-color: var(--c-ivory); }
 
 .news-list {
   max-width: 700px;
@@ -1054,7 +1054,7 @@ address { font-style:normal; }
    診療内容（Services）
    ラグジュアリーなシンプルグリッド
    ============================================================ */
-.section--services { background-color: var(--c-ivory); }
+.section--services { background-color: var(--c-white); }
 
 .services-grid {
   display: grid;
@@ -1117,7 +1117,7 @@ address { font-style:normal; }
 /* ============================================================
    予約・受付（Reserve）
    ============================================================ */
-.section--reserve { background-color: var(--c-white); }
+.section--reserve { background-color: var(--c-ivory); }
 
 /* details 開閉 */
 .reserve-details {
@@ -1326,7 +1326,7 @@ address { font-style:normal; }
 /* ============================================================
    アクセス（Access）
    ============================================================ */
-.section--access { background-color: var(--c-ivory); }
+.section--access { background-color: var(--c-white); }
 
 .access-grid {
   display: grid;
