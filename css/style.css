@@ -655,7 +655,7 @@ address { font-style:normal; }
 }
 
 .philosophy-card {
-  background: var(--c-ivory);
+  background: #FCFAF6;
   border: 1px solid var(--c-border);
   border-radius: var(--r);
   padding: clamp(28px, 5vw, 44px) 28px;
@@ -868,8 +868,6 @@ address { font-style:normal; }
 
 .hours-table tbody tr:last-child td { border-bottom: none; }
 
-.hours-table tbody tr:hover td,
-.hours-table tbody tr:hover th { background-color: var(--c-em-light); }
 
 .c-open { color: var(--c-em-dark); font-weight: 500; }
 .c-half { color: var(--c-em);      font-weight: 500; }
