@@ -1538,7 +1538,7 @@ address { font-style:normal; }
    スマホ固定フッターバー
    ============================================================ */
 .fixed-bar {
-  display: none;
+  display: flex;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -1565,13 +1565,13 @@ address { font-style:normal; }
 
 .fixed-btn:hover { opacity: 0.80; }
 
-/* エメラルド */
-.fixed-btn--web  { background-color: var(--c-em); color: #fff; }
-/* エメラルド */
-.fixed-btn--line { background-color: var(--c-em);   color: #fff; }
-/* アウトライン */
+/* LINE予約：エメラルド（最も目立つ） */
+.fixed-btn--line { background-color: var(--c-em);      color: #fff; }
+/* WEB予約：ディープエメラルド（第2） */
+.fixed-btn--web  { background-color: var(--c-em-dark); color: #fff; }
+/* 電話：アウトライン（最も軽い） */
 .fixed-btn--tel  {
-  border-top: 2px solid var(--c-em);
+  border-top: 2px solid var(--c-border);
   color: var(--c-em-dark);
   background: var(--c-white);
 }
