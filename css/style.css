@@ -914,7 +914,7 @@ address { font-style:normal; }
 }
 
 .news-item:last-child { border-bottom: none; }
-.news-item:hover { background-color: var(--c-ivory); }
+.news-item:hover { background-color: var(--c-em-light); }
 
 .news-date {
   font-family: var(--font-en);
