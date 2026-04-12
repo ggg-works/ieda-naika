@@ -940,10 +940,10 @@ address { font-style:normal; }
 }
 
 /* バッジカラー（エメラルド＆ゴールド系で統一） */
-.badge--closed  { background-color: var(--c-em-light);  color: var(--c-em-dark); }
-.badge--service { background-color: var(--c-em-light); color: var(--c-em-dark); }
-.badge--info    { background-color: var(--c-ivory);      color: var(--c-text-muted); border: 1px solid var(--c-border); }
-.badge--vaccine { background-color: var(--c-em-light);   color: var(--c-em-dark); }
+.badge--closed  { background-color: var(--c-em);      color: #fff; }
+.badge--service { background-color: var(--c-em-dark); color: #fff; }
+.badge--info    { background-color: var(--c-white);   color: var(--c-text-muted); border: 1px solid var(--c-border); }
+.badge--vaccine { background-color: var(--c-em);      color: #fff; }
 
 .news-title {
   font-size: 0.88rem;
