@@ -1032,7 +1032,7 @@ address { font-style:normal; }
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2px;          /* 隙間なし＋境界線で区切る上品なグリッド */
   background-color: var(--c-border);
   border: 1px solid var(--c-border);
@@ -1595,7 +1595,7 @@ address { font-style:normal; }
   .hero-content { padding-left: var(--container-px); }
 
   .philosophy-grid { grid-template-columns: 1fr; }
-  .services-grid   { grid-template-columns: 1fr; }
+  .services-grid   { grid-template-columns: repeat(2, 1fr); }
   .reserve-cards   { grid-template-columns: 1fr; }
 
   .doctor-card {
