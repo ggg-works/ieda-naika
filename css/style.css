@@ -355,27 +355,26 @@ address { font-style:normal; }
   font-weight: 500;
   letter-spacing: 0.06em;
   border-radius: var(--r);
-  transition: background-color var(--ease), color var(--ease);
+  transition: transform var(--ease), box-shadow var(--ease);
 }
 
-/* ゴールド塗り */
-.drawer-btn--gold { background-color: var(--c-em); color: #fff; }
-.drawer-btn--gold:hover { background-color: var(--c-em-dark); }
+/* ホバー：浮き上がり＋影（ヘッダー・フッターバーと統一） */
+.drawer-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(44,44,44,0.18);
+}
 
-/* エメラルド塗り */
+/* WEB予約：ディープエメラルド */
+.drawer-btn--gold { background-color: var(--c-em-dark); color: #fff; }
+
+/* LINE予約：エメラルド */
 .drawer-btn--em { background-color: var(--c-em); color: #fff; }
-.drawer-btn--em:hover { background-color: var(--c-em-dark); }
 
-/* 電話：エメラルドボーダー */
+/* 電話：ボーダー＋白背景 */
 .drawer-btn--tel {
   border: 1.5px solid var(--c-em);
   color: var(--c-em-dark);
-  background: transparent;
-}
-
-.drawer-btn--tel:hover {
-  background-color: var(--c-em);
-  color: #fff;
+  background: var(--c-white);
 }
 
 .drawer-overlay {
