@@ -1144,7 +1144,7 @@ address { font-style:normal; }
 }
 
 .reserve-summary::-webkit-details-marker { display: none; }
-.reserve-summary:hover { background-color: var(--c-em-light); }
+.reserve-summary:hover { background-color: #C8ECEC; }
 
 .reserve-summary-text {
   font-size: 0.87rem;
@@ -1281,7 +1281,7 @@ address { font-style:normal; }
   transition: background-color var(--ease);
 }
 
-.reserve-card:hover { background-color: var(--c-em-light); }
+.reserve-card:hover { background-color: #C8ECEC; }
 
 .reserve-card-icon {
   width: 44px;
