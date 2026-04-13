@@ -216,29 +216,24 @@ address { font-style:normal; }
   letter-spacing: 0.06em;
   white-space: nowrap;
   border-radius: var(--r);
-  /* ホバーで色変換（ゆっくり・0.30s） */
-  transition: background-color var(--ease), color var(--ease), border-color var(--ease);
+  transition: transform var(--ease), box-shadow var(--ease);
+}
+
+/* ホバー：浮き上がり＋影（色変化なし） */
+.hbtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(44,44,44,0.18);
 }
 
 /* WEB予約・LINE予約 */
 .hbtn--web  { background-color: var(--c-em-dark); color: #fff; }
 .hbtn--line { background-color: var(--c-em);      color: #fff; }
 
-/* ホバー */
-.hbtn--web:hover  { background-color: var(--c-em); }
-.hbtn--line:hover { background-color: var(--c-em-dark); }
-
 /* 電話：ボーダー＋白背景 */
 .hbtn--tel {
   border: 1.5px solid var(--c-em);
   color: var(--c-em-dark);
   background: var(--c-white);
-}
-
-.hbtn--tel:hover {
-  background-color: var(--c-em);
-  color: #fff;
-  border-color: var(--c-em);
 }
 
 /* ハンバーガー */
@@ -1568,10 +1563,14 @@ address { font-style:normal; }
   font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.07em;
-  transition: opacity var(--ease);
+  transition: transform var(--ease), box-shadow var(--ease);
 }
 
-.fixed-btn:hover { opacity: 0.80; }
+/* ホバー：浮き上がり＋影（ヘッダーボタンと統一） */
+.fixed-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(44,44,44,0.18);
+}
 
 /* LINE予約：エメラルド（最も目立つ） */
 .fixed-btn--line { background-color: var(--c-em);      color: #fff; }
