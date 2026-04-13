@@ -1348,7 +1348,6 @@ address { font-style:normal; }
   transition: box-shadow var(--ease), background-color var(--ease);
 }
 
-.access-card:hover { box-shadow: var(--shadow-md); background: var(--c-em-light); }
 
 .access-card-title {
   font-size: 0.95rem;
