@@ -48,7 +48,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 72px;
+  scroll-padding-top: 72px; /* PC/タブレット：68px header + 余白 */
   font-size: 16px;
 }
 
@@ -1589,11 +1589,12 @@ address { font-style:normal; }
 
 
 /* ============================================================
-   レスポンシブ：タブレット（max-width: 960px）
+   レスポンシブ②：タブレット（max-width: 1024px）
+   nav 非表示 → 予約・電話ボタン＋ハンバーガー表示
+   フッターバー非表示
    ============================================================ */
-@media (max-width: 960px) {
-  .site-nav,
-  .header-btns  { display: none; }
+@media (max-width: 1024px) {
+  .site-nav     { display: none; }
   .hamburger    { display: flex; }
   .header-right { margin-left: auto; }
 
@@ -1615,10 +1616,13 @@ address { font-style:normal; }
 
 
 /* ============================================================
-   レスポンシブ：スマホ（max-width: 640px）
+   レスポンシブ③：スマホ（max-width: 560px）
+   ヘッダーボタン非表示 → フッターバーに統合
    ============================================================ */
-@media (max-width: 640px) {
+@media (max-width: 560px) {
+  html { scroll-padding-top: 64px; } /* スマホ：60px header + 余白 */
   .header-inner { height: 60px; }
+  .header-btns  { display: none; }
   .drawer { top: 60px; height: calc(100dvh - 60px); }
 
   /* ヒーロー：左デコ非表示、コンテンツ余白リセット */
@@ -1658,9 +1662,9 @@ address { font-style:normal; }
 
 
 /* ============================================================
-   PCでは固定バーを非表示
+   タブレット以上ではフッターバーを非表示
    ============================================================ */
-@media (min-width: 641px) {
+@media (min-width: 561px) {
   .fixed-bar { display: none !important; }
 }
 
