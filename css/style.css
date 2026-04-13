@@ -1212,11 +1212,9 @@ address { font-style:normal; }
 .reserve-table tbody th {
   text-align: left;
   font-weight: 400;
-  background: var(--c-ivory);
+  background: #FCFAF6;
 }
 
-.reserve-table tbody tr:hover td,
-.reserve-table tbody tr:hover th { background-color: var(--c-em-light); }
 
 .th-sub {
   font-size: 0.72rem;
