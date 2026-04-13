@@ -602,29 +602,28 @@ address { font-style:normal; }
   font-weight: 500;
   letter-spacing: 0.08em;
   border-radius: var(--r);
-  transition: background-color var(--ease), color var(--ease), border-color var(--ease);
+  transition: transform var(--ease), box-shadow var(--ease);
   cursor: pointer;
   white-space: nowrap;
 }
 
-/* エメラルド塗り */
+/* ホバー：浮き上がり＋影（ヘッダー・フッターバーと統一） */
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(44,44,44,0.18);
+}
+
+/* ディープエメラルド塗り（LINE予約と区別） */
 .btn--primary {
-  background-color: var(--c-em);
+  background-color: var(--c-em-dark);
   color: #fff;
 }
 
-.btn--primary:hover { background-color: var(--c-em-dark); }
-
-/* エメラルドボーダー→ホバーで塗り変換 */
+/* エメラルドボーダー */
 .btn--outline {
   border: 1.5px solid var(--c-em);
   color: var(--c-em-dark);
   background: var(--c-white);
-}
-
-.btn--outline:hover {
-  background-color: var(--c-em);
-  color: #fff;
 }
 
 /* ラグジュアリーリンク（テキスト＋ゴールドアンダーラインアニメ） */
