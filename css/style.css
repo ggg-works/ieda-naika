@@ -244,45 +244,62 @@ address { font-style:normal; }
 /* ハンバーガー */
 .hamburger {
   display: none;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  gap: 5px;
   width: 40px;
   height: 40px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
-  overflow: visible;
-  transition: opacity var(--ease), background-color var(--ease);
+  padding: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 4px;
+  transition: background-color var(--ease), opacity var(--ease);
 }
 
 .hamburger:hover { opacity: 0.70; }
 
-/* ドロワーが開いているとき：ボタンが押せることを視覚的に明示 */
 .hamburger.is-open {
   opacity: 1;
   background-color: rgba(44, 44, 44, 0.07);
-  border-radius: 4px;
 }
 
 .hamburger.is-open:hover {
-  background-color: rgba(44, 44, 44, 0.13);
   opacity: 1;
+  background-color: rgba(44, 44, 44, 0.13);
 }
 
-.hamburger-bar {
+/* ラッパー：バーを絶対配置するための基準点
+   width=22px, height=16px（バー2px × 3 + gap5px × 2）*/
+.hamburger-icon {
+  position: relative;
   display: block;
   width: 22px;
-  height: 1.5px;    /* 細め・上品 */
-  background-color: var(--c-text);
-  margin: auto;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  height: 16px;
+  flex-shrink: 0;
 }
 
-.hamburger.is-open .hamburger-bar:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.hamburger.is-open .hamburger-bar:nth-child(2) { opacity: 0; }
-.hamburger.is-open .hamburger-bar:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+/* バーを絶対配置で明示的に配置 — transform-origin の曖昧さを排除 */
+.hamburger-bar {
+  position: absolute;
+  left: 0;
+  width: 22px;
+  height: 2px;
+  background-color: var(--c-text);
+  border-radius: 1px;
+  transition: top 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger-bar:nth-child(1) { top: 0; }
+.hamburger-bar:nth-child(2) { top: 7px; }
+.hamburger-bar:nth-child(3) { top: 14px; }
+
+/* X 形成：バー1・3を中央（top:7px = center y:8px）へ移動してから回転
+   transform-origin は 50% 50% = (11px, 1px) → 移動後は (11px, 8px) = ラッパー中央 */
+.hamburger.is-open .hamburger-bar:nth-child(1) { top: 7px; transform: rotate(45deg); }
+.hamburger.is-open .hamburger-bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.is-open .hamburger-bar:nth-child(3) { top: 7px; transform: rotate(-45deg); }
 
 
 /* ============================================================
