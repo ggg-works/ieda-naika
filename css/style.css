@@ -1044,12 +1044,12 @@ address { font-style:normal; }
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background: var(--c-ivory);
+  background: #FCFAF6;
   padding: 28px 24px;
   transition: background-color var(--ease);
 }
 
-.service-card:hover { background-color: var(--c-em-light); }
+.service-card:hover { background-color: #EDE8DF; }
 
 .service-icon {
   width: 46px;
@@ -1062,6 +1062,8 @@ address { font-style:normal; }
   justify-content: center;
   padding: 10px;
 }
+
+.service-card:hover .service-icon { background-color: var(--c-em-light); }
 
 .service-icon img { width: 100%; height: auto; }
 
