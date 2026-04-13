@@ -220,19 +220,19 @@ address { font-style:normal; }
   transition: background-color var(--ease), color var(--ease), border-color var(--ease);
 }
 
-/* WEB予約・LINE予約：ゴールドサンド塗り（高級感） */
-.hbtn--web  { background-color: var(--c-em); color: #fff; }
-.hbtn--line { background-color: var(--c-em); color: #fff; }
+/* WEB予約・LINE予約 */
+.hbtn--web  { background-color: var(--c-em-dark); color: #fff; }
+.hbtn--line { background-color: var(--c-em);      color: #fff; }
 
-/* WEB予約ホバー：ゴールドが濃くなる */
-.hbtn--web:hover,
+/* ホバー */
+.hbtn--web:hover  { background-color: var(--c-em); }
 .hbtn--line:hover { background-color: var(--c-em-dark); }
 
-/* 電話：エメラルドボーダー→ホバーで塗りに変換 */
+/* 電話：ボーダー＋白背景 */
 .hbtn--tel {
   border: 1.5px solid var(--c-em);
   color: var(--c-em-dark);
-  background: transparent;
+  background: var(--c-white);
 }
 
 .hbtn--tel:hover {
@@ -1565,6 +1565,7 @@ address { font-style:normal; }
   .site-nav,
   .header-btns  { display: none; }
   .hamburger    { display: flex; }
+  .header-right { margin-left: auto; }
 
   .philosophy-grid { grid-template-columns: repeat(2, 1fr); }
   .access-grid     { grid-template-columns: 1fr; }
