@@ -253,10 +253,23 @@ address { font-style:normal; }
   border: none;
   cursor: pointer;
   padding: 4px;
-  transition: opacity var(--ease);
+  overflow: visible;
+  transition: opacity var(--ease), background-color var(--ease);
 }
 
 .hamburger:hover { opacity: 0.70; }
+
+/* ドロワーが開いているとき：ボタンが押せることを視覚的に明示 */
+.hamburger.is-open {
+  opacity: 1;
+  background-color: rgba(44, 44, 44, 0.07);
+  border-radius: 4px;
+}
+
+.hamburger.is-open:hover {
+  background-color: rgba(44, 44, 44, 0.13);
+  opacity: 1;
+}
 
 .hamburger-bar {
   display: block;

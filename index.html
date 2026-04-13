@@ -131,24 +131,25 @@
       </div>
     </div>
 
-    <!-- スマホ用ドロワーメニュー -->
-    <div class="drawer" id="drawer" aria-hidden="true">
-      <nav class="drawer-nav" aria-label="ドロワーメニュー">
-        <a class="drawer-link" href="#philosophy">当院の特徴</a>
-        <a class="drawer-link" href="#doctor">医師紹介</a>
-        <a class="drawer-link" href="#hours">診療時間</a>
-        <a class="drawer-link" href="#news">お知らせ</a>
-        <a class="drawer-link" href="#services">診療内容</a>
-        <a class="drawer-link" href="#access">アクセス</a>
-      </nav>
-      <div class="drawer-btns">
-        <a class="drawer-btn drawer-btn--gold" href="https://example.com" target="_blank" rel="noopener noreferrer">WEB予約</a>
-        <a class="drawer-btn drawer-btn--em"   href="https://example.com" target="_blank" rel="noopener noreferrer">LINE予約</a>
-        <a class="drawer-btn drawer-btn--tel"  href="tel:000-0000-0000">電話する</a>
-      </div>
-    </div>
-    <div class="drawer-overlay" id="drawerOverlay"></div>
   </header>
+
+  <!-- スマホ用ドロワーメニュー（header外に配置：overlay の z-index 競合を回避） -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <nav class="drawer-nav" aria-label="ドロワーメニュー">
+      <a class="drawer-link" href="#philosophy">当院の特徴</a>
+      <a class="drawer-link" href="#doctor">医師紹介</a>
+      <a class="drawer-link" href="#hours">診療時間</a>
+      <a class="drawer-link" href="#news">お知らせ</a>
+      <a class="drawer-link" href="#services">診療内容</a>
+      <a class="drawer-link" href="#access">アクセス</a>
+    </nav>
+    <div class="drawer-btns">
+      <a class="drawer-btn drawer-btn--gold" href="https://example.com" target="_blank" rel="noopener noreferrer">WEB予約</a>
+      <a class="drawer-btn drawer-btn--em"   href="https://example.com" target="_blank" rel="noopener noreferrer">LINE予約</a>
+      <a class="drawer-btn drawer-btn--tel"  href="tel:000-0000-0000">電話する</a>
+    </div>
+  </div>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
 
   <main>
 
