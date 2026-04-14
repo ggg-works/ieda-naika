@@ -1104,6 +1104,20 @@ address { font-style:normal; }
   flex: 1;
 }
 
+/* 短縮テキスト：PC では非表示、960px 以下で表示 */
+.service-text--short {
+  display: none;
+  font-size: 0.82rem;
+  color: var(--c-text-muted);
+  line-height: 1.72;
+  flex: 1;
+}
+
+@media (max-width: 960px) {
+  .service-text       { display: none; }
+  .service-text--short { display: block; }
+}
+
 .services-note {
   text-align: center;
   font-size: 0.78rem;
