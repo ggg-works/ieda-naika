@@ -1564,6 +1564,7 @@ address { font-style:normal; }
   z-index: 200;
   background: var(--c-ivory);
   border-top: 1.5px solid var(--c-border-em);
+  border-bottom: 1.5px solid var(--c-border-em);
   backdrop-filter: blur(10px);
   box-shadow: 0 -4px 16px rgba(44,44,44,.14);
   padding-bottom: env(safe-area-inset-bottom);
