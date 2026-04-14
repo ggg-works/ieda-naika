@@ -644,9 +644,7 @@ address { font-style:normal; }
   transition: color var(--ease);
 }
 
-.lux-link:hover { color: var(--c-gold-light); }
-
-/* 矢印：常時表示、ホバーで右へスライド */
+/* 矢印：常時表示 */
 .lux-link > span:first-child::after {
   content: '\00a0→';
   display: inline-block;
@@ -654,21 +652,22 @@ address { font-style:normal; }
   transition: transform var(--ease);
 }
 
-.lux-link:hover > span:first-child::after {
-  transform: translateX(4px);
-}
-
-/* ゴールドのアンダーライン（ホバーで右端起点から左へ展開） */
+/* アンダーライン：常時表示、左→右スウィープ準備 */
 .lux-link-bar {
   display: block;
   height: 1px;
-  background-color: var(--c-gold-light);
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform var(--ease);
+  background: linear-gradient(to right, var(--c-gold) 50%, var(--c-gold-light) 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;   /* 初期：gold-light を表示 */
+  transition: background-position var(--ease);
 }
 
-.lux-link:hover .lux-link-bar { transform: scaleX(1); }
+/* PCホバー限定 */
+@media (hover: hover) {
+  .lux-link:hover { color: var(--c-gold-light); }
+  .lux-link:hover > span:first-child::after { transform: translateX(4px); }
+  .lux-link:hover .lux-link-bar { background-position: 0% 0; } /* 左→右にgoldへ切替 */
+}
 
 /* スクロールフェードイン */
 .js-fade {
@@ -948,24 +947,21 @@ address { font-style:normal; }
   transition: color var(--ease);
 }
 
-/* 中央から広がるアンダーライン */
+/* アンダーライン：常時表示、左→右スウィープ準備 */
 .hours-cta-link::after {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%) scaleX(0.35);
+  left: 0;
   width: 100%;
   height: 1px;
-  background-color: var(--c-gold-light);
-  transition: transform var(--ease);
-  transform-origin: center;
+  background: linear-gradient(to right, var(--c-gold) 50%, var(--c-gold-light) 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;   /* 初期：gold-light を表示 */
+  transition: background-position var(--ease);
 }
 
-.hours-cta-link:hover { color: var(--c-gold-light); }
-.hours-cta-link:hover::after { transform: translateX(-50%) scaleX(1); }
-
-/* 矢印 */
+/* 矢印：常時表示 */
 .hours-cta-link::before {
   content: '→';
   position: absolute;
@@ -974,7 +970,12 @@ address { font-style:normal; }
   transition: transform var(--ease);
 }
 
-.hours-cta-link:hover::before { transform: translateX(4px); }
+/* PCホバー限定 */
+@media (hover: hover) {
+  .hours-cta-link:hover { color: var(--c-gold-light); }
+  .hours-cta-link:hover::after { background-position: 0% 0; } /* 左→右にgoldへ切替 */
+  .hours-cta-link:hover::before { transform: translateX(4px); }
+}
 
 
 /* ============================================================
