@@ -19,6 +19,8 @@
   --c-text-muted:  #6B7280;   /* ミューテッドグレー（サブテキスト） */
   --c-border:      #DDE8E8;   /* エメラルドみのあるボーダー */
   --c-border-em:   #B2DDD9;   /* エメラルドボーダー（強調） */
+  --c-gold:        #B89840;   /* ゴールド（lux-link テキスト） */
+  --c-gold-light:  #D6BC88;   /* ライトゴールド（ホバー・アンダーライン） */
 
   /* タイポグラフィ */
   --font-ja:  'Zen Kaku Gothic New', sans-serif;
@@ -638,11 +640,11 @@ address { font-style:normal; }
   font-size: 0.82rem;
   font-weight: 500;
   letter-spacing: 0.1em;
-  color: var(--c-em-dark);
+  color: var(--c-gold);
   transition: color var(--ease);
 }
 
-.lux-link:hover { color: var(--c-em); }
+.lux-link:hover { color: var(--c-gold-light); }
 
 /* 矢印：常時表示、ホバーで右へスライド */
 .lux-link > span:first-child::after {
@@ -660,7 +662,7 @@ address { font-style:normal; }
 .lux-link-bar {
   display: block;
   height: 1px;
-  background-color: var(--c-em);
+  background-color: var(--c-gold-light);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform var(--ease);
