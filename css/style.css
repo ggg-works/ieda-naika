@@ -629,22 +629,34 @@ address { font-style:normal; }
   background: var(--c-white);
 }
 
-/* ラグジュアリーリンク（テキスト＋ゴールドアンダーラインアニメ） */
+/* ラグジュアリーリンク（テキスト＋矢印＋ゴールドアンダーライン） */
 .lux-link {
   display: inline-flex;
   flex-direction: column;
   align-self: flex-end;
-  gap: 4px;
+  gap: 5px;
   font-size: 0.82rem;
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: var(--c-em-dark);
   transition: color var(--ease);
 }
 
 .lux-link:hover { color: var(--c-em); }
 
-/* ゴールドのアンダーライン（ホバーで右から左へ伸びる） */
+/* 矢印：常時表示、ホバーで右へスライド */
+.lux-link > span:first-child::after {
+  content: '\00a0→';
+  display: inline-block;
+  font-weight: 300;
+  transition: transform var(--ease);
+}
+
+.lux-link:hover > span:first-child::after {
+  transform: translateX(4px);
+}
+
+/* ゴールドのアンダーライン（ホバーで右端起点から左へ展開） */
 .lux-link-bar {
   display: block;
   height: 1px;
