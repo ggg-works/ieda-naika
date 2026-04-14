@@ -478,6 +478,9 @@ address { font-style:normal; }
   animation: luxFade 1.0s ease 0.45s both;
 }
 
+/* スマホ以外では改行を非表示 */
+.br-sp { display: none; }
+
 /* リード */
 .hero-lead {
   font-size: clamp(0.90rem, 2.4vw, 1.08rem);
@@ -1636,6 +1639,12 @@ address { font-style:normal; }
   /* ヒーロー：左デコ非表示、コンテンツ余白リセット */
   .hero-deco { display: none; }
   .hero-content { padding-left: var(--container-px); }
+
+  /* ①タイトル：画面幅に合わせてスケール（560px時に2.4remへ自然につながる） */
+  .hero-title { font-size: clamp(1.7rem, 8.5vw, 2.4rem); }
+
+  /* ②「やさしく、」で改行 */
+  .br-sp { display: inline; }
 
   .philosophy-grid { grid-template-columns: 1fr; }
   .services-grid   { grid-template-columns: repeat(2, 1fr); }
