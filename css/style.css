@@ -640,11 +640,11 @@ address { font-style:normal; }
   font-size: 0.82rem;
   font-weight: 500;
   letter-spacing: 0.1em;
-  color: var(--c-gold);
+  color: var(--c-gold-light);
   transition: color var(--ease);
 }
 
-.lux-link:hover { color: var(--c-gold-light); }
+.lux-link:hover { color: var(--c-gold); }
 
 /* 矢印：常時表示、ホバーで右へスライド */
 .lux-link > span:first-child::after {
