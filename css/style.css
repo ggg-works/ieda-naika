@@ -1095,7 +1095,7 @@ address { font-style:normal; }
   transition: background-color var(--ease);
 }
 
-.service-card:hover { background-color: #EDE8DF; }
+.service-card:hover { background-color: #F4F1EC; }
 
 .service-icon {
   width: 46px;
