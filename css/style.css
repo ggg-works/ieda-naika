@@ -633,6 +633,7 @@ address { font-style:normal; }
 .lux-link {
   display: inline-flex;
   flex-direction: column;
+  align-self: flex-end;
   gap: 4px;
   font-size: 0.82rem;
   font-weight: 500;
@@ -643,13 +644,13 @@ address { font-style:normal; }
 
 .lux-link:hover { color: var(--c-em); }
 
-/* ゴールドのアンダーライン（ホバーで伸びる） */
+/* ゴールドのアンダーライン（ホバーで右から左へ伸びる） */
 .lux-link-bar {
   display: block;
   height: 1px;
   background-color: var(--c-em);
   transform: scaleX(0);
-  transform-origin: left;
+  transform-origin: right;
   transition: transform var(--ease);
 }
 
@@ -778,7 +779,12 @@ address { font-style:normal; }
 }
 
 /* 情報エリア */
-.doctor-info { flex: 1; padding-top: 4px; }
+.doctor-info {
+  flex: 1;
+  padding-top: 4px;
+  display: flex;
+  flex-direction: column;
+}
 
 .doctor-role {
   font-family: var(--font-en);
