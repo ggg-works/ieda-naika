@@ -707,24 +707,27 @@ address { font-style:normal; }
   border-radius: var(--r);
   padding: clamp(28px, 5vw, 44px) 28px;
   position: relative;
-  transition: box-shadow var(--ease), background-color var(--ease);
+  transition: box-shadow var(--ease), transform var(--ease);
   overflow: hidden;
 }
 
-.philosophy-card:hover { box-shadow: var(--shadow-md); }
-
-/* エメラルドのトップライン（ホバーで伸びる） */
+/* エメラルドのトップライン（常時表示） */
 .p-topline {
   position: absolute;
   top: 0;
   left: 0;
   height: 3px;
-  width: 0;
+  width: 100%;
   background-color: var(--c-em);
-  transition: width var(--ease);
 }
 
-.philosophy-card:hover .p-topline { width: 100%; }
+/* PCホバー限定：浮き上がり＋影強調 */
+@media (hover: hover) {
+  .philosophy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+}
 
 /* ゴールドのナンバー（Montserrat） */
 .p-number {
