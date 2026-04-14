@@ -883,7 +883,7 @@ address { font-style:normal; }
 
 /* テーブルヘッダー */
 .hours-table thead th {
-  background-color: var(--c-em);
+  background-color: #4D9E9E;
   color: #fff;
   font-weight: 500;
   padding: 12px 8px;
