@@ -1562,10 +1562,10 @@ address { font-style:normal; }
   left: 0;
   right: 0;
   z-index: 200;
-  background: rgba(254,254,254,0.97);
-  border-top: 1px solid var(--c-border);
+  background: var(--c-ivory);
+  border-top: 1.5px solid var(--c-border-em);
   backdrop-filter: blur(10px);
-  box-shadow: 0 -2px 12px rgba(44,44,44,.08);
+  box-shadow: 0 -4px 16px rgba(44,44,44,.14);
   padding-bottom: env(safe-area-inset-bottom);
 }
 
@@ -1591,9 +1591,8 @@ address { font-style:normal; }
 .fixed-btn--line { background-color: var(--c-em);      color: #fff; }
 /* WEB予約：ディープエメラルド（第2） */
 .fixed-btn--web  { background-color: var(--c-em-dark); color: #fff; }
-/* 電話：アウトライン（最も軽い） */
+/* 電話：ホワイト */
 .fixed-btn--tel  {
-  border-top: 2px solid var(--c-border);
   color: var(--c-em-dark);
   background: var(--c-white);
 }
