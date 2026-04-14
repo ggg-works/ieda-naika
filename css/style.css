@@ -1610,6 +1610,11 @@ address { font-style:normal; }
   .header-right { margin-left: auto; }
 
   .philosophy-grid { grid-template-columns: repeat(2, 1fr); }
+  .philosophy-grid .philosophy-card:last-child {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 12px); /* 1列分の幅（gap 24px の半分を引く） */
+    margin-inline: auto;
+  }
   .access-grid     { grid-template-columns: 1fr; }
 
   .footer-inner {
