@@ -1390,7 +1390,7 @@ address { font-style:normal; }
   display: inline-flex;
   align-items: center;
   padding: 3px 10px;
-  background-color: var(--c-em);
+  background-color: #9A7A22;
   color: #fff;
   font-size: 0.68rem;
   font-weight: 500;
@@ -1399,7 +1399,7 @@ address { font-style:normal; }
   border-radius: 4px;
 }
 
-.block-badge--sub { background-color: var(--c-em); color: #fff; }
+.block-badge--sub { background-color: #9A7A22; color: #fff; }
 
 .reserve-cards {
   display: grid;
@@ -1457,7 +1457,7 @@ address { font-style:normal; }
 }
 
 .reserve-em {
-  color: var(--c-em-dark);
+  color: var(--c-gold);
   font-weight: 500;
   font-size: 0.75rem;
 }
