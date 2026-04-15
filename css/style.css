@@ -1736,6 +1736,7 @@ address { font-style:normal; }
   .philosophy-grid .philosophy-card:last-child {
     grid-column: auto;
     max-width: none;
+    margin-inline: 0;
   }
   .services-grid   { grid-template-columns: repeat(2, 1fr); }
   .reserve-cards   { grid-template-columns: 1fr; }
