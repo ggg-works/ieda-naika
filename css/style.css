@@ -1061,9 +1061,9 @@ address { font-style:normal; }
 
 /* バッジカラー */
 .badge--closed  { background-color: #D7863B; color: #fff; }              /* 休診：アンバーオレンジ+白15% */
-.badge--service { background-color: #4AC9C9; color: #fff; }              /* 診療：エメラルド+白15% */
-.badge--vaccine { background-color: #C3A75D; color: #fff; }              /* 予防接種：ゴールド+白15% */
-.badge--info    { background-color: #8EA7A7; color: #fff; }              /* お知らせ：ティールグレー+白15% */
+.badge--service { background-color: #fff; color: #4AC9C9; border: 1px solid #4AC9C9; }  /* 診療：アウトライン */
+.badge--vaccine { background-color: #fff; color: #C3A75D; border: 1px solid #C3A75D; }  /* 予防接種：アウトライン */
+.badge--info    { background-color: #fff; color: #8EA7A7; border: 1px solid #8EA7A7; }  /* お知らせ：アウトライン */
 
 .news-title {
   font-size: 0.88rem;
@@ -1399,7 +1399,7 @@ address { font-style:normal; }
   border-radius: 4px;
 }
 
-.block-badge--sub { background-color: #9A7A22; color: #fff; }
+.block-badge--sub { background-color: #fff; color: #9A7A22; border: 1px solid #9A7A22; }
 
 .reserve-cards {
   display: grid;
