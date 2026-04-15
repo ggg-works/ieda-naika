@@ -1768,7 +1768,7 @@ address { font-style:normal; }
     text-align: center;
   }
 
-  .doctor-body .lux-link { justify-content: center; }
+  .doctor-body .lux-link { justify-content: center; margin-right: 3.5rem; }
 
   .access-btns { flex-direction: column; }
   .access-btns .btn { width: 100%; }
