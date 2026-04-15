@@ -125,6 +125,37 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
 
 /* ============================================================
+   予約テーブル：横スクロール終端でグラデーションを非表示
+   ============================================================ */
+(function initTableScrollHint() {
+  const wraps = $$('.reserve-table-wrap');
+  if (!wraps.length) return;
+
+  wraps.forEach(wrap => {
+    const scroller = wrap.querySelector('.reserve-table-scroll');
+    if (!scroller) return;
+
+    const update = () => {
+      const atEnd = scroller.scrollLeft + scroller.clientWidth >= scroller.scrollWidth - 2;
+      wrap.classList.toggle('is-scrolled-end', atEnd);
+    };
+
+    // アコーディオンが開かれたときにも判定（details open直後はwidthが0の場合がある）
+    const details = wrap.closest('details');
+    if (details) {
+      details.addEventListener('toggle', () => {
+        if (details.open) requestAnimationFrame(update);
+      });
+    }
+
+    scroller.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+    requestAnimationFrame(update);
+  });
+})();
+
+
+/* ============================================================
    スムーズスクロール補完（iOS 14以下向け）
    ============================================================ */
 (function initSmoothScroll() {

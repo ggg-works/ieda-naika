@@ -1303,10 +1303,31 @@ address { font-style:normal; }
 }
 
 /* テーブルスクロール */
+.reserve-table-wrap {
+  position: relative;
+  margin-top: 16px;
+}
+
+.reserve-table-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 48px;
+  background: linear-gradient(to right, transparent, var(--c-white));
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  border-radius: 0 4px 4px 0;
+}
+
+.reserve-table-wrap.is-scrolled-end::after {
+  opacity: 0;
+}
+
 .reserve-table-scroll {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  margin-top: 16px;
 }
 
 .reserve-table {
