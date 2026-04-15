@@ -618,9 +618,9 @@ address { font-style:normal; }
   box-shadow: 0 4px 12px rgba(44,44,44,0.18);
 }
 
-/* ディープエメラルド塗り（LINE予約と区別） */
+/* エメラルド塗り */
 .btn--primary {
-  background-color: var(--c-em-dark);
+  background-color: var(--c-em);
   color: #fff;
 }
 
