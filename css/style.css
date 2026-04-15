@@ -193,8 +193,10 @@ address { font-style:normal; }
   transition: transform var(--ease);
 }
 
-.nav-link:hover { color: var(--c-text); }
-.nav-link:hover::after { transform: scaleX(1); }
+@media (hover: hover) and (pointer: fine) {
+  .nav-link:hover { color: var(--c-text); }
+  .nav-link:hover::after { transform: scaleX(1); }
+}
 
 /* ヘッダー右側 */
 .header-right {
@@ -222,9 +224,11 @@ address { font-style:normal; }
 }
 
 /* ホバー：浮き上がり＋影（色変化なし） */
-.hbtn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(44,44,44,0.18);
+@media (hover: hover) and (pointer: fine) {
+  .hbtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(44,44,44,0.18);
+  }
 }
 
 /* WEB予約・LINE予約 */
@@ -255,16 +259,17 @@ address { font-style:normal; }
   transition: background-color var(--ease), opacity var(--ease);
 }
 
-.hamburger:hover { opacity: 0.70; }
-
 .hamburger.is-open {
   opacity: 1;
   background-color: rgba(44, 44, 44, 0.07);
 }
 
-.hamburger.is-open:hover {
-  opacity: 1;
-  background-color: rgba(44, 44, 44, 0.13);
+@media (hover: hover) and (pointer: fine) {
+  .hamburger:hover { opacity: 0.70; }
+  .hamburger.is-open:hover {
+    opacity: 1;
+    background-color: rgba(44, 44, 44, 0.13);
+  }
 }
 
 /* ラッパー：バーを絶対配置するための基準点
@@ -341,9 +346,11 @@ address { font-style:normal; }
 
 .drawer-link:last-child { border-bottom: none; }
 
-.drawer-link:hover {
-  color: var(--c-em-dark);
-  padding-left: 8px;
+@media (hover: hover) and (pointer: fine) {
+  .drawer-link:hover {
+    color: var(--c-em-dark);
+    padding-left: 8px;
+  }
 }
 
 .drawer-btns { display: flex; flex-direction: column; gap: 10px; }
@@ -361,9 +368,11 @@ address { font-style:normal; }
 }
 
 /* ホバー：浮き上がり＋影（ヘッダー・フッターバーと統一） */
-.drawer-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(44,44,44,0.18);
+@media (hover: hover) and (pointer: fine) {
+  .drawer-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(44,44,44,0.18);
+  }
 }
 
 /* WEB予約：ディープエメラルド */
@@ -613,9 +622,11 @@ address { font-style:normal; }
 }
 
 /* ホバー：浮き上がり＋影（ヘッダー・フッターバーと統一） */
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(44,44,44,0.18);
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(44,44,44,0.18);
+  }
 }
 
 /* エメラルド塗り */
@@ -670,7 +681,7 @@ address { font-style:normal; }
 }
 
 /* PCホバー限定 */
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .lux-link:hover { color: var(--c-gold-light); }
   .lux-link:hover > span:first-child::after { transform: translateX(4px); }
   .lux-link:hover .lux-link-bar { transform: scaleX(1); }
@@ -722,7 +733,7 @@ address { font-style:normal; }
 }
 
 /* PCホバー限定：浮き上がり＋影強調 */
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .philosophy-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-md);
@@ -987,7 +998,7 @@ address { font-style:normal; }
 }
 
 /* PCホバー限定 */
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .hours-cta-link:hover { color: var(--c-gold-light); }
   .hours-cta-link:hover::after { transform: scaleX(1); }
   .hours-cta-link:hover::before { transform: translateX(4px); }
@@ -1021,7 +1032,9 @@ address { font-style:normal; }
 }
 
 .news-item:last-child { border-bottom: none; }
-.news-item:hover { background-color: var(--c-em-light); }
+@media (hover: hover) and (pointer: fine) {
+  .news-item:hover { background-color: var(--c-em-light); }
+}
 
 .news-date {
   font-family: var(--font-en);
@@ -1066,7 +1079,9 @@ address { font-style:normal; }
   padding: 0;
 }
 
-.news-item--expandable:hover { background-color: transparent; }
+@media (hover: hover) and (pointer: fine) {
+  .news-item--expandable:hover { background-color: transparent; }
+}
 
 /* details/summary */
 .news-details { }
@@ -1084,7 +1099,9 @@ address { font-style:normal; }
 
 .news-summary::-webkit-details-marker { display: none; }
 
-.news-summary:hover { background-color: var(--c-em-light); }
+@media (hover: hover) and (pointer: fine) {
+  .news-summary:hover { background-color: var(--c-em-light); }
+}
 
 /* 開閉アイコン（SVG背景で確実に中央配置） */
 .news-expand {
@@ -1101,9 +1118,11 @@ address { font-style:normal; }
   transition: background-color var(--ease), background-image var(--ease), transform var(--ease);
 }
 
-.news-summary:hover .news-expand {
-  background-color: #6B7280;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='12' viewBox='0 0 8 12'%3E%3Cpath d='M2 1l5 5-5 5' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+@media (hover: hover) and (pointer: fine) {
+  .news-summary:hover .news-expand {
+    background-color: #6B7280;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='12' viewBox='0 0 8 12'%3E%3Cpath d='M2 1l5 5-5 5' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+  }
 }
 
 .news-details[open] .news-expand {
@@ -1156,7 +1175,9 @@ address { font-style:normal; }
   transition: background-color var(--ease);
 }
 
-.service-card:hover { background-color: #F4F1EC; }
+@media (hover: hover) and (pointer: fine) {
+  .service-card:hover { background-color: #F4F1EC; }
+}
 
 .service-icon {
   width: 46px;
@@ -1170,7 +1191,9 @@ address { font-style:normal; }
   padding: 10px;
 }
 
-.service-card:hover .service-icon { background-color: var(--c-em-light); }
+@media (hover: hover) and (pointer: fine) {
+  .service-card:hover .service-icon { background-color: var(--c-em-light); }
+}
 
 .service-icon img { width: 100%; height: auto; }
 
@@ -1235,7 +1258,9 @@ address { font-style:normal; }
 }
 
 .reserve-summary::-webkit-details-marker { display: none; }
-.reserve-summary:hover { background-color: #C8ECEC; }
+@media (hover: hover) and (pointer: fine) {
+  .reserve-summary:hover { background-color: #C8ECEC; }
+}
 
 .reserve-summary-text {
   font-size: 0.87rem;
@@ -1259,9 +1284,11 @@ address { font-style:normal; }
   transition: background-color var(--ease), background-image var(--ease), transform var(--ease);
 }
 
-.reserve-summary:hover .reserve-summary-icon {
-  background-color: var(--c-em);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='12' viewBox='0 0 8 12'%3E%3Cpath d='M2 1l5 5-5 5' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+@media (hover: hover) and (pointer: fine) {
+  .reserve-summary:hover .reserve-summary-icon {
+    background-color: var(--c-em);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='12' viewBox='0 0 8 12'%3E%3Cpath d='M2 1l5 5-5 5' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+  }
 }
 
 .reserve-details[open] .reserve-summary-icon {
@@ -1374,7 +1401,9 @@ address { font-style:normal; }
   transition: background-color var(--ease);
 }
 
-.reserve-card:hover { background-color: #C8ECEC; }
+@media (hover: hover) and (pointer: fine) {
+  .reserve-card:hover { background-color: #C8ECEC; }
+}
 
 .reserve-card-icon {
   width: 44px;
@@ -1419,7 +1448,9 @@ address { font-style:normal; }
   transition: transform var(--ease);
 }
 
-.reserve-card:hover .reserve-card-arrow { transform: translateX(4px); }
+@media (hover: hover) and (pointer: fine) {
+  .reserve-card:hover .reserve-card-arrow { transform: translateX(4px); }
+}
 
 .day { font-weight: 500; color: var(--c-text); }
 
@@ -1606,9 +1637,11 @@ address { font-style:normal; }
   transition: color var(--ease), text-decoration-color var(--ease);
 }
 
-.footer-contact-link:hover {
-  color: var(--c-em);
-  text-decoration-color: var(--c-em);
+@media (hover: hover) and (pointer: fine) {
+  .footer-contact-link:hover {
+    color: var(--c-em);
+    text-decoration-color: var(--c-em);
+  }
 }
 
 /* フッターナビ */
@@ -1624,7 +1657,9 @@ address { font-style:normal; }
   padding-bottom: 2px;
 }
 
-.footer-nav-link:hover { color: var(--c-em); }
+@media (hover: hover) and (pointer: fine) {
+  .footer-nav-link:hover { color: var(--c-em); }
+}
 
 /* コピーライト */
 .footer-bottom {
@@ -1668,9 +1703,11 @@ address { font-style:normal; }
 }
 
 /* ホバー：浮き上がり＋影（ヘッダーボタンと統一） */
-.fixed-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(44,44,44,0.18);
+@media (hover: hover) and (pointer: fine) {
+  .fixed-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(44,44,44,0.18);
+  }
 }
 
 /* LINE予約：エメラルド（最も目立つ） */
