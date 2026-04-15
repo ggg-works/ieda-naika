@@ -1744,7 +1744,7 @@ address { font-style:normal; }
 
   .doctor-info {
     width: 100%;
-    padding-left: clamp(40px, 15vw, 64px);
+    padding-left: calc((100% - clamp(100px, 40vw, 140px)) / 2);
   }
 
   .access-btns { flex-direction: column; }
