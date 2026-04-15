@@ -1516,7 +1516,7 @@ address { font-style:normal; }
    ダークブラウン × ゴールドアクセント
    ============================================================ */
 .site-footer {
-  background-color: var(--c-text);   /* ディープブラウン */
+  background-color: #3A4C4C;   /* ダークティールグレー */
   color: rgba(250,246,238,0.85);
 }
 
