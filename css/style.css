@@ -114,27 +114,13 @@ address { font-style:normal; }
   flex-shrink: 0;
 }
 
-/* ロゴマーク：エメラルド四角＋ゴールドの小ドット */
-.logo-mark {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background-color: var(--c-em);
-  flex-shrink: 0;
-  position: relative;
-}
-
-/* 右下アクセントドット */
-.logo-mark-inner {
+/* ロゴアイコン：favicon.png 画像 */
+.logo-icon {
   display: block;
-  width: 10px;
-  height: 10px;
-  background-color: var(--c-em-dark);
-  position: absolute;
-  bottom: -3px;
-  right: -3px;
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .logo-text {
