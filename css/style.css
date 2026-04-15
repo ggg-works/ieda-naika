@@ -1744,17 +1744,18 @@ address { font-style:normal; }
   .doctor-card {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 0;
   }
 
   .doctor-photo-wrap {
     width: clamp(160px, 56vw, 200px);
+    margin-inline: auto;
     margin-bottom: 16px;
   }
 
   .doctor-ident {
     width: clamp(160px, 56vw, 200px);
+    margin-inline: auto;
     margin-bottom: 28px;
   }
 
