@@ -31,7 +31,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   const btn     = $('#hamburger');
   const drawer  = $('#drawer');
   const overlay = $('#drawerOverlay');
-  const links   = $$('.drawer-link', drawer);
+  const links   = $$('.drawer-link, .drawer-btn', drawer);
   if (!btn || !drawer || !overlay) return;
 
   const openDrawer = () => {
