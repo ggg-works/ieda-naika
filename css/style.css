@@ -1211,6 +1211,18 @@ address { font-style:normal; }
   .service-text--short { display: block; }
 }
 
+/* PC（3列）最終行に1枚だけ残る場合：フル幅でセンタリング */
+.services-grid .service-card:last-child:nth-child(3n+1) {
+  grid-column: 1 / -1;
+}
+
+/* タブレット以下（2列）最終行に1枚だけ残る場合：フル幅でセンタリング */
+@media (max-width: 560px) {
+  .services-grid .service-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
 .services-note {
   text-align: center;
   font-size: 0.78rem;

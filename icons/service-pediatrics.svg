@@ -1,0 +1,16 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-4.8 -4.8 41.60 41.60" width="256px" height="256px">
+  <style type="text/css">
+    .st0{fill:none;stroke:#2bb3c0;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+  </style>
+  <!-- Head（子どもらしく体に対して大きめ） -->
+  <circle class="st0" cx="16" cy="7" r="5.5"/>
+  <!-- Body -->
+  <path class="st0" d="M11,13.5 C11,12.5 13,12 16,12 C19,12 21,12.5 21,13.5 L21,23 C21,24.5 19,25 16,25 C13,25 11,24.5 11,23 Z"/>
+  <!-- 左足 -->
+  <line class="st0" x1="13" y1="25" x2="11" y2="31"/>
+  <!-- 右足 -->
+  <line class="st0" x1="19" y1="25" x2="21" y2="31"/>
+  <!-- 両腕（上に広げた子どもらしいポーズ） -->
+  <line class="st0" x1="11" y1="16" x2="4"  y2="11"/>
+  <line class="st0" x1="21" y1="16" x2="28" y2="11"/>
+</svg>
