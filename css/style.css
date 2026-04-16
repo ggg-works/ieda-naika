@@ -1222,7 +1222,13 @@ address { font-style:normal; }
 /* ============================================================
    予約・受付（Reserve）
    ============================================================ */
-.section--reserve { background-color: var(--c-ivory); }
+/* scroll-margin-top: セクション先頭から中点（section-head + gap/2）までの距離を
+   ヘッダー高さ基準で打ち消す。中点 = padding-top(108) + head(146) + gap/2(34) = 288px
+   header(68) − 288 − scroll-padding-top(72) = −292px */
+.section--reserve {
+  background-color: var(--c-ivory);
+  scroll-margin-top: -292px;
+}
 
 /* details 開閉 */
 .reserve-details {
@@ -1755,6 +1761,9 @@ address { font-style:normal; }
    ============================================================ */
 @media (max-width: 560px) {
   html { scroll-padding-top: 64px; } /* スマホ：60px header + 余白 */
+  /* #reserve：中点 = padding-top(72) + head(156) + gap/2(22) = 250px
+     header(60) − 250 − scroll-padding-top(64) = −254px */
+  .section--reserve { scroll-margin-top: -254px; }
   .header-inner { height: 60px; }
   .header-btns  { display: none; }
   .drawer { top: 60px; height: calc(100dvh - 60px); }
