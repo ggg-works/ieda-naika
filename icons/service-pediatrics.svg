@@ -2,15 +2,18 @@
   <style type="text/css">
     .st0{fill:none;stroke:#2bb3c0;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
   </style>
-  <!-- Head（子どもらしく体に対して大きめ） -->
-  <circle class="st0" cx="16" cy="7" r="5.5"/>
-  <!-- Body -->
-  <path class="st0" d="M11,13.5 C11,12.5 13,12 16,12 C19,12 21,12.5 21,13.5 L21,23 C21,24.5 19,25 16,25 C13,25 11,24.5 11,23 Z"/>
+  <!-- Head: 小学生らしい頭身比（r=4） -->
+  <circle class="st0" cx="16" cy="6" r="4"/>
+  <!-- Hair: 前髪のアーチ（乳児との区別） -->
+  <path class="st0" d="M12.5,4 Q13,1.5 16,1.5 Q19,1.5 19.5,4"/>
+  <!-- Body: より長い胴体 -->
+  <path class="st0" d="M11,12 C11,11 13.5,10.5 16,10.5 C18.5,10.5 21,11 21,12 L21,23 C21,24 19.5,24.5 16,24.5 C12.5,24.5 11,24 11,23 Z"/>
   <!-- 左足 -->
-  <line class="st0" x1="13" y1="25" x2="11" y2="31"/>
+  <line class="st0" x1="13" y1="24.5" x2="11" y2="31"/>
   <!-- 右足 -->
-  <line class="st0" x1="19" y1="25" x2="21" y2="31"/>
-  <!-- 両腕（上に広げた子どもらしいポーズ） -->
-  <line class="st0" x1="11" y1="16" x2="4"  y2="11"/>
-  <line class="st0" x1="21" y1="16" x2="28" y2="11"/>
+  <line class="st0" x1="19" y1="24.5" x2="21" y2="31"/>
+  <!-- 左腕: 横〜斜め下（自然な立ちポーズ） -->
+  <line class="st0" x1="11" y1="14" x2="5"  y2="19"/>
+  <!-- 右腕: 斜め上に振る（子どもらしい元気なポーズ） -->
+  <line class="st0" x1="21" y1="13" x2="27" y2="8"/>
 </svg>
