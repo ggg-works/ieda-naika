@@ -160,9 +160,26 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
    ============================================================ */
 (function initSmoothScroll() {
   $$('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', () => {
+    anchor.addEventListener('click', (e) => {
       const id = anchor.getAttribute('href');
       if (id === '#') return;
+
+      // #reserve：section-head 下端と reserve-details 上端の中点を
+      // getBoundingClientRect() で動的に取得し、ヘッダー直下に配置する
+      if (id === '#reserve') {
+        e.preventDefault();
+        const section    = document.getElementById('reserve');
+        const sectionHead    = section?.querySelector('.section-head');
+        const reserveDetails = section?.querySelector('.reserve-details');
+        if (!section || !sectionHead || !reserveDetails) return;
+        const headerH    = document.querySelector('.site-header')?.offsetHeight ?? 0;
+        const headBottom = sectionHead.getBoundingClientRect().bottom + window.scrollY;
+        const detailsTop = reserveDetails.getBoundingClientRect().top  + window.scrollY;
+        const midpoint   = (headBottom + detailsTop) / 2;
+        window.scrollTo({ top: midpoint - headerH, behavior: 'smooth' });
+        return;
+      }
+
       const target = document.querySelector(id);
       if (!target) return;
       const headerH = document.querySelector('.site-header')?.offsetHeight ?? 0;
