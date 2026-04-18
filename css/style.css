@@ -21,6 +21,8 @@
   --c-border-em:   #B2DDD9;   /* エメラルドボーダー（強調） */
   --c-gold:        #B89840;   /* ゴールド（lux-link テキスト） */
   --c-gold-light:  #CCAD72;   /* ライトゴールド（ホバー・アンダーライン） */
+  --c-gold-hero:   #D6BC88;
+  --c-em-mid:      #A8E0E0;
 
   /* タイポグラフィ */
   --font-ja:  'Zen Kaku Gothic New', sans-serif;
@@ -141,7 +143,7 @@ address { font-style:normal; }
   font-size: 0.56rem;
   font-weight: 300;
   letter-spacing: 0.18em;
-  color: #C49028;
+  color: var(--c-gold);
   margin-top: 2px;
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
 }
@@ -436,7 +438,7 @@ address { font-style:normal; }
   top: 20%;
   bottom: 20%;
   width: 1px;
-  background: linear-gradient(to bottom, transparent, #D6BC88, transparent);
+  background: linear-gradient(to bottom, transparent, var(--c-gold-hero), transparent);
   z-index: 2;
   opacity: 1;
 }
@@ -458,7 +460,7 @@ address { font-style:normal; }
   font-size: clamp(0.60rem, 1.6vw, 0.76rem);
   font-weight: 300;
   letter-spacing: 0.32em;
-  color: #D6BC88;
+  color: var(--c-gold-hero);
   margin-bottom: 28px;
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
   animation: luxFade 1.0s ease 0.2s both;
@@ -492,7 +494,7 @@ address { font-style:normal; }
 .hero-sep {
   width: 64px;
   height: 1px;
-  background-color: #D6BC88;
+  background-color: var(--c-gold-hero);
   animation: luxFade 1.0s ease 0.80s both;
 }
 
@@ -522,7 +524,7 @@ address { font-style:normal; }
   display: block;
   width: 1px;
   height: 48px;
-  background: linear-gradient(to bottom, #D6BC88, transparent);
+  background: linear-gradient(to bottom, var(--c-gold-hero), transparent);
   animation: scrollDrop 2.0s ease infinite;
 }
 
@@ -715,7 +717,7 @@ address { font-style:normal; }
   left: 0;
   height: 3px;
   width: 100%;
-  background-color: #A8E0E0;
+  background-color: var(--c-em-mid);
 }
 
 /* PCホバー限定：浮き上がり＋影強調 */
