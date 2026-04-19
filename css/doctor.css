@@ -102,23 +102,6 @@
   margin-bottom: 28px;
 }
 
-.drpage-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.drpage-tag {
-  display: inline-block;
-  background: var(--c-em-light);
-  color: var(--c-em-dark);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  padding: 4px 14px;
-  border-radius: 100px;
-}
-
 /* --------------------------------------------------
    メッセージ
 -------------------------------------------------- */
