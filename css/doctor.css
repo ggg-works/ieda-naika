@@ -127,13 +127,6 @@
   margin-bottom: 28px;
 }
 
-.drpage-profile-catch {
-  font-size: 16px;
-  color: var(--c-text-muted);
-  font-style: italic;
-  line-height: 1.9;
-}
-
 /* --------------------------------------------------
    .drpage-info-grid（詳細情報3カラムグリッド）
 -------------------------------------------------- */
@@ -195,15 +188,24 @@
 }
 
 /* --------------------------------------------------
+   .drpage-hero-wrap（写真＋プロフィール＋メッセージ　ラッパー）
+-------------------------------------------------- */
+.drpage-hero-wrap {
+  background: var(--c-ivory);
+  border-radius: var(--r);
+  padding: clamp(40px, 6vw, 64px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* --------------------------------------------------
    .drpage-message-block（メッセージ）
 -------------------------------------------------- */
 .drpage-message-block {
-  background: var(--c-ivory);
+  background: transparent;
   border-left: 4px solid var(--c-em);
   border-radius: var(--r);
-  padding: clamp(32px, 5vw, 56px);
-  max-width: 800px;
-  margin-inline: auto;
+  padding: clamp(24px, 4vw, 40px);
+  margin-top: clamp(40px, 5vw, 56px);
 }
 
 .drpage-message-body {
