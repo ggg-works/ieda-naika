@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <title>医師紹介｜家田内科（春日井市）</title>
+  <meta name="description" content="家田内科 院長・家田研人の紹介。内科専門医・腎臓専門医として、地域に根ざしたかかりつけ医療を提供しています。" />
+
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="医師紹介｜家田内科（春日井市）" />
+  <meta property="og:description" content="家田内科 院長・家田研人の紹介。内科専門医・腎臓専門医として、地域に根ざしたかかりつけ医療を提供しています。" />
+  <meta property="og:url"         content="https://www.ieda-naika.jp/doctor.html" />
+  <meta property="og:image"       content="https://www.ieda-naika.jp/images/ogp.jpg" />
+  <meta property="og:locale"      content="ja_JP" />
+  <meta property="og:site_name"   content="家田内科" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" /></noscript>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/doctor.css" />
+</head>
+
+<body id="top">
+
+  <!-- ===========================
+       ヘッダー
+  =========================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+
+      <a class="header-logo" href="index.html" aria-label="家田内科 トップへ">
+        <img class="logo-icon" src="favicon.png" alt="" aria-hidden="true" width="36" height="36" decoding="async" />
+        <span class="logo-text">
+          <span class="logo-ja">家田内科</span>
+          <span class="logo-en">Internal Medicine Clinic</span>
+        </span>
+      </a>
+
+      <nav class="site-nav" id="siteNav" aria-label="主要メニュー">
+        <a class="nav-link" href="index.html#philosophy">当院の特徴</a>
+        <a class="nav-link" href="index.html#doctor">医師紹介</a>
+        <a class="nav-link" href="index.html#hours">診療時間</a>
+        <a class="nav-link" href="index.html#news">お知らせ</a>
+        <a class="nav-link" href="index.html#services">診療内容</a>
+        <a class="nav-link" href="index.html#access">アクセス</a>
+      </nav>
+
+      <div class="header-right">
+        <div class="header-btns" aria-label="予約・電話">
+          <a class="hbtn hbtn--line" href="index.html#reserve">LINE予約</a>
+          <a class="hbtn hbtn--web"  href="index.html#reserve">WEB予約</a>
+          <a class="hbtn hbtn--tel"  href="tel:0568-82-4118">電話</a>
+        </div>
+
+        <button class="hamburger" id="hamburger" type="button"
+          aria-label="メニューを開く" aria-controls="siteNav" aria-expanded="false">
+          <span class="hamburger-icon" aria-hidden="true">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- スマホ用ドロワーメニュー -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <nav class="drawer-nav" aria-label="ドロワーメニュー">
+      <a class="drawer-link" href="index.html#philosophy">当院の特徴</a>
+      <a class="drawer-link" href="index.html#doctor">医師紹介</a>
+      <a class="drawer-link" href="index.html#hours">診療時間</a>
+      <a class="drawer-link" href="index.html#news">お知らせ</a>
+      <a class="drawer-link" href="index.html#services">診療内容</a>
+      <a class="drawer-link" href="index.html#access">アクセス</a>
+    </nav>
+    <div class="drawer-btns">
+      <a class="drawer-btn drawer-btn--em"   href="index.html#reserve">LINE予約</a>
+      <a class="drawer-btn drawer-btn--gold" href="index.html#reserve">WEB予約</a>
+      <a class="drawer-btn drawer-btn--tel"  href="tel:0568-82-4118">電話する</a>
+    </div>
+  </div>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <main>
+
+    <!-- 1. ページヘッダー -->
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <p class="page-hero-label">Doctor</p>
+        <h1 class="page-hero-title">医師紹介</h1>
+      </div>
+    </section>
+
+    <!-- 2. 写真＋プロフィール -->
+    <section class="drpage-section drpage-section--white">
+      <div class="container">
+        <div class="drpage-hero">
+          <div class="drpage-photo">
+            <img src="images/doctor.jpg" alt="院長 家田研人医師" loading="lazy" />
+          </div>
+          <div class="drpage-profile">
+            <p class="drpage-profile-role">院長 / 内科・腎臓内科・総合内科</p>
+            <h2 class="drpage-profile-name">家田 研人</h2>
+            <p class="drpage-profile-name-en">Kento Ieda, M.D.</p>
+            <div class="drpage-profile-sep" aria-hidden="true"></div>
+            <p class="drpage-profile-catch">ひとりひとりに寄り添う診療を、心がけています。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 詳細情報グリッド -->
+    <section class="drpage-section drpage-section--ivory">
+      <div class="container">
+        <div class="drpage-info-grid">
+
+          <div class="drpage-info-block">
+            <span class="drpage-info-en">Career</span>
+            <h3 class="drpage-info-title">経歴</h3>
+            <ul class="drpage-info-list">
+              <li>福岡大学医学部医学科　卒業</li>
+              <li>名古屋市立大学医学部附属西部医療センター　勤務</li>
+              <li>名古屋市立東部医療センター（現　名古屋市立大学医学部附属東部医療センター）　勤務</li>
+              <li>愛知厚生連足助病院　勤務</li>
+              <li>地域医療振興協会あま市民病院　勤務</li>
+              <li>家田内科　院長就任</li>
+            </ul>
+          </div>
+
+          <div class="drpage-info-block">
+            <span class="drpage-info-en">Specialty</span>
+            <h3 class="drpage-info-title">専門分野</h3>
+            <ul class="drpage-info-list">
+              <li>内科</li>
+              <li>腎臓内科</li>
+              <li>総合内科</li>
+            </ul>
+          </div>
+
+          <div class="drpage-info-block">
+            <span class="drpage-info-en">Qualifications</span>
+            <h3 class="drpage-info-title">資格・所属学会</h3>
+            <ul class="drpage-info-list">
+              <li>日本専門医機構認定　内科専門医</li>
+              <li>日本専門医機構認定　腎臓専門医</li>
+              <li>難病指定医</li>
+              <li>日本内科学会</li>
+              <li>日本腎臓学会</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. メッセージ -->
+    <section class="drpage-section drpage-section--white">
+      <div class="container">
+        <div class="drpage-message-block">
+          <span class="drpage-info-en">Message</span>
+          <h3 class="drpage-info-title">患者さまへ</h3>
+          <div class="drpage-message-body">
+            <p>父である前院長より当院を継承し、これまで大切にしてきた地域医療の想いを引き継いでおります。春日井は高校までを過ごした私にとって大切な地元であり、この地域で暮らす皆さまの健康を守ることを使命として、日々診療にあたっています。</p>
+            <p>これまで病院勤務では、腎臓内科および総合内科を専門に診療してまいりました。腎臓は全身の健康と密接に関わる臓器であり、その診療経験を基盤として、全身を総合的に診る内科医として研鑽を重ねてまいりました。</p>
+            <p>患者さま一人ひとりに寄り添い、やさしさを大切にしながら、ていねいでわかりやすい診療を心がけてまいります。どうぞ安心してご相談ください。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 戻るリンク -->
+    <section class="drpage-section drpage-section--white">
+      <div class="container">
+        <div class="drpage-back">
+          <a class="lux-link" href="index.html">
+            <span>トップページへ戻る</span>
+            <span class="lux-link-bar" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===========================
+       フッター
+  =========================== -->
+  <footer class="site-footer">
+    <div class="footer-gold-top" aria-hidden="true"></div>
+
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img class="footer-logo-icon" src="favicon.png" alt="" aria-hidden="true" width="36" height="36" decoding="async" />
+          <span class="footer-logo-text">
+            <strong>家田内科</strong>
+            <span class="footer-logo-en">Internal Medicine Clinic</span>
+          </span>
+        </div>
+        <address class="footer-address">
+          〒486-0807 愛知県春日井市大手町3-1-15<br>駐車場：あり
+        </address>
+        <div class="footer-contacts">
+          <a class="footer-contact-link" href="https://maps.app.goo.gl/P2yGM1RzXzH2ZFWFA" target="_blank" rel="noopener noreferrer">地図を開く</a>
+          <a class="footer-contact-link" href="tel:0568-82-4118">電話/FAX：0568-82-4118</a>
+        </div>
+      </div>
+
+      <nav class="footer-nav" aria-label="フッターメニュー">
+        <a class="footer-nav-link" href="index.html#philosophy">当院の特徴</a>
+        <a class="footer-nav-link" href="index.html#doctor">医師紹介</a>
+        <a class="footer-nav-link" href="index.html#hours">診療時間</a>
+        <a class="footer-nav-link" href="index.html#news">お知らせ</a>
+        <a class="footer-nav-link" href="index.html#services">診療内容</a>
+        <a class="footer-nav-link" href="index.html#access">アクセス</a>
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <small>© <span id="year"></span> Ieda Naika. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <!-- ===========================
+       スマホ固定フッターバー
+  =========================== -->
+  <div class="fixed-bar" role="navigation" aria-label="予約・電話（固定バー）">
+    <a class="fixed-btn fixed-btn--line" href="index.html#reserve">LINE予約</a>
+    <a class="fixed-btn fixed-btn--web"  href="index.html#reserve">WEB予約</a>
+    <a class="fixed-btn fixed-btn--tel"  href="tel:0568-82-4118">電話</a>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+/* ========================================
+   doctor.css — 医師紹介個別ページ用スタイル
+   ※ style.css のCSS変数を継承して使用
+   ======================================== */
+
+/* --------------------------------------------------
+   .page-hero（ページヘッダー）
+-------------------------------------------------- */
+.page-hero {
+  background: var(--c-ivory);
+  border-bottom: 1px solid var(--c-border);
+  padding: clamp(48px, 8vw, 80px) 0;
+}
+
+.page-hero-inner {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-px);
+}
+
+.page-hero-label {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 11px;
+  color: var(--c-em);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.page-hero-title {
+  font-family: var(--font-ja);
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 500;
+  color: var(--c-text);
+  letter-spacing: 0.06em;
+}
+
+/* --------------------------------------------------
+   .drpage-section（コンテンツ共通セクション）
+-------------------------------------------------- */
+.drpage-section {
+  padding: var(--section-py) 0;
+}
+
+.drpage-section--white {
+  background: var(--c-white);
+}
+
+.drpage-section--ivory {
+  background: var(--c-ivory);
+}
+
+/* --------------------------------------------------
+   .drpage-hero（写真＋プロフィール）
+-------------------------------------------------- */
+.drpage-hero {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(40px, 6vw, 72px);
+}
+
+/* 写真エリア */
+.drpage-photo {
+  flex-shrink: 0;
+  width: clamp(280px, 35vw, 380px);
+  position: relative;
+}
+
+.drpage-photo img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+  border: 1px solid var(--c-border-em);
+  border-radius: var(--r);
+}
+
+.drpage-photo::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  right: -8px;
+  width: 100%;
+  height: 100%;
+  border-right: 2px solid var(--c-gold);
+  border-bottom: 2px solid var(--c-gold);
+  border-radius: var(--r);
+  pointer-events: none;
+}
+
+/* プロフィール */
+.drpage-profile {
+  flex: 1;
+  padding-top: 16px;
+}
+
+.drpage-profile-role {
+  font-size: 13px;
+  color: var(--c-em-dark);
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.drpage-profile-name {
+  font-family: var(--font-ja);
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 500;
+  color: var(--c-text);
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+
+.drpage-profile-name-en {
+  font-family: var(--font-en);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--c-text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+}
+
+.drpage-profile-sep {
+  width: 48px;
+  height: 2px;
+  background: var(--c-gold);
+  margin-bottom: 28px;
+}
+
+.drpage-profile-catch {
+  font-size: 16px;
+  color: var(--c-text-muted);
+  font-style: italic;
+  line-height: 1.9;
+}
+
+/* --------------------------------------------------
+   .drpage-info-grid（詳細情報3カラムグリッド）
+-------------------------------------------------- */
+.drpage-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(32px, 5vw, 48px);
+}
+
+.drpage-info-block {
+  border-top: 2px solid var(--c-em-light);
+  padding-top: 24px;
+}
+
+.drpage-info-en {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--c-em);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.drpage-info-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--c-text);
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}
+
+.drpage-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.drpage-info-list li {
+  font-size: 14px;
+  color: var(--c-text);
+  line-height: 1.7;
+  padding-left: 14px;
+  position: relative;
+}
+
+.drpage-info-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 5px;
+  height: 1px;
+  background: var(--c-em);
+}
+
+/* --------------------------------------------------
+   .drpage-message-block（メッセージ）
+-------------------------------------------------- */
+.drpage-message-block {
+  background: var(--c-ivory);
+  border-left: 4px solid var(--c-em);
+  border-radius: var(--r);
+  padding: clamp(32px, 5vw, 56px);
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+.drpage-message-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.drpage-message-body p {
+  font-size: 15px;
+  color: var(--c-text);
+  line-height: 2.0;
+}
+
+/* --------------------------------------------------
+   .drpage-back（戻るリンクエリア）
+-------------------------------------------------- */
+.drpage-back {
+  text-align: center;
+  padding: clamp(40px, 5vw, 56px) 0;
+}
+
+/* --------------------------------------------------
+   スマホ対応
+-------------------------------------------------- */
+@media (max-width: 640px) {
+  .drpage-hero {
+    flex-direction: column;
+  }
+
+  .drpage-photo {
+    width: 100%;
+  }
+
+  .drpage-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
