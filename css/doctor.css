@@ -22,10 +22,10 @@
 }
 
 /* --------------------------------------------------
-   写真＋プロフィール
+   写真＋プロフィール＋メッセージ
 -------------------------------------------------- */
 .drpage-intro {
-  background: var(--c-ivory);
+  background: var(--c-white);
 }
 
 .drpage-intro-inner {
@@ -63,7 +63,7 @@
   pointer-events: none;
 }
 
-/* プロフィール */
+/* プロフィール＋メッセージ */
 .drpage-intro-profile {
   flex: 1;
   padding-top: 8px;
@@ -99,37 +99,19 @@
   width: 40px;
   height: 1px;
   background: var(--c-gold);
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 
-/* --------------------------------------------------
-   メッセージ
--------------------------------------------------- */
-.drpage-message-section {
-  background: var(--c-white);
-}
-
-/* section-head を左寄せに上書き */
-.drpage-left-head {
-  text-align: left;
-}
-
-.drpage-left-head .section-title::after {
-  left: 0;
-  transform: none;
-}
-
-.drpage-message-body {
-  max-width: 760px;
+.drpage-message {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
 }
 
-.drpage-message-body p {
-  font-size: 0.94rem;
-  color: var(--c-text);
-  line-height: 2.1;
+.drpage-message p {
+  font-size: 0.90rem;
+  color: var(--c-text-muted);
+  line-height: 2.0;
 }
 
 /* --------------------------------------------------
