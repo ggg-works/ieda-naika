@@ -1,0 +1,380 @@
+/* ========================================
+   services-common.css — 診療内容詳細ページ共通スタイル
+   ※ style.css のCSS変数を継承して使用
+   プレフィックス: svcpage-
+   ======================================== */
+
+
+/* --------------------------------------------------
+   ページヒーロー
+-------------------------------------------------- */
+.svcpage-page-hero {
+  background: var(--c-ivory);
+  border-bottom: 1px solid var(--c-border);
+  padding: clamp(48px, 8vw, 80px) 0 clamp(40px, 6vw, 64px);
+}
+
+.svcpage-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-en);
+  font-size: 0.68rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: var(--c-text-muted);
+  margin-bottom: clamp(24px, 4vw, 36px);
+}
+
+.svcpage-breadcrumb a {
+  color: var(--c-text-muted);
+  transition: color var(--ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .svcpage-breadcrumb a:hover { color: var(--c-em-dark); }
+}
+
+.svcpage-breadcrumb-sep {
+  color: var(--c-border-em);
+  font-size: 0.60rem;
+}
+
+.svcpage-page-label {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 0.68rem;
+  font-weight: 300;
+  letter-spacing: 0.32em;
+  color: var(--c-em);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.svcpage-page-title {
+  font-family: var(--font-ja);
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 300;
+  color: var(--c-text);
+  letter-spacing: 0.10em;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.svcpage-page-sub {
+  font-size: 0.88rem;
+  color: var(--c-text-muted);
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+}
+
+
+/* --------------------------------------------------
+   イントロセクション
+-------------------------------------------------- */
+.svcpage-intro {
+  background: var(--c-white);
+  padding-block: clamp(56px, 8vw, 88px);
+}
+
+.svcpage-intro-lead {
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  font-weight: 400;
+  color: var(--c-text);
+  line-height: 2.0;
+  letter-spacing: 0.04em;
+  margin-bottom: 28px;
+  max-width: 720px;
+}
+
+.svcpage-intro-body {
+  font-size: 0.90rem;
+  color: var(--c-text-muted);
+  line-height: 2.0;
+  max-width: 680px;
+}
+
+.svcpage-intro-body + .svcpage-intro-body {
+  margin-top: 18px;
+}
+
+
+/* --------------------------------------------------
+   詳細セクション（繰り返し使用）
+-------------------------------------------------- */
+.svcpage-detail {
+  background: var(--c-ivory);
+  padding-block: clamp(56px, 8vw, 88px);
+}
+
+.svcpage-detail--white {
+  background: var(--c-white);
+}
+
+/* セクション内の見出しブロック群コンテナ */
+.svcpage-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(40px, 6vw, 60px);
+}
+
+/* 2カラムグリッドオプション（PC向け） */
+.svcpage-blocks--grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 5vw, 56px) clamp(40px, 6vw, 72px);
+}
+
+/* --------------------------------------------------
+   見出し＋罫線＋本文ブロック（svcpage-blockが基本単位）
+-------------------------------------------------- */
+.svcpage-block {}
+
+.svcpage-block-en {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 0.63rem;
+  font-weight: 300;
+  letter-spacing: 0.30em;
+  color: var(--c-em);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.svcpage-block-title {
+  font-family: var(--font-ja);
+  font-size: clamp(1.0rem, 2.5vw, 1.15rem);
+  font-weight: 500;
+  color: var(--c-text);
+  letter-spacing: 0.07em;
+  line-height: 1.45;
+}
+
+/* ゴールドの罫線 */
+.svcpage-block-rule {
+  width: 28px;
+  height: 1px;
+  background: var(--c-gold);
+  margin: 14px 0 20px;
+}
+
+.svcpage-block-body {
+  font-size: 0.88rem;
+  color: var(--c-text-muted);
+  line-height: 2.0;
+}
+
+.svcpage-block-body + .svcpage-block-body {
+  margin-top: 14px;
+}
+
+/* ブロック内リスト */
+.svcpage-block-list {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.svcpage-block-list li {
+  font-size: 0.86rem;
+  color: var(--c-text-muted);
+  line-height: 1.75;
+  padding-left: 16px;
+  position: relative;
+}
+
+.svcpage-block-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 6px;
+  height: 1px;
+  background: var(--c-em);
+}
+
+/* ブロック間の区切り線（縦並び時のみ） */
+.svcpage-blocks > .svcpage-block + .svcpage-block {
+  border-top: 1px solid var(--c-border);
+  padding-top: clamp(40px, 6vw, 60px);
+}
+
+/* グリッド時はborder-topを解除 */
+.svcpage-blocks--grid > .svcpage-block + .svcpage-block {
+  border-top: none;
+  padding-top: 0;
+}
+
+
+/* --------------------------------------------------
+   注意書き・補足テキスト
+-------------------------------------------------- */
+.svcpage-note {
+  margin-top: clamp(32px, 5vw, 48px);
+  padding: 20px 24px;
+  background: var(--c-em-light);
+  border-left: 2px solid var(--c-em);
+  border-radius: 0 var(--r) var(--r) 0;
+}
+
+.svcpage-note p {
+  font-size: 0.82rem;
+  color: var(--c-text-muted);
+  line-height: 1.85;
+}
+
+.svcpage-note p + p {
+  margin-top: 8px;
+}
+
+
+/* --------------------------------------------------
+   セクション内横区切り
+-------------------------------------------------- */
+.svcpage-inner-rule {
+  width: 100%;
+  height: 1px;
+  background: var(--c-border);
+  margin: clamp(36px, 5vw, 52px) 0;
+}
+
+
+/* --------------------------------------------------
+   CTAセクション（予約）
+-------------------------------------------------- */
+.svcpage-cta {
+  background: var(--c-white);
+  border-top: 1px solid var(--c-border);
+  padding-block: clamp(56px, 8vw, 88px);
+  text-align: center;
+}
+
+.svcpage-cta-label {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 0.68rem;
+  font-weight: 300;
+  letter-spacing: 0.32em;
+  color: var(--c-em);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.svcpage-cta-title {
+  font-family: var(--font-ja);
+  font-size: clamp(1.2rem, 3.5vw, 1.65rem);
+  font-weight: 300;
+  color: var(--c-text);
+  letter-spacing: 0.10em;
+  margin-bottom: 12px;
+}
+
+.svcpage-cta-rule {
+  width: 32px;
+  height: 1px;
+  background: var(--c-gold);
+  margin: 0 auto 24px;
+}
+
+.svcpage-cta-lead {
+  font-size: 0.88rem;
+  color: var(--c-text-muted);
+  line-height: 1.9;
+  margin-bottom: clamp(28px, 4vw, 40px);
+}
+
+.svcpage-cta-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.svcpage-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 32px;
+  font-family: var(--font-ja);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  border-radius: var(--r);
+  transition: transform var(--ease), box-shadow var(--ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .svcpage-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(44, 44, 44, 0.18);
+  }
+}
+
+.svcpage-cta-btn--web  { background: var(--c-em-dark); color: #fff; }
+.svcpage-cta-btn--line { background: var(--c-em);      color: #fff; }
+.svcpage-cta-btn--tel  {
+  border: 1.5px solid var(--c-em);
+  color: var(--c-em-dark);
+  background: var(--c-white);
+}
+
+
+/* --------------------------------------------------
+   戻るリンクセクション
+-------------------------------------------------- */
+.svcpage-back-section {
+  background: var(--c-ivory);
+  border-top: 1px solid var(--c-border);
+  padding-block: clamp(40px, 6vw, 60px);
+}
+
+.svcpage-back {
+  text-align: center;
+}
+
+
+/* --------------------------------------------------
+   スマホ対応 (max-width: 640px)
+-------------------------------------------------- */
+@media (max-width: 640px) {
+  /* ヒーロー */
+  .svcpage-breadcrumb {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  /* グリッドを1カラムに */
+  .svcpage-blocks--grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  /* グリッド崩し後も区切り線を復元 */
+  .svcpage-blocks--grid > .svcpage-block + .svcpage-block {
+    border-top: 1px solid var(--c-border);
+    padding-top: clamp(32px, 6vw, 48px);
+    margin-top: clamp(32px, 6vw, 48px);
+  }
+
+  /* CTA ボタン縦並び */
+  .svcpage-cta-btns {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    max-width: 320px;
+    margin-inline: auto;
+  }
+
+  .svcpage-cta-btn {
+    width: 100%;
+  }
+
+  /* 注意書き */
+  .svcpage-note {
+    padding: 16px 18px;
+  }
+}
