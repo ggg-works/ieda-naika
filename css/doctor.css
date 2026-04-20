@@ -1,5 +1,5 @@
 /* ========================================
-   doctor.css — 医師紹介個別ページ
+   doctor.css — 医師紹介個別ページ用スタイル
    ※ style.css のCSS変数を継承して使用
    ======================================== */
 
@@ -22,38 +22,36 @@
 }
 
 /* --------------------------------------------------
-   写真・名前・メッセージ（統合）
+   写真＋プロフィール＋メッセージ
 -------------------------------------------------- */
-.drpage-kv-section {
-  background: var(--c-ivory);
+.drpage-intro {
+  background: var(--c-white);
 }
 
-.drpage-kv {
+.drpage-intro-inner {
   display: flex;
   align-items: flex-start;
-  gap: clamp(48px, 7vw, 80px);
+  gap: clamp(40px, 6vw, 72px);
 }
 
-/* 写真 */
-.drpage-kv-photo {
+/* 写真エリア */
+.drpage-photo-wrap {
   flex-shrink: 0;
-  width: clamp(260px, 36vw, 420px);
+  width: clamp(260px, 32vw, 360px);
   position: relative;
 }
 
-.drpage-kv-photo img {
+.drpage-photo-wrap img {
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  object-position: top center;
+  object-position: top;
   display: block;
   border: 1px solid var(--c-border-em);
   border-radius: var(--r);
 }
 
-/* ゴールドの角飾り */
-.drpage-kv-photo::after {
-  content: "";
+.drpage-photo-deco {
   position: absolute;
   bottom: -8px;
   right: -8px;
@@ -65,27 +63,27 @@
   pointer-events: none;
 }
 
-/* 右カラム */
-.drpage-kv-body {
+/* プロフィール＋メッセージ */
+.drpage-intro-profile {
   flex: 1;
-  padding-top: clamp(16px, 3vw, 24px);
+  padding-top: 8px;
 }
 
 .drpage-role {
   font-size: 0.82rem;
   color: var(--c-em-dark);
   letter-spacing: 0.05em;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .drpage-name {
   font-family: var(--font-ja);
-  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  font-size: clamp(2rem, 4vw, 2.8rem);
   font-weight: 500;
   color: var(--c-text);
   letter-spacing: 0.10em;
-  line-height: 1.15;
-  margin-bottom: 10px;
+  line-height: 1.2;
+  margin-bottom: 8px;
 }
 
 .drpage-name-en {
@@ -93,59 +91,54 @@
   font-size: 0.82rem;
   font-weight: 300;
   color: var(--c-text-muted);
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
+  margin-bottom: 28px;
 }
 
-/* ゴールドのセパレーター */
 .drpage-sep {
   width: 40px;
   height: 1px;
   background: var(--c-gold);
-  margin: 28px 0 32px;
+  margin-bottom: 32px;
 }
 
-/* Message ラベル（section-label と同一スタイル） */
-.drpage-msg-label {
-  display: block;
-  font-family: var(--font-en);
-  font-size: 0.70rem;
-  font-weight: 300;
-  letter-spacing: 0.32em;
-  color: var(--c-em);
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-
-/* メッセージ本文 */
-.drpage-kv-message {
+.drpage-message {
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
 
-.drpage-kv-message p {
+.drpage-message p {
   font-size: 0.90rem;
   color: var(--c-text-muted);
   line-height: 2.0;
 }
 
 /* --------------------------------------------------
-   プロフィール
+   プロフィールセクション
 -------------------------------------------------- */
 .drpage-profile-section {
-  background: var(--c-white);
+  background: var(--c-ivory);
 }
 
-/* 小見出し共通 */
-.drpage-sub-head {
-  margin-bottom: 20px;
+/* 経歴（カードなし・全幅） */
+.drpage-career-plain {
+  margin-bottom: 60px;
 }
 
-.drpage-sub-head--mt {
-  margin-top: clamp(36px, 5vw, 48px);
+/* 2カラムグリッド（診療領域・専門領域・資格） */
+.drpage-scope-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 48px;
 }
 
-.drpage-sub-en {
+.drpage-scope-col + .drpage-scope-col {
+  border-left: 1px solid var(--c-border);
+  padding-left: 48px;
+}
+
+.drpage-col-en {
   display: block;
   font-family: var(--font-en);
   font-size: 0.65rem;
@@ -156,70 +149,30 @@
   margin-bottom: 4px;
 }
 
-.drpage-sub-title {
-  font-size: 0.94rem;
+.drpage-col-title {
+  font-family: var(--font-ja);
+  font-size: 0.92rem;
   font-weight: 500;
   color: var(--c-text);
   letter-spacing: 0.06em;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--c-border);
+  margin-bottom: 0;
 }
 
-/* 経歴ナンバードリスト */
-.drpage-timeline-wrap {
-  margin-bottom: clamp(48px, 6vw, 64px);
+.drpage-col-rule {
+  width: 24px;
+  height: 1px;
+  background: var(--c-em);
+  margin: 10px 0 18px;
 }
 
-.drpage-career-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  counter-reset: career;
-  border-top: 1px solid var(--c-border);
+.drpage-inner-rule {
+  width: 100%;
+  height: 1px;
+  background: var(--c-border);
+  margin: 32px 0;
 }
 
-.drpage-career-list li {
-  counter-increment: career;
-  display: grid;
-  grid-template-columns: 28px 1fr;
-  gap: 20px;
-  align-items: baseline;
-  padding: 15px 0;
-  border-bottom: 1px solid var(--c-border);
-  font-size: 0.88rem;
-  color: var(--c-text);
-  line-height: 1.65;
-}
-
-.drpage-career-list li::before {
-  content: counter(career, decimal-leading-zero);
-  font-family: var(--font-en);
-  font-size: 0.70rem;
-  font-weight: 300;
-  color: var(--c-em);
-  letter-spacing: 0.04em;
-}
-
-/* 最終行（院長就任）を際立たせる */
-.drpage-career-list li:last-child {
-  color: var(--c-em-dark);
-  font-weight: 500;
-}
-
-.drpage-career-list li:last-child::before {
-  color: var(--c-em-dark);
-}
-
-/* 2カラム情報グリッド */
-.drpage-info-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(32px, 5vw, 64px);
-  border-top: 1px solid var(--c-border);
-  padding-top: clamp(40px, 5vw, 56px);
-}
-
-.drpage-info-list {
+.drpage-plain-list {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -228,15 +181,15 @@
   gap: 10px;
 }
 
-.drpage-info-list li {
-  font-size: 0.88rem;
+.drpage-plain-list li {
+  font-size: 0.84rem;
   color: var(--c-text-muted);
   line-height: 1.7;
   padding-left: 14px;
   position: relative;
 }
 
-.drpage-info-list li::before {
+.drpage-plain-list li::before {
   content: "";
   position: absolute;
   left: 0;
@@ -246,40 +199,39 @@
   background: var(--c-em);
 }
 
+
 /* --------------------------------------------------
    戻るリンク
 -------------------------------------------------- */
 .drpage-back-section {
   background: var(--c-white);
-  padding: clamp(48px, 6vw, 72px) 0;
 }
 
 .drpage-back {
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 
 /* --------------------------------------------------
    スマホ対応
 -------------------------------------------------- */
 @media (max-width: 640px) {
-  .drpage-kv {
+  .drpage-intro-inner {
     flex-direction: column;
   }
 
-  .drpage-kv-photo {
+  .drpage-photo-wrap {
     width: 100%;
   }
 
-  .drpage-kv-photo::after {
-    display: none;
-  }
-
-  .drpage-kv-body {
-    padding-top: 0;
-  }
-
-  .drpage-info-grid {
+  .drpage-scope-grid {
     grid-template-columns: 1fr;
+  }
+
+  .drpage-scope-col + .drpage-scope-col {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid var(--c-border);
+    padding-top: 28px;
+    margin-top: 28px;
   }
 }

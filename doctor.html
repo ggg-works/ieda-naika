@@ -96,22 +96,22 @@
       </div>
     </section>
 
-    <!-- 2. 写真・名前・メッセージ（統合） -->
-    <section class="section drpage-kv-section">
+    <!-- 2. 写真＋プロフィール＋メッセージ -->
+    <section class="section drpage-intro">
       <div class="container">
-        <div class="drpage-kv">
+        <div class="drpage-intro-inner">
 
-          <div class="drpage-kv-photo">
+          <div class="drpage-photo-wrap">
             <img src="images/doctor-2.jpg" alt="院長 家田研人医師" loading="lazy" />
+            <span class="drpage-photo-deco" aria-hidden="true"></span>
           </div>
 
-          <div class="drpage-kv-body">
+          <div class="drpage-intro-profile">
             <p class="drpage-role">院長 / 内科・腎臓内科・総合内科</p>
             <h2 class="drpage-name">家田 研人</h2>
             <p class="drpage-name-en">Kento Ieda, M.D.</p>
             <div class="drpage-sep" aria-hidden="true"></div>
-            <span class="drpage-msg-label">Message</span>
-            <div class="drpage-kv-message">
+            <div class="drpage-message">
               <p>父である前院長より当院を継承し、これまで大切にしてきた地域医療の想いを引き継いでおります。春日井は高校までを過ごした私にとって大切な地元であり、この地域で暮らす皆さまの健康を守ることを使命として、日々診療にあたっています。</p>
               <p>これまで病院勤務では、腎臓内科および総合内科を専門に診療してまいりました。腎臓は全身の健康と密接に関わる臓器であり、その診療経験を基盤として、全身を総合的に診る内科医として研鑽を重ねてまいりました。</p>
               <p>患者さま一人ひとりに寄り添い、やさしさを大切にしながら、ていねいでわかりやすい診療を心がけてまいります。どうぞ安心してご相談ください。</p>
@@ -122,40 +122,38 @@
       </div>
     </section>
 
-    <!-- 4. プロフィール -->
+    <!-- 3. プロフィール -->
     <section class="section drpage-profile-section">
       <div class="container">
-
         <div class="section-head">
           <span class="section-label">Profile</span>
           <h2 class="section-title">プロフィール</h2>
         </div>
 
-        <!-- 経歴タイムライン -->
-        <div class="drpage-timeline-wrap">
-          <div class="drpage-sub-head">
-            <span class="drpage-sub-en">Career</span>
-            <h3 class="drpage-sub-title">経歴</h3>
-          </div>
-          <ol class="drpage-career-list">
+        <!-- 経歴 -->
+        <div class="drpage-career-plain">
+          <span class="drpage-col-en">Career</span>
+          <h3 class="drpage-col-title">経歴</h3>
+          <div class="drpage-col-rule" aria-hidden="true"></div>
+          <ul class="drpage-plain-list">
             <li>福岡大学医学部医学科　卒業</li>
             <li>名古屋市立東部医療センター（現　名古屋市立大学医学部附属東部医療センター）　勤務</li>
             <li>名古屋市立大学医学部附属西部医療センター　勤務</li>
             <li>愛知厚生連足助病院　勤務</li>
             <li>地域医療振興協会あま市民病院　勤務</li>
             <li>家田内科　院長就任</li>
-          </ol>
+          </ul>
         </div>
 
-        <!-- 2カラム：診療領域 / 専門領域＋資格 -->
-        <div class="drpage-info-grid">
+        <!-- 診療領域・専門領域・資格：2カラム -->
+        <div class="drpage-scope-grid">
 
-          <div class="drpage-info-col">
-            <div class="drpage-sub-head">
-              <span class="drpage-sub-en">Scope</span>
-              <h3 class="drpage-sub-title">診療領域</h3>
-            </div>
-            <ul class="drpage-info-list">
+          <!-- 左：診療領域 -->
+          <div class="drpage-scope-col">
+            <span class="drpage-col-en">Scope</span>
+            <h3 class="drpage-col-title">診療領域</h3>
+            <div class="drpage-col-rule" aria-hidden="true"></div>
+            <ul class="drpage-plain-list">
               <li>一般内科（発熱・かぜ・腹痛・頭痛など）</li>
               <li>生活習慣病（高血圧・糖尿病・脂質異常症など）</li>
               <li>腎臓疾患（慢性腎臓病・腎機能低下・検尿異常など）</li>
@@ -163,20 +161,22 @@
             </ul>
           </div>
 
-          <div class="drpage-info-col">
-            <div class="drpage-sub-head">
-              <span class="drpage-sub-en">Specialty</span>
-              <h3 class="drpage-sub-title">専門領域</h3>
-            </div>
-            <ul class="drpage-info-list">
+          <!-- 右：専門領域＋資格 -->
+          <div class="drpage-scope-col">
+            <span class="drpage-col-en">Specialty</span>
+            <h3 class="drpage-col-title">専門領域</h3>
+            <div class="drpage-col-rule" aria-hidden="true"></div>
+            <ul class="drpage-plain-list">
               <li>腎臓内科</li>
               <li>総合内科</li>
             </ul>
-            <div class="drpage-sub-head drpage-sub-head--mt">
-              <span class="drpage-sub-en">Qualifications</span>
-              <h3 class="drpage-sub-title">資格・所属学会</h3>
-            </div>
-            <ul class="drpage-info-list">
+
+            <div class="drpage-inner-rule" aria-hidden="true"></div>
+
+            <span class="drpage-col-en">Qualifications</span>
+            <h3 class="drpage-col-title">資格・所属学会</h3>
+            <div class="drpage-col-rule" aria-hidden="true"></div>
+            <ul class="drpage-plain-list">
               <li>内科専門医（日本専門医機構認定）</li>
               <li>腎臓専門医（日本専門医機構認定）</li>
               <li>難病指定医</li>
@@ -186,12 +186,11 @@
           </div>
 
         </div>
-
       </div>
     </section>
 
     <!-- 5. 戻るリンク -->
-    <section class="drpage-back-section">
+    <section class="section drpage-back-section">
       <div class="container">
         <div class="drpage-back">
           <a class="lux-link" href="index.html">
