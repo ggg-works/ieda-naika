@@ -1,5 +1,5 @@
 /* ========================================
-   doctor.css — 医師紹介個別ページ用スタイル
+   doctor.css — 医師紹介個別ページ
    ※ style.css のCSS変数を継承して使用
    ======================================== */
 
@@ -22,19 +22,19 @@
 }
 
 /* --------------------------------------------------
-   写真＋プロフィール＋メッセージ
+   写真＋プロフィール
 -------------------------------------------------- */
-.drpage-intro {
-  background: var(--c-white);
+.drpage-intro-section {
+  background: var(--c-ivory);
 }
 
-.drpage-intro-inner {
+.drpage-intro {
   display: flex;
   align-items: flex-start;
   gap: clamp(40px, 6vw, 72px);
 }
 
-/* 写真エリア */
+/* 写真 */
 .drpage-photo-wrap {
   flex-shrink: 0;
   width: clamp(260px, 32vw, 360px);
@@ -45,13 +45,15 @@
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  object-position: top;
+  object-position: top center;
   display: block;
   border: 1px solid var(--c-border-em);
   border-radius: var(--r);
 }
 
-.drpage-photo-deco {
+/* ゴールドの角飾り */
+.drpage-photo-wrap::after {
+  content: "";
   position: absolute;
   bottom: -8px;
   right: -8px;
@@ -63,27 +65,27 @@
   pointer-events: none;
 }
 
-/* プロフィール＋メッセージ */
-.drpage-intro-profile {
+/* プロフィール */
+.drpage-profile {
   flex: 1;
-  padding-top: 8px;
+  padding-top: clamp(20px, 3vw, 36px);
 }
 
 .drpage-role {
   font-size: 0.82rem;
   color: var(--c-em-dark);
   letter-spacing: 0.05em;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .drpage-name {
   font-family: var(--font-ja);
-  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
   font-weight: 500;
   color: var(--c-text);
   letter-spacing: 0.10em;
-  line-height: 1.2;
-  margin-bottom: 8px;
+  line-height: 1.15;
+  margin-bottom: 10px;
 }
 
 .drpage-name-en {
@@ -91,43 +93,64 @@
   font-size: 0.82rem;
   font-weight: 300;
   color: var(--c-text-muted);
-  letter-spacing: 0.12em;
-  margin-bottom: 28px;
+  letter-spacing: 0.14em;
+  margin-bottom: 32px;
 }
 
 .drpage-sep {
   width: 40px;
   height: 1px;
   background: var(--c-gold);
-  margin-bottom: 32px;
-}
-
-.drpage-message {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.drpage-message p {
-  font-size: 0.90rem;
-  color: var(--c-text-muted);
-  line-height: 2.0;
 }
 
 /* --------------------------------------------------
-   プロフィールカード（philosophy-card を流用）
+   メッセージ
+-------------------------------------------------- */
+.drpage-message-section {
+  background: var(--c-white);
+}
+
+/* section-head を左寄せに上書き */
+.drpage-head-left {
+  text-align: left;
+  margin-bottom: clamp(28px, 4vw, 40px);
+}
+
+.drpage-head-left .section-title::after {
+  left: 0;
+  transform: none;
+}
+
+.drpage-message-body {
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.drpage-message-body p {
+  font-size: 0.92rem;
+  color: var(--c-text);
+  line-height: 2.1;
+}
+
+/* --------------------------------------------------
+   プロフィール
 -------------------------------------------------- */
 .drpage-profile-section {
   background: var(--c-ivory);
 }
 
-.drpage-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+/* 小見出し共通 */
+.drpage-sub-head {
+  margin-bottom: 20px;
 }
 
-.drpage-card-en {
+.drpage-sub-head--mt {
+  margin-top: clamp(36px, 5vw, 48px);
+}
+
+.drpage-sub-en {
   display: block;
   font-family: var(--font-en);
   font-size: 0.65rem;
@@ -135,10 +158,74 @@
   letter-spacing: 0.28em;
   color: var(--c-em);
   text-transform: uppercase;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
-.drpage-card-list {
+.drpage-sub-title {
+  font-size: 0.94rem;
+  font-weight: 500;
+  color: var(--c-text);
+  letter-spacing: 0.06em;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--c-border);
+}
+
+/* 経歴リスト */
+.drpage-timeline-wrap {
+  margin-bottom: clamp(48px, 6vw, 64px);
+}
+
+.drpage-career-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: career;
+  border-top: 1px solid var(--c-border);
+}
+
+.drpage-career-list li {
+  counter-increment: career;
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 20px;
+  align-items: baseline;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--c-border);
+  font-size: 0.88rem;
+  color: var(--c-text);
+  line-height: 1.65;
+}
+
+/* 番号 */
+.drpage-career-list li::before {
+  content: counter(career, decimal-leading-zero);
+  font-family: var(--font-en);
+  font-size: 0.70rem;
+  font-weight: 300;
+  color: var(--c-em);
+  letter-spacing: 0.04em;
+}
+
+/* 最終行（院長就任）を際立たせる */
+.drpage-career-list li:last-child {
+  color: var(--c-em-dark);
+  font-weight: 500;
+}
+
+.drpage-career-list li:last-child::before {
+  color: var(--c-em-dark);
+}
+
+/* 2カラム情報グリッド */
+.drpage-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 5vw, 64px);
+  border-top: 1px solid var(--c-border);
+  padding-top: clamp(40px, 5vw, 56px);
+}
+
+.drpage-info-list {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -147,15 +234,15 @@
   gap: 10px;
 }
 
-.drpage-card-list li {
-  font-size: 0.84rem;
+.drpage-info-list li {
+  font-size: 0.88rem;
   color: var(--c-text-muted);
   line-height: 1.7;
   padding-left: 14px;
   position: relative;
 }
 
-.drpage-card-list li::before {
+.drpage-info-list li::before {
   content: "";
   position: absolute;
   left: 0;
@@ -170,25 +257,32 @@
 -------------------------------------------------- */
 .drpage-back-section {
   background: var(--c-white);
+  padding: clamp(48px, 6vw, 72px) 0;
 }
 
 .drpage-back {
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 /* --------------------------------------------------
    スマホ対応
 -------------------------------------------------- */
 @media (max-width: 640px) {
-  .drpage-intro-inner {
+  .drpage-intro {
     flex-direction: column;
+    align-items: stretch;
   }
 
   .drpage-photo-wrap {
     width: 100%;
   }
 
-  .drpage-cards {
+  .drpage-profile {
+    padding-top: 24px;
+  }
+
+  .drpage-info-grid {
     grid-template-columns: 1fr;
   }
 }
