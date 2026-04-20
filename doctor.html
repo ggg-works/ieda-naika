@@ -22,6 +22,7 @@
 
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/doctor.css" />
+  <link rel="stylesheet" href="css/services-common.css" />
 </head>
 
 <body id="top">
@@ -89,8 +90,13 @@
   <main>
 
     <!-- 1. ページヘッダー -->
-    <section class="drpage-page-hero">
+    <section class="drpage-page-hero" aria-label="医師紹介 ページ見出し">
       <div class="container">
+        <nav class="svcpage-breadcrumb" aria-label="パンくずリスト">
+          <a href="index.html">ホーム</a>
+          <span class="svcpage-breadcrumb-sep" aria-hidden="true">›</span>
+          <span aria-current="page">医師紹介</span>
+        </nav>
         <span class="section-label">Doctor</span>
         <h1 class="drpage-page-title">医師紹介</h1>
       </div>
