@@ -178,7 +178,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
         const midpoint   = (headBottom + detailsTop) / 2;
         window.scrollTo({ top: midpoint - headerH, behavior: 'smooth' });
 
-        if (anchor.matches('.hbtn--line, .fixed-btn--line, .drawer-btn--line')) {
+        if (anchor.matches('.hbtn--line, .fixed-btn--line, .drawer-btn--em')) {
           let fired = false;
           let scrollTimer;
 
