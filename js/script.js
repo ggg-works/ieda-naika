@@ -178,7 +178,10 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
         const midpoint   = (headBottom + detailsTop) / 2;
         window.scrollTo({ top: midpoint - headerH, behavior: 'smooth' });
 
-        if (anchor.matches('.hbtn--line, .fixed-btn--line, .drawer-btn--em')) {
+        const isLine = anchor.matches('.hbtn--line, .fixed-btn--line, .drawer-btn--em');
+        const isWeb  = anchor.matches('.hbtn--web,  .fixed-btn--web,  .drawer-btn--gold');
+
+        if (isLine || isWeb) {
           let fired = false;
           let scrollTimer;
 
@@ -186,7 +189,8 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
             if (fired) return;
             fired = true;
             window.removeEventListener('scroll', onScroll);
-            const card = document.querySelector('.reserve-cards .reserve-card');
+            const cards = document.querySelectorAll('.reserve-cards .reserve-card');
+            const card  = isLine ? cards[0] : cards[1];
             if (!card) return;
             card.classList.add('is-highlight');
             card.addEventListener('animationend', () => card.classList.remove('is-highlight'), { once: true });
