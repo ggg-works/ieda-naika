@@ -234,14 +234,16 @@ const absoluteTop = el => {
   const LINE_SEL = '.hbtn--line, .fixed-btn--line, .drawer-btn--em';
   const WEB_SEL  = '.hbtn--web,  .fixed-btn--web,  .drawer-btn--gold';
 
-  // 【送信側】index.html 以外のページ：ボタンクリック時にタイプを記録
-  // ブラウザの通常遷移（index.html#reserve）に任せてレイアウトを安定させる
+  // 【送信側】index.html 以外のページ：タイプを記録しハッシュなしで遷移
+  // （ブラウザの #reserve スムーズスクロールとの衝突を防ぐ）
   $$(`${LINE_SEL}, ${WEB_SEL}`).forEach(btn => {
     const href = btn.getAttribute('href') || '';
     if (!href.includes('index.html#reserve')) return;
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
       const type = btn.matches(LINE_SEL) ? 'line' : 'web';
       sessionStorage.setItem('reserveHighlight', type);
+      window.location.href = href.replace('#reserve', '');
     });
   });
 
@@ -253,9 +255,9 @@ const absoluteTop = el => {
   const section = document.getElementById('reserve');
   if (!section) return;
 
-  // ブラウザのハッシュスクロールが落ち着いてからmidpointを再計算して上書きする
-  window.addEventListener('load', () => {
-    setTimeout(() => {
+  // ハッシュなし遷移のためブラウザスクロールなし→fonts確定後に1回だけスムーズスクロール
+  document.fonts.ready.then(() => {
+    requestAnimationFrame(() => {
       const sectionHead    = section.querySelector('.section-head');
       const reserveDetails = section.querySelector('.reserve-details');
       const headerH = document.querySelector('.site-header')?.offsetHeight ?? 0;
@@ -287,6 +289,6 @@ const absoluteTop = el => {
 
       window.addEventListener('scroll', onScroll, { passive: true });
       setTimeout(highlight, 1800);
-    }, 400);
+    });
   });
 })();
