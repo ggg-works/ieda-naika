@@ -179,12 +179,26 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
         window.scrollTo({ top: midpoint - headerH, behavior: 'smooth' });
 
         if (anchor.matches('.hbtn--line, .fixed-btn--line, .drawer-btn--line')) {
-          setTimeout(() => {
+          let fired = false;
+          let scrollTimer;
+
+          const highlight = () => {
+            if (fired) return;
+            fired = true;
+            window.removeEventListener('scroll', onScroll);
             const card = document.querySelector('.reserve-cards .reserve-card');
             if (!card) return;
             card.classList.add('is-highlight');
             card.addEventListener('animationend', () => card.classList.remove('is-highlight'), { once: true });
-          }, 500);
+          };
+
+          const onScroll = () => {
+            clearTimeout(scrollTimer);
+            scrollTimer = setTimeout(highlight, 150);
+          };
+
+          window.addEventListener('scroll', onScroll, { passive: true });
+          setTimeout(highlight, 1800);
         }
 
         return;
