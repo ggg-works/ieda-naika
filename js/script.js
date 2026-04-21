@@ -10,6 +10,13 @@
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
+// スクロール位置に依存しない絶対Y座標（offsetParent チェーン累積）
+const absoluteTop = el => {
+  let y = 0;
+  while (el) { y += el.offsetTop; el = el.offsetParent; }
+  return y;
+};
+
 
 /* ============================================================
    ヘッダー：スクロールで影を付与
@@ -173,8 +180,8 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
         const reserveDetails = section?.querySelector('.reserve-details');
         if (!section || !sectionHead || !reserveDetails) return;
         const headerH    = document.querySelector('.site-header')?.offsetHeight ?? 0;
-        const headBottom = sectionHead.getBoundingClientRect().bottom + window.scrollY;
-        const detailsTop = reserveDetails.getBoundingClientRect().top  + window.scrollY;
+        const headBottom = absoluteTop(sectionHead) + sectionHead.offsetHeight;
+        const detailsTop = absoluteTop(reserveDetails);
         const midpoint   = (headBottom + detailsTop) / 2;
         window.scrollTo({ top: midpoint - headerH, behavior: 'smooth' });
 
@@ -227,16 +234,14 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   const LINE_SEL = '.hbtn--line, .fixed-btn--line, .drawer-btn--em';
   const WEB_SEL  = '.hbtn--web,  .fixed-btn--web,  .drawer-btn--gold';
 
-  // 【送信側】index.html 以外のページ：ボタンクリック時にタイプを記録し
-  // ハッシュなしで index.html へ遷移（ブラウザのハッシュスクロールを回避）
+  // 【送信側】index.html 以外のページ：ボタンクリック時にタイプを記録
+  // ブラウザの通常遷移（index.html#reserve）に任せてレイアウトを安定させる
   $$(`${LINE_SEL}, ${WEB_SEL}`).forEach(btn => {
     const href = btn.getAttribute('href') || '';
     if (!href.includes('index.html#reserve')) return;
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
+    btn.addEventListener('click', () => {
       const type = btn.matches(LINE_SEL) ? 'line' : 'web';
       sessionStorage.setItem('reserveHighlight', type);
-      window.location.href = href.replace('#reserve', '');
     });
   });
 
@@ -248,38 +253,40 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   const section = document.getElementById('reserve');
   if (!section) return;
 
+  // ブラウザのハッシュスクロールが落ち着いてからmidpointを再計算して上書きする
   window.addEventListener('load', () => {
-    const sectionHead    = section.querySelector('.section-head');
-    const reserveDetails = section.querySelector('.reserve-details');
-    const headerH = document.querySelector('.site-header')?.offsetHeight ?? 0;
+    setTimeout(() => {
+      const sectionHead    = section.querySelector('.section-head');
+      const reserveDetails = section.querySelector('.reserve-details');
+      const headerH = document.querySelector('.site-header')?.offsetHeight ?? 0;
+      if (!sectionHead || !reserveDetails) return;
 
-    if (sectionHead && reserveDetails) {
-      const headBottom = sectionHead.getBoundingClientRect().bottom + window.scrollY;
-      const detailsTop = reserveDetails.getBoundingClientRect().top  + window.scrollY;
+      const headBottom = absoluteTop(sectionHead) + sectionHead.offsetHeight;
+      const detailsTop = absoluteTop(reserveDetails);
       const midpoint   = (headBottom + detailsTop) / 2;
       window.scrollTo({ top: midpoint - headerH, behavior: 'smooth' });
-    }
 
-    let fired = false;
-    let scrollTimer;
+      let fired = false;
+      let scrollTimer;
 
-    const highlight = () => {
-      if (fired) return;
-      fired = true;
-      window.removeEventListener('scroll', onScroll);
-      const cards = document.querySelectorAll('.reserve-cards .reserve-card');
-      const card  = pending === 'line' ? cards[0] : cards[1];
-      if (!card) return;
-      card.classList.add('is-highlight');
-      card.addEventListener('animationend', () => card.classList.remove('is-highlight'), { once: true });
-    };
+      const highlight = () => {
+        if (fired) return;
+        fired = true;
+        window.removeEventListener('scroll', onScroll);
+        const cards = document.querySelectorAll('.reserve-cards .reserve-card');
+        const card  = pending === 'line' ? cards[0] : cards[1];
+        if (!card) return;
+        card.classList.add('is-highlight');
+        card.addEventListener('animationend', () => card.classList.remove('is-highlight'), { once: true });
+      };
 
-    const onScroll = () => {
-      clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(highlight, 150);
-    };
+      const onScroll = () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(highlight, 150);
+      };
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-    setTimeout(highlight, 1800);
+      window.addEventListener('scroll', onScroll, { passive: true });
+      setTimeout(highlight, 1800);
+    }, 400);
   });
 })();
