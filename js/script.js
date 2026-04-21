@@ -177,6 +177,16 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
         const detailsTop = reserveDetails.getBoundingClientRect().top  + window.scrollY;
         const midpoint   = (headBottom + detailsTop) / 2;
         window.scrollTo({ top: midpoint - headerH, behavior: 'smooth' });
+
+        if (anchor.matches('.hbtn--line, .fixed-btn--line, .drawer-btn--line')) {
+          setTimeout(() => {
+            const card = document.querySelector('.reserve-cards .reserve-card');
+            if (!card) return;
+            card.classList.add('is-highlight');
+            card.addEventListener('animationend', () => card.classList.remove('is-highlight'), { once: true });
+          }, 500);
+        }
+
         return;
       }
 
