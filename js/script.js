@@ -231,8 +231,8 @@ const absoluteTop = el => {
    sessionStorage 経由で引き渡す
    ============================================================ */
 (function initCrossPageReserveHighlight() {
-  const LINE_SEL = '.hbtn--line, .fixed-btn--line, .drawer-btn--em';
-  const WEB_SEL  = '.hbtn--web,  .fixed-btn--web,  .drawer-btn--gold';
+  const LINE_SEL = '.hbtn--line, .fixed-btn--line, .drawer-btn--em, .svcpage-cta-btn--line';
+  const WEB_SEL  = '.hbtn--web,  .fixed-btn--web,  .drawer-btn--gold, .svcpage-cta-btn--web';
 
   // 【送信側】index.html 以外のページ：タイプを記録しハッシュなしで遷移
   // （ブラウザの #reserve スムーズスクロールとの衝突を防ぐ）
