@@ -1241,10 +1241,11 @@ address { font-style:normal; }
 
 /* details 開閉 */
 .reserve-details {
-  border: 1px solid var(--c-border);
+  border: 1px solid var(--c-border-em);
+  border-left: 3px solid var(--c-em);
   border-radius: var(--r);
   margin-bottom: 36px;
-  background: var(--c-white);
+  background: #F4FBFB;
   overflow: hidden;
 }
 
@@ -1264,10 +1265,10 @@ address { font-style:normal; }
 }
 
 .reserve-summary-text {
-  font-size: 0.87rem;
-  font-weight: 500;
+  font-size: 0.92rem;
+  font-weight: 600;
   letter-spacing: 0.06em;
-  color: var(--c-text);
+  color: var(--c-em-dark);
 }
 
 /* ›丸アイコン（news-expandと統一） */
