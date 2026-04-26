@@ -231,10 +231,10 @@ const absoluteTop = el => {
 (function initReserveDetailModal() {
 
   const METHOD_COLORS = {
-    'LINE予約':  '#06B100',
+    'LINE予約':  '#2ABFBF',
     'WEB予約':   '#0E8080',
-    '電話予約':  '#9A7A22',
-    '窓口受付':  '#6B7280',
+    '電話予約':  '#4A7FA8',
+    '窓口受付':  '#6B8C8C',
   };
 
   const METHOD_SHORT = {
@@ -244,8 +244,8 @@ const absoluteTop = el => {
     '窓口受付': '窓口',
   };
 
-  const STATUS_SYMBOL = { ok: '✓', cond: '△', ng: '✕' };
-  const STATUS_LABEL  = { ok: '✓ 対応', cond: '△ 条件あり', ng: '✕ 非対応' };
+  const STATUS_SYMBOL = { ok: '○', cond: '△', ng: '×' };
+  const STATUS_LABEL  = { ok: '○ 対応', cond: '△ 条件あり', ng: '× 非対応' };
 
   const MENUS = [
     {
@@ -258,10 +258,11 @@ const absoluteTop = el => {
       ],
       notice: '初診の方もお気軽にご予約ください。',
       condNotices: [],
-      ctaLead: 'WEB予約またはLINEからどうぞ',
+      ctaLead: '以下ボタンよりお進みください',
       actions: [
-        { label: 'WEB予約はこちら', primary: true,  url: 'https://ieda-naika.reserve.ne.jp' },
-        { label: 'LINEで予約する',  primary: false, url: 'https://line.me/R/ti/p/@986eslhe' },
+        { label: 'LINE予約', type: 'line', url: 'https://line.me/R/ti/p/@986eslhe' },
+        { label: 'WEB予約',  type: 'web',  url: 'https://ieda-naika.reserve.ne.jp' },
+        { label: '電話',     type: 'tel',  url: 'tel:0568-82-4118' },
       ],
       telNote: '',
     },
@@ -277,12 +278,13 @@ const absoluteTop = el => {
       condNotices: [
         { text: '特定健診・がん検診のLINE予約は、健診メニューをお選びのうえLINEチャットでご希望日をお知らせください。' },
       ],
-      ctaLead: 'まずはWEB予約またはLINEからどうぞ',
+      ctaLead: '以下ボタンよりお進みください',
       actions: [
-        { label: 'WEB予約はこちら', primary: true,  url: 'https://ieda-naika.reserve.ne.jp' },
-        { label: 'LINEで相談する',  primary: false, url: 'https://line.me/R/ti/p/@986eslhe' },
+        { label: 'LINE予約', type: 'line', url: 'https://line.me/R/ti/p/@986eslhe' },
+        { label: 'WEB予約',  type: 'web',  url: 'https://ieda-naika.reserve.ne.jp' },
+        { label: '電話',     type: 'tel',  url: 'tel:0568-82-4118' },
       ],
-      telNote: 'メニューや助成の詳細はLINEチャットでもご確認いただけます',
+      telNote: '',
     },
     {
       id: 'kigyou', color: '#B89840', name: '企業健診',
@@ -296,12 +298,13 @@ const absoluteTop = el => {
       condNotices: [
         { text: '団体健診のご依頼・特殊な健診項目についてはLINEチャットでご相談ください。' },
       ],
-      ctaLead: 'WEB予約またはLINEからどうぞ',
+      ctaLead: '以下ボタンよりお進みください',
       actions: [
-        { label: 'WEB予約はこちら', primary: true,  url: 'https://ieda-naika.reserve.ne.jp' },
-        { label: 'LINEで相談する',  primary: false, url: 'https://line.me/R/ti/p/@986eslhe' },
+        { label: 'LINE予約', type: 'line', url: 'https://line.me/R/ti/p/@986eslhe' },
+        { label: 'WEB予約',  type: 'web',  url: 'https://ieda-naika.reserve.ne.jp' },
+        { label: '電話',     type: 'tel',  url: 'tel:0568-82-4118' },
       ],
-      telNote: '個別のご相談はLINEチャットでも承ります',
+      telNote: '',
     },
     {
       id: 'jiyuu', color: '#7B6FA8', name: '自由診療',
@@ -313,10 +316,10 @@ const absoluteTop = el => {
       ],
       notice: '保険外診療のため費用は全額自己負担となります。予約はLINEまたはWEBをご利用ください。',
       condNotices: [],
-      ctaLead: 'WEB予約またはLINEからどうぞ',
+      ctaLead: '以下ボタンよりお進みください',
       actions: [
-        { label: 'WEB予約はこちら', primary: true,  url: 'https://ieda-naika.reserve.ne.jp' },
-        { label: 'LINEで予約する',  primary: false, url: 'https://line.me/R/ti/p/@986eslhe' },
+        { label: 'LINE予約', type: 'line', url: 'https://line.me/R/ti/p/@986eslhe' },
+        { label: 'WEB予約',  type: 'web',  url: 'https://ieda-naika.reserve.ne.jp' },
       ],
       telNote: '',
     },
@@ -330,10 +333,10 @@ const absoluteTop = el => {
       ],
       notice: 'ワクチン接種はすべてオンライン予約制です。在庫状況によりご希望に添えない場合はご連絡いたします。',
       condNotices: [],
-      ctaLead: 'WEB予約またはLINEからどうぞ',
+      ctaLead: '以下ボタンよりお進みください',
       actions: [
-        { label: 'WEB予約はこちら', primary: true,  url: 'https://ieda-naika.reserve.ne.jp' },
-        { label: 'LINEで予約する',  primary: false, url: 'https://line.me/R/ti/p/@986eslhe' },
+        { label: 'LINE予約', type: 'line', url: 'https://line.me/R/ti/p/@986eslhe' },
+        { label: 'WEB予約',  type: 'web',  url: 'https://ieda-naika.reserve.ne.jp' },
       ],
       telNote: '',
     },
@@ -406,9 +409,10 @@ const absoluteTop = el => {
       ? `<p class="rdm-tel-note">${menu.telNote}</p>`
       : '';
 
-    const actionsHtml = menu.actions.map(a =>
-      `<a class="rdm-cta-a ${a.primary ? 'rdm-cta-a--primary' : 'rdm-cta-a--secondary'}" href="${a.url}" target="_blank" rel="noopener noreferrer">${a.label}</a>`
-    ).join('');
+    const actionsHtml = menu.actions.map(a => {
+      const external = a.type !== 'tel' ? ' target="_blank" rel="noopener noreferrer"' : '';
+      return `<a class="rdm-cta-a rdm-cta-a--${a.type}" href="${a.url}"${external}>${a.label}</a>`;
+    }).join('');
 
     modalBd.innerHTML = `
       <ul class="rdm-mcards">${methodCardsHtml}</ul>

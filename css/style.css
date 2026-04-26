@@ -1968,20 +1968,23 @@ address { font-style:normal; }
 .rdm-badge {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 2px;
-  padding: 2px 7px;
+  padding: 0 4px;
+  min-width: 62px;
+  height: 22px;
   border-radius: 4px;
   font-size: 0.67rem;
   font-weight: 500;
   white-space: nowrap;
   color: #fff;
-  line-height: 1.5;
+  line-height: 1;
+  box-sizing: border-box;
 }
 
 .rdm-badge--ng {
-  background: #e5e7eb !important;
+  background: #e5e7eb;
   color: #9ca3af;
-  text-decoration: line-through;
   opacity: 0.75;
 }
 
@@ -2220,20 +2223,27 @@ address { font-style:normal; }
   text-decoration: none;
   transition: background-color var(--ease), color var(--ease);
 }
-.rdm-cta-a--primary {
+.rdm-cta-a--web {
   background: var(--c-em-dark);
   color: #fff;
 }
 @media (hover: hover) and (pointer: fine) {
-  .rdm-cta-a--primary:hover { background: #067070; }
+  .rdm-cta-a--web:hover { background: #067070; }
 }
-.rdm-cta-a--secondary {
-  background: var(--c-white);
-  color: var(--c-em-dark);
-  border: 1px solid var(--c-em-dark);
+.rdm-cta-a--line {
+  background: var(--c-em);
+  color: #fff;
 }
 @media (hover: hover) and (pointer: fine) {
-  .rdm-cta-a--secondary:hover { background: var(--c-em-light); }
+  .rdm-cta-a--line:hover { background: var(--c-em-dark); }
+}
+.rdm-cta-a--tel {
+  background: var(--c-white);
+  color: var(--c-em-dark);
+  border: 1.5px solid var(--c-em);
+}
+@media (hover: hover) and (pointer: fine) {
+  .rdm-cta-a--tel:hover { background: var(--c-em-light); }
 }
 
 .rdm-tel-note {
