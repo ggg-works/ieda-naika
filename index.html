@@ -560,27 +560,8 @@
             <span class="reserve-summary-icon" aria-hidden="true"></span>
           </summary>
           <div class="reserve-details-body">
-            <div class="reserve-table-wrap">
-            <div class="reserve-table-scroll">
-              <table class="reserve-table" aria-label="診療ごとの予約方法">
-                <thead>
-                  <tr>
-                    <th>診療内容</th>
-                    <th>オンライン<br><span class="th-sub">（LINE / WEB）</span></th>
-                    <th>電話 / 窓口</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><th>一般診療</th><td>◯（当日〜3ヶ月）</td><td>◯（当日）</td></tr>
-                  <tr><th>特定健診・がん検診（春日井市）</th><td>◯（2週間〜3ヶ月）</td><td>◯（2週間〜3ヶ月）</td></tr>
-                  <tr><th>企業健診</th><td>◯（〜3ヶ月）</td><td>◯</td></tr>
-                  <tr><th>自由診療</th><td>◯</td><td>×</td></tr>
-                  <tr><th>ワクチン</th><td>◯</td><td>×</td></tr>
-                </tbody>
-              </table>
-            </div>
-            </div>
-            <p class="reserve-table-note">※ ◯は予約可能、×は対応しておりません</p>
+            <ul class="rdm-list" id="rdmList" aria-label="診療ごとの予約方法一覧"></ul>
+            <p class="reserve-table-note">✓ 対応　△ 条件あり　✕ 非対応</p>
           </div>
         </details>
 
@@ -740,6 +721,22 @@
     <a class="fixed-btn fixed-btn--line" href="#reserve">LINE予約</a>
     <a class="fixed-btn fixed-btn--web"  href="#reserve">WEB予約</a>
     <a class="fixed-btn fixed-btn--tel"  href="tel:0568-82-4118">電話</a>
+  </div>
+
+  <!-- 診療別予約方法モーダル -->
+  <div class="rdm-overlay" id="rdmOverlay" aria-hidden="true">
+    <div class="rdm-modal" role="dialog" aria-modal="true" aria-labelledby="rdmModalTitle">
+      <div class="rdm-modal-hd">
+        <span class="rdm-modal-dot" id="rdmModalDot"></span>
+        <h3 class="rdm-modal-title" id="rdmModalTitle"></h3>
+        <button class="rdm-modal-close" id="rdmModalClose" aria-label="閉じる">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M1 1l10 10M11 1L1 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="rdm-modal-bd" id="rdmModalBd"></div>
+    </div>
   </div>
 
   <script src="js/script.js" defer></script>

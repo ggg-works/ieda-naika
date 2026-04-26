@@ -226,6 +226,232 @@ const absoluteTop = el => {
 
 
 /* ============================================================
+   診療別予約方法：リスト生成 ＋ モーダル制御
+   ============================================================ */
+(function initReserveDetailModal() {
+
+  const METHOD_COLORS = {
+    'LINE予約':  '#06B100',
+    'WEB予約':   '#0E8080',
+    '電話予約':  '#9A7A22',
+    '窓口受付':  '#6B7280',
+  };
+
+  const METHOD_SHORT = {
+    'LINE予約': 'LINE',
+    'WEB予約':  'WEB',
+    '電話予約': '電話',
+    '窓口受付': '窓口',
+  };
+
+  const STATUS_SYMBOL = { ok: '✓', cond: '△', ng: '✕' };
+  const STATUS_LABEL  = { ok: '✓ 対応', cond: '△ 条件あり', ng: '✕ 非対応' };
+
+  const MENUS = [
+    {
+      id: 'ippan', color: '#2ABFBF', name: '一般診療',
+      methods: [
+        { name: 'LINE予約', s: 'ok',   time: '24時間',     period: '当日〜3ヶ月先' },
+        { name: 'WEB予約',  s: 'ok',   time: '24時間',     period: '当日〜3ヶ月先' },
+        { name: '電話予約', s: 'ok',   time: '診療時間内', period: '当日〜3ヶ月先' },
+        { name: '窓口受付', s: 'ok',   time: '診療時間内', period: '当日のみ' },
+      ],
+      notice: '初診の方もお気軽にご予約ください。',
+      condNotices: [],
+      ctaLead: 'WEB予約またはLINEからどうぞ',
+      actions: [
+        { label: 'WEB予約はこちら', primary: true,  url: 'https://ieda-naika.reserve.ne.jp' },
+        { label: 'LINEで予約する',  primary: false, url: 'https://line.me/R/ti/p/@986eslhe' },
+      ],
+      telNote: '',
+    },
+    {
+      id: 'kenshin', color: '#4A9B6A', name: '特定健診・がん検診',
+      methods: [
+        { name: 'LINE予約', s: 'cond', time: '24時間',     period: '2週間〜3ヶ月先' },
+        { name: 'WEB予約',  s: 'ok',   time: '24時間',     period: '2週間〜3ヶ月先' },
+        { name: '電話予約', s: 'ok',   time: '診療時間内', period: '2週間〜3ヶ月先' },
+        { name: '窓口受付', s: 'ok',   time: '診療時間内', period: '2週間〜3ヶ月先' },
+      ],
+      notice: '公費健診は実施期間・対象が定められています。詳細は受診時またはお問い合わせください。',
+      condNotices: [
+        { text: '特定健診・がん検診のLINE予約は、健診メニューをお選びのうえLINEチャットでご希望日をお知らせください。' },
+      ],
+      ctaLead: 'まずはWEB予約またはLINEからどうぞ',
+      actions: [
+        { label: 'WEB予約はこちら', primary: true,  url: 'https://ieda-naika.reserve.ne.jp' },
+        { label: 'LINEで相談する',  primary: false, url: 'https://line.me/R/ti/p/@986eslhe' },
+      ],
+      telNote: 'メニューや助成の詳細はLINEチャットでもご確認いただけます',
+    },
+    {
+      id: 'kigyou', color: '#B89840', name: '企業健診',
+      methods: [
+        { name: 'LINE予約', s: 'cond', time: '24時間',     period: '要相談' },
+        { name: 'WEB予約',  s: 'ok',   time: '24時間',     period: '〜3ヶ月先' },
+        { name: '電話予約', s: 'ok',   time: '診療時間内', period: '〜3ヶ月先' },
+        { name: '窓口受付', s: 'ok',   time: '診療時間内', period: '〜3ヶ月先' },
+      ],
+      notice: '企業・団体での健診にも対応しています。まずはお電話またはLINEにてご相談ください。',
+      condNotices: [
+        { text: '団体健診のご依頼・特殊な健診項目についてはLINEチャットでご相談ください。' },
+      ],
+      ctaLead: 'WEB予約またはLINEからどうぞ',
+      actions: [
+        { label: 'WEB予約はこちら', primary: true,  url: 'https://ieda-naika.reserve.ne.jp' },
+        { label: 'LINEで相談する',  primary: false, url: 'https://line.me/R/ti/p/@986eslhe' },
+      ],
+      telNote: '個別のご相談はLINEチャットでも承ります',
+    },
+    {
+      id: 'jiyuu', color: '#7B6FA8', name: '自由診療',
+      methods: [
+        { name: 'LINE予約', s: 'ok',   time: '24時間',     period: '〜2ヶ月先' },
+        { name: 'WEB予約',  s: 'ok',   time: '24時間',     period: '〜2ヶ月先' },
+        { name: '電話予約', s: 'ng',   time: '—',          period: '—' },
+        { name: '窓口受付', s: 'ng',   time: '—',          period: '—' },
+      ],
+      notice: '保険外診療のため費用は全額自己負担となります。予約はLINEまたはWEBをご利用ください。',
+      condNotices: [],
+      ctaLead: 'WEB予約またはLINEからどうぞ',
+      actions: [
+        { label: 'WEB予約はこちら', primary: true,  url: 'https://ieda-naika.reserve.ne.jp' },
+        { label: 'LINEで予約する',  primary: false, url: 'https://line.me/R/ti/p/@986eslhe' },
+      ],
+      telNote: '',
+    },
+    {
+      id: 'vaccine', color: '#2A7FA8', name: 'ワクチン・予防接種',
+      methods: [
+        { name: 'LINE予約', s: 'ok',   time: '24時間',     period: '〜2ヶ月先' },
+        { name: 'WEB予約',  s: 'ok',   time: '24時間',     period: '〜2ヶ月先' },
+        { name: '電話予約', s: 'ng',   time: '—',          period: '—' },
+        { name: '窓口受付', s: 'ng',   time: '—',          period: '—' },
+      ],
+      notice: 'ワクチン接種はすべてオンライン予約制です。在庫状況によりご希望に添えない場合はご連絡いたします。',
+      condNotices: [],
+      ctaLead: 'WEB予約またはLINEからどうぞ',
+      actions: [
+        { label: 'WEB予約はこちら', primary: true,  url: 'https://ieda-naika.reserve.ne.jp' },
+        { label: 'LINEで予約する',  primary: false, url: 'https://line.me/R/ti/p/@986eslhe' },
+      ],
+      telNote: '',
+    },
+  ];
+
+  /* --- リスト生成 --- */
+  const list = document.getElementById('rdmList');
+  if (!list) return;
+
+  MENUS.forEach(menu => {
+    const li = document.createElement('li');
+    li.className = 'rdm-row';
+
+    const badgesHtml = menu.methods.map(m => {
+      const isNg  = m.s === 'ng';
+      const style = isNg ? '' : `background:${METHOD_COLORS[m.name]};`;
+      return `<span class="rdm-badge rdm-badge--${m.s}" style="${style}">${METHOD_SHORT[m.name]} ${STATUS_SYMBOL[m.s]}</span>`;
+    }).join('');
+
+    li.innerHTML = `
+      <span class="rdm-dot" style="background:${menu.color}" aria-hidden="true"></span>
+      <span class="rdm-name">${menu.name}</span>
+      <span class="rdm-badges" aria-hidden="true">${badgesHtml}</span>
+      <button class="rdm-detail-btn" data-id="${menu.id}" aria-label="${menu.name}の予約方法を詳しく見る">詳細</button>
+    `;
+    list.appendChild(li);
+  });
+
+  /* --- モーダル制御 --- */
+  const overlay   = document.getElementById('rdmOverlay');
+  const modalDot  = document.getElementById('rdmModalDot');
+  const modalTitle = document.getElementById('rdmModalTitle');
+  const modalBd   = document.getElementById('rdmModalBd');
+  const closeBtn  = document.getElementById('rdmModalClose');
+  if (!overlay) return;
+
+  let lastFocused = null;
+
+  const openModal = (menuId) => {
+    const menu = MENUS.find(m => m.id === menuId);
+    if (!menu) return;
+
+    modalDot.style.background  = menu.color;
+    modalTitle.textContent = menu.name;
+
+    const hasCondition = menu.methods.some(m => m.s === 'cond') && menu.condNotices.length;
+
+    const methodCardsHtml = menu.methods.map(m => {
+      const color = m.s !== 'ng' ? METHOD_COLORS[m.name] : '';
+      return `
+        <li class="rdm-mcard ${m.s === 'ng' ? 'rdm-mcard--ng' : ''}">
+          <div class="rdm-mcard-left">
+            <span class="rdm-mcard-name"${color ? ` style="color:${color}"` : ''}>${m.name}</span>
+            <div class="rdm-mcard-meta">
+              <span>受付：${m.time}</span>
+              <span>予約期間：${m.period}</span>
+            </div>
+          </div>
+          <span class="rdm-mcard-status rdm-mcard-status--${m.s}">${STATUS_LABEL[m.s]}</span>
+        </li>`;
+    }).join('');
+
+    const condHtml = hasCondition ? `
+      <div class="rdm-cond-notice">
+        <span class="rdm-cond-badge">△ 条件あり</span>
+        ${menu.condNotices.map(n => `<p>${n.text}</p>`).join('')}
+      </div>` : '';
+
+    const telNoteHtml = menu.telNote
+      ? `<p class="rdm-tel-note">${menu.telNote}</p>`
+      : '';
+
+    const actionsHtml = menu.actions.map(a =>
+      `<a class="rdm-cta-a ${a.primary ? 'rdm-cta-a--primary' : 'rdm-cta-a--secondary'}" href="${a.url}" target="_blank" rel="noopener noreferrer">${a.label}</a>`
+    ).join('');
+
+    modalBd.innerHTML = `
+      <ul class="rdm-mcards">${methodCardsHtml}</ul>
+      <div class="rdm-notices">
+        <p class="rdm-notice">${menu.notice}</p>
+        ${condHtml}
+      </div>
+      <div class="rdm-cta">
+        <p class="rdm-cta-lead">${menu.ctaLead}</p>
+        <div class="rdm-cta-btns">${actionsHtml}</div>
+        ${telNoteHtml}
+      </div>`;
+
+    lastFocused = document.activeElement;
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  };
+
+  const closeModal = () => {
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocused) lastFocused.focus();
+  };
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('.rdm-detail-btn');
+    if (btn) openModal(btn.dataset.id);
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.getAttribute('aria-hidden') === 'false') closeModal();
+  });
+})();
+
+
+/* ============================================================
    予約ハイライト：クロスページ対応（doctor.html / service-*.html）
    index.html#reserve へ遷移する予約ボタンのハイライト意図を
    sessionStorage 経由で引き渡す

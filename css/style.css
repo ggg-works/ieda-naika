@@ -1897,3 +1897,347 @@ address { font-style:normal; }
   white-space: nowrap;
   border: 0;
 }
+
+
+/* ============================================================
+   診療別予約方法（Reserve Detail Modal）
+   ============================================================ */
+
+/* --- アコーディオン内リスト --- */
+.rdm-list {
+  padding-top: 12px;
+}
+
+.rdm-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--c-border);
+}
+.rdm-row:last-child { border-bottom: none; }
+
+.rdm-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  order: 1;
+}
+
+.rdm-name {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.88rem;
+  font-weight: 500;
+  order: 2;
+}
+
+.rdm-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  order: 4;
+  flex-basis: 100%;
+  padding-left: 20px;
+}
+
+.rdm-detail-btn {
+  order: 3;
+  flex-shrink: 0;
+  padding: 4px 11px;
+  font-size: 0.73rem;
+  font-weight: 500;
+  font-family: var(--font-ja);
+  background: var(--c-white);
+  color: var(--c-em-dark);
+  border: 1px solid var(--c-em-dark);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color var(--ease), color var(--ease);
+  line-height: 1.6;
+}
+@media (hover: hover) and (pointer: fine) {
+  .rdm-detail-btn:hover {
+    background: var(--c-em-dark);
+    color: #fff;
+  }
+}
+
+.rdm-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 0.67rem;
+  font-weight: 500;
+  white-space: nowrap;
+  color: #fff;
+  line-height: 1.5;
+}
+
+.rdm-badge--ng {
+  background: #e5e7eb !important;
+  color: #9ca3af;
+  text-decoration: line-through;
+  opacity: 0.75;
+}
+
+/* デスクトップ：バッジを詳細ボタンの左に並べる */
+@media (min-width: 560px) {
+  .rdm-badges {
+    flex-basis: auto;
+    order: 3;
+    padding-left: 0;
+  }
+  .rdm-detail-btn { order: 4; }
+}
+
+
+/* --- オーバーレイ --- */
+.rdm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.48);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.24s ease;
+}
+.rdm-overlay[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+.rdm-overlay[aria-hidden="false"] .rdm-modal {
+  transform: translateY(0);
+}
+
+
+/* --- モーダル本体 --- */
+.rdm-modal {
+  background: var(--c-white);
+  border-radius: 12px;
+  max-width: 520px;
+  width: 100%;
+  max-height: 90dvh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-md);
+  transform: translateY(14px);
+  transition: transform 0.24s ease;
+}
+
+.rdm-modal-hd {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 18px 14px;
+  border-bottom: 1px solid var(--c-border);
+  position: sticky;
+  top: 0;
+  background: var(--c-white);
+  z-index: 1;
+}
+
+.rdm-modal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.rdm-modal-title {
+  flex: 1;
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--c-text);
+}
+
+.rdm-modal-close {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: #efefef;
+  color: var(--c-text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--ease);
+}
+@media (hover: hover) and (pointer: fine) {
+  .rdm-modal-close:hover { background: var(--c-border-em); }
+}
+
+.rdm-modal-bd {
+  padding: 16px 18px 20px;
+}
+
+
+/* --- 予約方法カード --- */
+.rdm-mcards {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 14px;
+}
+
+.rdm-mcard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 13px;
+  background: var(--c-ivory);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r);
+}
+
+.rdm-mcard--ng {
+  opacity: 0.45;
+}
+
+.rdm-mcard-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.rdm-mcard-name {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.rdm-mcard-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  font-size: 0.71rem;
+  color: var(--c-text-muted);
+  line-height: 1.5;
+}
+
+.rdm-mcard-status {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.rdm-mcard-status--ok {
+  color: var(--c-em-dark);
+  background: var(--c-em-light);
+}
+.rdm-mcard-status--cond {
+  color: #fff;
+  background: #D97706;
+}
+.rdm-mcard-status--ng {
+  color: var(--c-text-muted);
+  background: #f3f4f6;
+}
+
+
+/* --- 注意書き --- */
+.rdm-notices {
+  padding: 11px 13px;
+  background: #F4FBFB;
+  border-left: 3px solid var(--c-border-em);
+  border-radius: 0 var(--r) var(--r) 0;
+  margin-bottom: 14px;
+}
+
+.rdm-notice {
+  font-size: 0.80rem;
+  color: var(--c-text-muted);
+  line-height: 1.75;
+}
+
+.rdm-cond-notice {
+  margin-top: 10px;
+  padding: 9px 11px;
+  background: #FFF7ED;
+  border: 1px solid #FED7AA;
+  border-radius: var(--r);
+}
+
+.rdm-cond-badge {
+  display: inline-block;
+  font-size: 0.70rem;
+  font-weight: 700;
+  color: #D97706;
+  background: #FEF3C7;
+  border-radius: 4px;
+  padding: 1px 6px;
+  margin-bottom: 5px;
+}
+
+.rdm-cond-notice p {
+  font-size: 0.80rem;
+  color: #92400E;
+  line-height: 1.7;
+}
+
+
+/* --- CTA --- */
+.rdm-cta {
+  padding-top: 14px;
+  border-top: 1px solid var(--c-border);
+}
+
+.rdm-cta-lead {
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--c-text);
+  margin-bottom: 10px;
+}
+
+.rdm-cta-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.rdm-cta-a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: var(--r);
+  font-size: 0.84rem;
+  font-weight: 500;
+  font-family: var(--font-ja);
+  text-decoration: none;
+  transition: background-color var(--ease), color var(--ease);
+}
+.rdm-cta-a--primary {
+  background: var(--c-em-dark);
+  color: #fff;
+}
+@media (hover: hover) and (pointer: fine) {
+  .rdm-cta-a--primary:hover { background: #067070; }
+}
+.rdm-cta-a--secondary {
+  background: var(--c-white);
+  color: var(--c-em-dark);
+  border: 1px solid var(--c-em-dark);
+}
+@media (hover: hover) and (pointer: fine) {
+  .rdm-cta-a--secondary:hover { background: var(--c-em-light); }
+}
+
+.rdm-tel-note {
+  font-size: 0.75rem;
+  color: var(--c-text-muted);
+  line-height: 1.65;
+}
