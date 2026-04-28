@@ -1154,6 +1154,8 @@ address { font-style:normal; }
   overflow: hidden;
 }
 
+.service-card[hidden] { display: none; }
+
 .service-card {
   display: flex;
   flex-direction: column;
