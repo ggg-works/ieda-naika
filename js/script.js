@@ -269,19 +269,15 @@ const absoluteTop = el => {
     {
       id: 'kenshin', color: '#4A9B6A', name: '特定健診・がん検診',
       methods: [
-        { name: 'LINE予約', s: 'cond', time: '24時間',     period: '2週間〜3ヶ月先' },
-        { name: 'WEB予約',  s: 'ok',   time: '24時間',     period: '2週間〜3ヶ月先' },
+        { name: 'LINE予約', s: 'ng',   time: '—',          period: '—' },
+        { name: 'WEB予約',  s: 'ng',   time: '—',          period: '—' },
         { name: '電話予約', s: 'ok',   time: '診療時間内', period: '2週間〜3ヶ月先' },
         { name: '窓口受付', s: 'ok',   time: '診療時間内', period: '2週間〜3ヶ月先' },
       ],
       notice: '公費健診は実施期間・対象が定められています。詳細は受診時またはお問い合わせください。',
-      condNotices: [
-        { text: '特定健診・がん検診のLINE予約は、健診メニューをお選びのうえLINEチャットでご希望日をお知らせください。' },
-      ],
-      ctaLead: '以下ボタンよりお進みください',
+      condNotices: [],
+      ctaLead: 'お電話または窓口でご予約ください',
       actions: [
-        { label: 'LINE予約', type: 'line', url: 'https://line.me/R/ti/p/@986eslhe' },
-        { label: 'WEB予約',  type: 'web',  url: 'https://ieda-naika.reserve.ne.jp' },
         { label: '電話',     type: 'tel',  url: 'tel:0568-82-4118' },
       ],
       telNote: '',
@@ -289,15 +285,13 @@ const absoluteTop = el => {
     {
       id: 'kigyou', color: '#B89840', name: '企業健診',
       methods: [
-        { name: 'LINE予約', s: 'cond', time: '24時間',     period: '要相談' },
+        { name: 'LINE予約', s: 'ok',   time: '24時間',     period: '要相談' },
         { name: 'WEB予約',  s: 'ok',   time: '24時間',     period: '〜3ヶ月先' },
         { name: '電話予約', s: 'ok',   time: '診療時間内', period: '〜3ヶ月先' },
         { name: '窓口受付', s: 'ok',   time: '診療時間内', period: '〜3ヶ月先' },
       ],
       notice: '企業・団体での健診にも対応しています。まずはお電話またはLINEにてご相談ください。',
-      condNotices: [
-        { text: '団体健診のご依頼・特殊な健診項目についてはLINEチャットでご相談ください。' },
-      ],
+      condNotices: [],
       ctaLead: '以下ボタンよりお進みください',
       actions: [
         { label: 'LINE予約', type: 'line', url: 'https://line.me/R/ti/p/@986eslhe' },
@@ -307,7 +301,7 @@ const absoluteTop = el => {
       telNote: '',
     },
     {
-      id: 'jiyuu', color: '#7B6FA8', name: '自由診療',
+      id: 'jiyuu', color: '#7B6FA8', name: '自由診療', hidden: true,
       methods: [
         { name: 'LINE予約', s: 'ok',   time: '24時間',     period: '〜2ヶ月先' },
         { name: 'WEB予約',  s: 'ok',   time: '24時間',     period: '〜2ヶ月先' },
@@ -326,17 +320,34 @@ const absoluteTop = el => {
     {
       id: 'vaccine', color: '#2A7FA8', name: 'ワクチン・予防接種',
       methods: [
-        { name: 'LINE予約', s: 'ok',   time: '24時間',     period: '〜2ヶ月先' },
-        { name: 'WEB予約',  s: 'ok',   time: '24時間',     period: '〜2ヶ月先' },
-        { name: '電話予約', s: 'ng',   time: '—',          period: '—' },
-        { name: '窓口受付', s: 'ng',   time: '—',          period: '—' },
+        { name: 'LINE予約', s: 'ng',   time: '—',          period: '—' },
+        { name: 'WEB予約',  s: 'ng',   time: '—',          period: '—' },
+        { name: '電話予約', s: 'ok',   time: '診療時間内', period: '〜2ヶ月先' },
+        { name: '窓口受付', s: 'ok',   time: '診療時間内', period: '当日可' },
       ],
-      notice: 'ワクチン接種はすべてオンライン予約制です。在庫状況によりご希望に添えない場合はご連絡いたします。',
+      notice: 'ワクチン接種はお電話または窓口にてご予約ください。在庫状況によりご希望に添えない場合があります。',
+      condNotices: [],
+      ctaLead: 'お電話または窓口でご予約ください',
+      actions: [
+        { label: '電話',     type: 'tel',  url: 'tel:0568-82-4118' },
+      ],
+      telNote: '',
+    },
+    {
+      id: 'sas', color: '#5A8FA8', name: '睡眠時無呼吸',
+      methods: [
+        { name: 'LINE予約', s: 'ok',   time: '24時間',     period: '当日〜3ヶ月先' },
+        { name: 'WEB予約',  s: 'ok',   time: '24時間',     period: '当日〜3ヶ月先' },
+        { name: '電話予約', s: 'ok',   time: '診療時間内', period: '当日〜3ヶ月先' },
+        { name: '窓口受付', s: 'ok',   time: '診療時間内', period: '当日のみ' },
+      ],
+      notice: '初診の方もお気軽にご予約ください。',
       condNotices: [],
       ctaLead: '以下ボタンよりお進みください',
       actions: [
         { label: 'LINE予約', type: 'line', url: 'https://line.me/R/ti/p/@986eslhe' },
         { label: 'WEB予約',  type: 'web',  url: 'https://ieda-naika.reserve.ne.jp' },
+        { label: '電話',     type: 'tel',  url: 'tel:0568-82-4118' },
       ],
       telNote: '',
     },
@@ -346,7 +357,7 @@ const absoluteTop = el => {
   const list = document.getElementById('rdmList');
   if (!list) return;
 
-  MENUS.forEach(menu => {
+  MENUS.filter(menu => !menu.hidden).forEach(menu => {
     const li = document.createElement('li');
     li.className = 'rdm-row';
 
