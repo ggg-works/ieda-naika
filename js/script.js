@@ -253,8 +253,8 @@ const absoluteTop = el => {
       methods: [
         { name: 'LINE予約', s: 'ok',   time: '24時間',     period: '当日〜3ヶ月先' },
         { name: 'WEB予約',  s: 'ok',   time: '24時間',     period: '当日〜3ヶ月先' },
-        { name: '電話予約', s: 'ok',   time: '診療時間内', period: '当日〜3ヶ月先' },
-        { name: '窓口受付', s: 'ok',   time: '診療時間内', period: '当日のみ' },
+        { name: '電話予約', s: 'ok',   time: '受付時間内', period: '当日のみ' },
+        { name: '窓口受付', s: 'ok',   time: '受付時間内', period: '当日のみ' },
       ],
       notice: '初診の方もお気軽にご予約ください。',
       condNotices: [],
@@ -271,8 +271,8 @@ const absoluteTop = el => {
       methods: [
         { name: 'LINE予約', s: 'ng',   time: '—',          period: '—' },
         { name: 'WEB予約',  s: 'ng',   time: '—',          period: '—' },
-        { name: '電話予約', s: 'ok',   time: '診療時間内', period: '2週間〜3ヶ月先' },
-        { name: '窓口受付', s: 'ok',   time: '診療時間内', period: '2週間〜3ヶ月先' },
+        { name: '電話予約', s: 'ok',   time: '受付時間内', period: '2週間〜3ヶ月先' },
+        { name: '窓口受付', s: 'ok',   time: '受付時間内', period: '2週間〜3ヶ月先' },
       ],
       notice: '公費健診は実施期間・対象が定められています。詳細は受診時またはお問い合わせください。',
       condNotices: [],
@@ -283,14 +283,14 @@ const absoluteTop = el => {
       telNote: '',
     },
     {
-      id: 'kigyou', color: '#B89840', name: '企業健診',
+      id: 'kigyou', color: '#B89840', name: '企業健診・就学前検診',
       methods: [
-        { name: 'LINE予約', s: 'ok',   time: '24時間',     period: '要相談' },
-        { name: 'WEB予約',  s: 'ok',   time: '24時間',     period: '〜3ヶ月先' },
-        { name: '電話予約', s: 'ok',   time: '診療時間内', period: '〜3ヶ月先' },
-        { name: '窓口受付', s: 'ok',   time: '診療時間内', period: '〜3ヶ月先' },
+        { name: 'LINE予約', s: 'ok',   time: '24時間',     period: '当日〜3ヶ月先' },
+        { name: 'WEB予約',  s: 'ok',   time: '24時間',     period: '当日〜3ヶ月先' },
+        { name: '電話予約', s: 'ok',   time: '受付時間内', period: '当日のみ' },
+        { name: '窓口受付', s: 'ok',   time: '受付時間内', period: '当日のみ' },
       ],
-      notice: '企業・団体での健診にも対応しています。まずはお電話またはLINEにてご相談ください。',
+      notice: '指定項目・指定用紙があれば受診時にお知らせください。',
       condNotices: [],
       ctaLead: '以下ボタンよりお進みください',
       actions: [
@@ -320,12 +320,12 @@ const absoluteTop = el => {
     {
       id: 'vaccine', color: '#2A7FA8', name: 'ワクチン・予防接種',
       methods: [
-        { name: 'LINE予約', s: 'ng',   time: '—',          period: '—' },
-        { name: 'WEB予約',  s: 'ng',   time: '—',          period: '—' },
-        { name: '電話予約', s: 'ok',   time: '診療時間内', period: '〜2ヶ月先' },
-        { name: '窓口受付', s: 'ok',   time: '診療時間内', period: '当日可' },
+        { name: 'LINE予約', s: 'ng',   time: '—',          period: '要相談' },
+        { name: 'WEB予約',  s: 'ng',   time: '—',          period: '要相談' },
+        { name: '電話予約', s: 'ok',   time: '受付時間内', period: '要相談' },
+        { name: '窓口受付', s: 'ok',   time: '受付時間内', period: '要相談' },
       ],
-      notice: 'ワクチン接種はお電話または窓口にてご予約ください。在庫状況によりご希望に添えない場合があります。',
+      notice: 'ワクチン接種はお電話または窓口にてご予約ください。在庫確保のためお時間をいただくことがございます。',
       condNotices: [],
       ctaLead: 'お電話または窓口でご予約ください',
       actions: [
@@ -338,8 +338,8 @@ const absoluteTop = el => {
       methods: [
         { name: 'LINE予約', s: 'ok',   time: '24時間',     period: '当日〜3ヶ月先' },
         { name: 'WEB予約',  s: 'ok',   time: '24時間',     period: '当日〜3ヶ月先' },
-        { name: '電話予約', s: 'ok',   time: '診療時間内', period: '当日〜3ヶ月先' },
-        { name: '窓口受付', s: 'ok',   time: '診療時間内', period: '当日のみ' },
+        { name: '電話予約', s: 'ok',   time: '受付時間内', period: '当日のみ' },
+        { name: '窓口受付', s: 'ok',   time: '受付時間内', period: '当日のみ' },
       ],
       notice: '初診の方もお気軽にご予約ください。',
       condNotices: [],
@@ -402,8 +402,8 @@ const absoluteTop = el => {
           <div class="rdm-mcard-left">
             <span class="rdm-mcard-name"${color ? ` style="color:${color}"` : ''}>${m.name}</span>
             <div class="rdm-mcard-meta">
-              <span>受付：${m.time}</span>
-              <span>予約期間：${m.period}</span>
+              <span class="rdm-mcard-meta-item"><span class="rdm-mcard-meta-label">受付</span>${m.time}</span>
+              <span class="rdm-mcard-meta-item"><span class="rdm-mcard-meta-label">予約期間</span>${m.period}</span>
             </div>
           </div>
           <span class="rdm-mcard-status rdm-mcard-status--${m.s}">${STATUS_LABEL[m.s]}</span>

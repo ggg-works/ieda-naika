@@ -2140,10 +2140,28 @@ address { font-style:normal; }
 .rdm-mcard-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 12px;
-  font-size: 0.71rem;
-  color: var(--c-text-muted);
-  line-height: 1.5;
+  gap: 5px 8px;
+  margin-top: 5px;
+}
+
+.rdm-mcard-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  color: var(--c-text);
+  line-height: 1.4;
+}
+
+.rdm-mcard-meta-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--c-text-muted);
+  padding: 1px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
 }
 
 .rdm-mcard-status {
