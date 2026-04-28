@@ -1241,19 +1241,20 @@ address { font-style:normal; }
 
 /* details 開閉 */
 .reserve-details {
-  border: 1px solid var(--c-border-em);
-  border-left: 3px solid var(--c-em);
+  border: 1.5px solid #D4A017;
+  border-left: 4px solid #D4A017;
   border-radius: var(--r);
   margin-bottom: 36px;
-  background: #F4FBFB;
+  background: #FFF8E6;
   overflow: hidden;
 }
 
 .reserve-summary {
   display: flex;
   align-items: center;
+  gap: 10px;
   justify-content: space-between;
-  padding: 16px 20px;
+  padding: 14px 20px;
   cursor: pointer;
   list-style: none;
   transition: background-color var(--ease);
@@ -1261,14 +1262,30 @@ address { font-style:normal; }
 
 .reserve-summary::-webkit-details-marker { display: none; }
 @media (hover: hover) and (pointer: fine) {
-  .reserve-summary:hover { background-color: #C8ECEC; }
+  .reserve-summary:hover { background-color: #FFF0C0; }
+}
+
+.reserve-summary-icon-alert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  background: #D4A017;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  border-radius: 50%;
 }
 
 .reserve-summary-text {
-  font-size: 0.92rem;
+  flex: 1;
+  font-size: 0.9rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
-  color: var(--c-em-dark);
+  letter-spacing: 0.03em;
+  color: #7A5C00;
+  line-height: 1.55;
 }
 
 /* ›丸アイコン（news-expandと統一） */
@@ -1288,20 +1305,21 @@ address { font-style:normal; }
 
 @media (hover: hover) and (pointer: fine) {
   .reserve-summary:hover .reserve-summary-icon {
-    background-color: var(--c-em);
+    background-color: #D4A017;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='12' viewBox='0 0 8 12'%3E%3Cpath d='M2 1l5 5-5 5' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
   }
 }
 
 .reserve-details[open] .reserve-summary-icon {
   transform: rotate(90deg);
-  background-color: var(--c-em);
+  background-color: #D4A017;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='12' viewBox='0 0 8 12'%3E%3Cpath d='M2 1l5 5-5 5' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
 }
 
 .reserve-details-body {
   padding: 0 20px 20px;
-  border-top: 1px solid var(--c-border);
+  border-top: 1px solid #E8C96A;
+  background: #FFFDF5;
 }
 
 /* テーブルスクロール */
