@@ -165,11 +165,16 @@ const absoluteTop = el => {
             if (fired) return;
             fired = true;
             window.removeEventListener('scroll', onScroll);
-            const cards = document.querySelectorAll('.reserve-cards .reserve-card');
-            const card  = isLine ? cards[0] : cards[1];
-            if (!card) return;
-            card.classList.add('is-highlight');
-            card.addEventListener('animationend', () => card.classList.remove('is-highlight'), { once: true });
+            let target;
+            if (isLine) {
+              const cards = document.querySelectorAll('.reserve-cards .reserve-card');
+              target = cards[0];
+            } else {
+              target = section.querySelector('.reserve-summary');
+            }
+            if (!target) return;
+            target.classList.add('is-highlight');
+            target.addEventListener('animationend', () => target.classList.remove('is-highlight'), { once: true });
           };
 
           const onScroll = () => {
@@ -186,6 +191,7 @@ const absoluteTop = el => {
 
       const target = document.querySelector(id);
       if (!target) return;
+      e.preventDefault();
       const headerH = document.querySelector('.site-header')?.offsetHeight ?? 0;
       const top = target.getBoundingClientRect().top + window.scrollY - headerH;
       window.scrollTo({ top, behavior: 'smooth' });
@@ -485,11 +491,16 @@ const absoluteTop = el => {
         if (fired) return;
         fired = true;
         window.removeEventListener('scroll', onScroll);
-        const cards = document.querySelectorAll('.reserve-cards .reserve-card');
-        const card  = pending === 'line' ? cards[0] : cards[1];
-        if (!card) return;
-        card.classList.add('is-highlight');
-        card.addEventListener('animationend', () => card.classList.remove('is-highlight'), { once: true });
+        let target;
+        if (pending === 'line') {
+          const cards = document.querySelectorAll('.reserve-cards .reserve-card');
+          target = cards[0];
+        } else {
+          target = section.querySelector('.reserve-summary');
+        }
+        if (!target) return;
+        target.classList.add('is-highlight');
+        target.addEventListener('animationend', () => target.classList.remove('is-highlight'), { once: true });
       };
 
       const onScroll = () => {
