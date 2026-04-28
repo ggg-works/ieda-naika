@@ -74,11 +74,13 @@
       }
     ],
     "medicalSpecialty": [
-      "InternalMedicine",
-      "Nephrology",
-      "Cardiology",
-      "Pulmonary",
-      "Gastroenterology"
+      { "@type": "MedicalSpecialty", "name": "内科",       "sameAs": "http://schema.org/InternalMedicine" },
+      { "@type": "MedicalSpecialty", "name": "腎臓内科",   "sameAs": "http://schema.org/Nephrology" },
+      { "@type": "MedicalSpecialty", "name": "循環器内科", "sameAs": "http://schema.org/Cardiovascular" },
+      { "@type": "MedicalSpecialty", "name": "呼吸器内科", "sameAs": "http://schema.org/Pulmonary" },
+      { "@type": "MedicalSpecialty", "name": "消化器内科", "sameAs": "http://schema.org/Gastroenterologic" },
+      { "@type": "MedicalSpecialty", "name": "小児科",     "sameAs": "http://schema.org/Pediatric" },
+      { "@type": "MedicalSpecialty", "name": "生活習慣病（高血圧・糖尿病・脂質異常症・高尿酸血症）" }
     ],
     "availableService": [
       { "@type": "MedicalTherapy", "name": "一般内科診療" },
