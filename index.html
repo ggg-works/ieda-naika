@@ -386,46 +386,52 @@
           <p class="section-sub">休診・診療案内等のご案内</p>
         </div>
 
-        <div class="news-list js-fade" aria-label="お知らせ一覧">
+        <!--
+        ============================================================
+        【お知らせの追加・編集方法】
 
+        ■ シンプルなお知らせ（タイトルのみ）
           <article class="news-item">
-            <time class="news-date" datetime="2026-03-03">2026.03.03</time>
-            <span class="news-badge badge--closed">休診</span>
-            <h3 class="news-title">3/3（火）午後は臨時休診です</h3>
+            <time class="news-date" datetime="YYYY-MM-DD">YYYY.MM.DD</time>
+            <span class="news-badge badge--XXX">ラベル</span>
+            <h3 class="news-title">タイトルテキスト</h3>
           </article>
 
+        ■ 本文を展開できるお知らせ
           <article class="news-item news-item--expandable">
             <details class="news-details">
               <summary class="news-summary">
-                <time class="news-date" datetime="2026-03-01">2026.03.01</time>
-                <span class="news-badge badge--service">診療</span>
-                <h3 class="news-title">禁煙外来を開始しました</h3>
+                <time class="news-date" datetime="YYYY-MM-DD">YYYY.MM.DD</time>
+                <span class="news-badge badge--XXX">ラベル</span>
+                <h3 class="news-title">タイトルテキスト</h3>
                 <span class="news-expand" aria-hidden="true"></span>
               </summary>
               <div class="news-body">
-                <p>2026年3月より禁煙外来を開始しました。</p>
-                <p>保険適用の対象条件・治療スケジュール・費用の目安は、診療時にご説明します。</p>
-                <p>予約はLINE予約 / WEB予約をご利用ください。</p>
+                <p>本文1段落目</p>
+                <p>本文2段落目</p>
               </div>
             </details>
           </article>
 
+        ■ バッジの種類（badge--XXX の部分）
+          badge--closed  → 休診（赤系）
+          badge--info    → お知らせ（グレー系）
+          badge--service → 診療（緑系）
+          badge--vaccine → 予防接種（青系）
+
+        ■ 運用ルール
+          - 新しい記事を一番上に追加する
+          - datetime属性は "YYYY-MM-DD" 形式で正確に記入
+          - 古くなった記事は article ごと削除またはコメントアウト
+        ============================================================
+        -->
+
+        <div class="news-list js-fade" aria-label="お知らせ一覧">
+
           <article class="news-item">
-            <time class="news-date" datetime="2026-01-09">2026.01.09</time>
+            <time class="news-date" datetime="2026-04-28">2026.04.28</time>
             <span class="news-badge badge--info">お知らせ</span>
-            <h3 class="news-title">ホームページをテスト公開しました</h3>
-          </article>
-
-          <article class="news-item">
-            <time class="news-date" datetime="2026-01-05">2026.01.05</time>
-            <span class="news-badge badge--vaccine">予防接種</span>
-            <h3 class="news-title">インフルエンザ予防接種のご案内</h3>
-          </article>
-
-          <article class="news-item">
-            <time class="news-date" datetime="2025-12-20">2025.12.20</time>
-            <span class="news-badge badge--closed">休診</span>
-            <h3 class="news-title">年末年始の診療予定</h3>
+            <h3 class="news-title">ホームページを公開しました</h3>
           </article>
 
         </div>
