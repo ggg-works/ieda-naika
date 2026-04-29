@@ -165,16 +165,17 @@ const absoluteTop = el => {
             if (fired) return;
             fired = true;
             window.removeEventListener('scroll', onScroll);
-            let target;
-            if (isLine) {
-              const cards = document.querySelectorAll('.reserve-cards .reserve-card');
-              target = cards[0];
-            } else {
-              target = section.querySelector('.reserve-summary');
-            }
-            if (!target) return;
-            target.classList.add('is-highlight');
-            target.addEventListener('animationend', () => target.classList.remove('is-highlight'), { once: true });
+
+            const addHighlight = (el) => {
+              if (!el) return;
+              el.classList.add('is-highlight');
+              el.addEventListener('animationend', () => el.classList.remove('is-highlight'), { once: true });
+            };
+
+            const cards   = document.querySelectorAll('.reserve-cards .reserve-card');
+            const summary = section.querySelector('.reserve-summary');
+            addHighlight(isLine ? cards[0] : cards[1]);
+            addHighlight(summary);
           };
 
           const onScroll = () => {
@@ -457,7 +458,9 @@ const absoluteTop = el => {
     if (!href.includes('index.html#reserve')) return;
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      const type = btn.matches(LINE_SEL) ? 'line' : 'web';
+      // 診療案内ページの「予約へ進む」は警告バナーのみハイライト
+      const isSvcPage = btn.matches('.svcpage-cta-btn--line, .svcpage-cta-btn--web');
+      const type = isSvcPage ? 'summary' : (btn.matches(LINE_SEL) ? 'line' : 'web');
       sessionStorage.setItem('reserveHighlight', type);
       window.location.href = href.replace('#reserve', '');
     });
@@ -491,16 +494,19 @@ const absoluteTop = el => {
         if (fired) return;
         fired = true;
         window.removeEventListener('scroll', onScroll);
-        let target;
-        if (pending === 'line') {
-          const cards = document.querySelectorAll('.reserve-cards .reserve-card');
-          target = cards[0];
-        } else {
-          target = section.querySelector('.reserve-summary');
+
+        const addHighlight = (el) => {
+          if (!el) return;
+          el.classList.add('is-highlight');
+          el.addEventListener('animationend', () => el.classList.remove('is-highlight'), { once: true });
+        };
+
+        const cards   = document.querySelectorAll('.reserve-cards .reserve-card');
+        const summary = section.querySelector('.reserve-summary');
+        if (pending !== 'summary') {
+          addHighlight(pending === 'line' ? cards[0] : cards[1]);
         }
-        if (!target) return;
-        target.classList.add('is-highlight');
-        target.addEventListener('animationend', () => target.classList.remove('is-highlight'), { once: true });
+        addHighlight(summary);
       };
 
       const onScroll = () => {
