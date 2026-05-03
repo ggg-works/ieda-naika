@@ -821,6 +821,7 @@ address { font-style:normal; }
 }
 
 .doctor-body .lux-link {
+  align-self: center;
   margin-right: 0;
 }
 
