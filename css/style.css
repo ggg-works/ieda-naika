@@ -813,6 +813,15 @@ address { font-style:normal; }
   grid-row: 2;
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.doctor-body .doctor-message {
+  width: 100%;
+}
+
+.doctor-body .lux-link {
+  margin-right: 0;
 }
 
 .doctor-role {
@@ -1772,7 +1781,7 @@ address { font-style:normal; }
     text-align: center;
   }
 
-  .doctor-body .lux-link { justify-content: center; margin-right: 3.5rem; }
+  .doctor-body .lux-link { justify-content: center; margin-right: 1.6em; }
 
   .access-btns { flex-direction: column; }
   .access-btns .btn { width: 100%; }
