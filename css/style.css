@@ -2211,29 +2211,26 @@ address { font-style:normal; }
   font-weight: 500;
   font-family: var(--font-ja);
   text-decoration: none;
-  transition: background-color var(--ease), color var(--ease);
+  transition: transform var(--ease), box-shadow var(--ease);
+}
+@media (hover: hover) and (pointer: fine) {
+  .rdm-cta-a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(44,44,44,0.18);
+  }
 }
 .rdm-cta-a--web {
   background: var(--c-em-dark);
   color: #fff;
 }
-@media (hover: hover) and (pointer: fine) {
-  .rdm-cta-a--web:hover { background: #067070; }
-}
 .rdm-cta-a--line {
   background: var(--c-em);
   color: #fff;
-}
-@media (hover: hover) and (pointer: fine) {
-  .rdm-cta-a--line:hover { background: var(--c-em-dark); }
 }
 .rdm-cta-a--tel {
   background: var(--c-white);
   color: var(--c-em-dark);
   border: 1.5px solid var(--c-em);
-}
-@media (hover: hover) and (pointer: fine) {
-  .rdm-cta-a--tel:hover { background: var(--c-em-light); }
 }
 
 .rdm-tel-note {
