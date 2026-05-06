@@ -1782,7 +1782,7 @@ address { font-style:normal; }
     text-align: center;
   }
 
-  .doctor-body .lux-link { justify-content: center; margin-right: 1.6em; }
+  .doctor-body .lux-link { justify-content: center; margin-right: 0; }
 
   .access-btns { flex-direction: column; }
   .access-btns .btn { width: 100%; }
