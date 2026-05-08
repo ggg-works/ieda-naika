@@ -1545,9 +1545,9 @@ address { font-style:normal; }
 }
 
 .footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
   gap: 48px;
   max-width: var(--container-max);
   margin-inline: auto;
@@ -1714,6 +1714,7 @@ address { font-style:normal; }
   .access-grid     { grid-template-columns: 1fr; }
 
   .footer-inner {
+    display: flex;
     flex-direction: column;
     gap: 32px;
     padding-bottom: 32px;
