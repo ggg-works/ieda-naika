@@ -1711,7 +1711,6 @@ address { font-style:normal; }
     max-width: calc(50% - 12px); /* 1列分の幅（gap 24px の半分を引く） */
     margin-inline: auto;
   }
-  .access-grid     { grid-template-columns: 1fr; }
 
   .footer-inner {
     display: flex;
@@ -1785,6 +1784,7 @@ address { font-style:normal; }
 
   .doctor-body .lux-link { justify-content: center; margin-right: 0; }
 
+  .access-grid { grid-template-columns: 1fr; }
   .access-btns { flex-direction: column; }
   .access-btns .btn { width: 100%; }
 
