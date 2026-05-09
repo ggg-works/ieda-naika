@@ -821,7 +821,8 @@ address { font-style:normal; }
 }
 
 .doctor-body .lux-link {
-  align-self: center;
+  align-self: flex-start;
+  margin-left: 12%;
   margin-right: 0;
 }
 
@@ -840,15 +841,11 @@ address { font-style:normal; }
   letter-spacing: 0.14em;
   color: var(--c-text);
   margin-bottom: 20px;
+  border-left: 2px solid var(--c-em);
+  padding-left: 12px;
 }
 
-/* エメラルドのセパレーター */
-.doctor-sep {
-  width: 28px;
-  height: 1px;
-  background-color: var(--c-em);
-  margin-bottom: 18px;
-}
+.doctor-sep { display: none; }
 
 .doctor-message {
   font-size: 0.87rem;
@@ -1782,7 +1779,7 @@ address { font-style:normal; }
     text-align: center;
   }
 
-  .doctor-body .lux-link { justify-content: center; margin-right: 0; }
+  .doctor-body .lux-link { justify-content: center; align-self: center; margin-left: 0; margin-right: 0; }
 
   .access-grid { grid-template-columns: 1fr; }
   .access-btns { flex-direction: column; }
