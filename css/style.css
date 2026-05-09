@@ -771,6 +771,8 @@ address { font-style:normal; }
   max-width: 680px;
   margin-inline: auto;
   align-items: start;
+  padding-left: clamp(16px, 3vw, 36px);
+  transform: translateX(clamp(16px, 3vw, 40px));
 }
 
 /* 写真エリア：2行にまたがって垂直中央 */
@@ -786,19 +788,12 @@ address { font-style:normal; }
   aspect-ratio: 1;
   object-fit: cover;
   display: block;
+  border-radius: 5px;
 }
 
-/* エメラルドの角飾り（右下） */
-.doctor-corner {
-  display: block;
-  position: absolute;
-  bottom: -8px;
-  right: -8px;
-  width: 22px;
-  height: 22px;
-  border-right: 2px solid var(--c-em);
-  border-bottom: 2px solid var(--c-em);
-}
+/* C案：角飾りなし */
+.doctor-corner { display: none; }
+
 
 /* 役職・氏名・ラインブロック */
 .doctor-ident {
@@ -841,8 +836,18 @@ address { font-style:normal; }
   letter-spacing: 0.14em;
   color: var(--c-text);
   margin-bottom: 20px;
-  border-left: 2px solid var(--c-em);
-  padding-left: 12px;
+  position: relative;
+  padding-left: 20px;
+}
+.doctor-name::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 1.1em;
+  background-color: var(--c-em);
 }
 
 .doctor-sep { display: none; }
@@ -1757,6 +1762,8 @@ address { font-style:normal; }
     display: flex;
     flex-direction: column;
     gap: 0;
+    padding-left: 0;
+    transform: none;
   }
 
   .doctor-photo-wrap {
