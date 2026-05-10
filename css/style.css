@@ -706,7 +706,7 @@ address { font-style:normal; }
   border-radius: var(--r);
   padding: clamp(28px, 5vw, 44px) 28px;
   position: relative;
-  transition: box-shadow var(--ease), transform var(--ease);
+  transition: box-shadow var(--ease), transform var(--ease), opacity 0.65s ease;
   overflow: hidden;
 }
 
@@ -1171,7 +1171,7 @@ address { font-style:normal; }
   gap: 10px;
   background: #FCFAF6;
   padding: 28px 24px;
-  transition: background-color var(--ease);
+  transition: background-color var(--ease), opacity 0.65s ease, transform 0.65s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -1387,7 +1387,7 @@ address { font-style:normal; }
   background: var(--c-white);
   padding: 18px 20px;
   text-decoration: none;
-  transition: background-color var(--ease);
+  transition: background-color var(--ease), opacity 0.65s ease, transform 0.65s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -1460,7 +1460,7 @@ address { font-style:normal; }
   border: 1px solid var(--c-border);
   border-radius: var(--r);
   padding: clamp(24px, 4vw, 40px);
-  transition: box-shadow var(--ease), background-color var(--ease);
+  transition: box-shadow var(--ease), background-color var(--ease), opacity 0.65s ease, transform 0.65s ease;
 }
 
 
