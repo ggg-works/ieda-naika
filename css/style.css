@@ -585,6 +585,10 @@ address { font-style:normal; }
   background-color: var(--c-em);
 }
 
+@media (min-width: 561px) {
+  .section-title br { display: none; }
+}
+
 .section-sub {
   margin-top: 18px;
   font-size: 0.87rem;
