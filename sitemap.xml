@@ -85,11 +85,4 @@
     <priority>0.7</priority>
   </url>
 
-  <url>
-    <loc>https://www.ieda-naika.jp/service-private.html</loc>
-    <lastmod>2026-04-28</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
 </urlset>
