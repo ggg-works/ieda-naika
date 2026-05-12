@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /service-private.html
 
 Sitemap: https://www.ieda-naika.jp/sitemap.xml
