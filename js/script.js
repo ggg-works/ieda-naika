@@ -261,17 +261,15 @@ const absoluteTop = el => {
     {
       id: 'kigyou', color: '#B89840', name: '企業健診・就学前検診',
       methods: [
-        { name: 'LINE予約', s: 'ok',   time: '24時間',     period: '当日〜3ヶ月先' },
-        { name: 'WEB予約',  s: 'ok',   time: '24時間',     period: '当日〜3ヶ月先' },
+        { name: 'LINE予約', s: 'ng',   time: '—',          period: '—' },
+        { name: 'WEB予約',  s: 'ng',   time: '—',          period: '—' },
         { name: '電話予約', s: 'ok',   time: '受付時間内', period: '当日のみ' },
         { name: '窓口受付', s: 'ok',   time: '受付時間内', period: '当日のみ' },
       ],
       notice: '指定項目・指定用紙があれば受診時にお知らせください。',
       condNotices: [],
-      ctaLead: '以下ボタンよりお進みください',
+      ctaLead: 'お電話または窓口でご予約ください',
       actions: [
-        { label: 'LINE予約', type: 'line', url: 'https://line.me/R/ti/p/@986eslhe' },
-        { label: 'WEB予約',  type: 'web',  url: 'https://ieda-naika.reserve.ne.jp' },
         { label: '電話',     type: 'tel',  url: 'tel:0568-82-4118' },
       ],
       telNote: '',
