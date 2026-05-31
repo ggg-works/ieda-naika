@@ -1650,6 +1650,17 @@ address { font-style:normal; }
   color: rgba(250,246,238,0.35);
   letter-spacing: 0.08em;
 }
+.footer-kijun-link {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.68rem;
+  color: rgba(250,246,238,0.30);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+}
+.footer-kijun-link:hover {
+  color: rgba(250,246,238,0.55);
+}
 
 
 /* ============================================================
