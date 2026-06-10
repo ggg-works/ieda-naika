@@ -1142,6 +1142,9 @@ address { font-style:normal; }
 
 .news-body p + p { margin-top: 8px; }
 
+.news-tr--closed { background-color: #F5A85A; color: var(--c-text); }
+.news-tr--special { background-color: var(--c-em-mid); color: var(--c-text); }
+
 .news-note {
   max-width: 700px;
   margin: 14px auto 0;
