@@ -196,6 +196,21 @@
   background: var(--c-em);
 }
 
+/* 番号付きリスト（①②③④など） */
+.svcpage-block-list--num li {
+  padding-left: 0;
+}
+
+.svcpage-block-list--num li::before {
+  content: none;
+}
+
+.svcpage-block-list-num {
+  color: var(--c-em-dark);
+  font-weight: 500;
+  margin-right: 4px;
+}
+
 /* ブロック間の区切り線（縦並び時のみ） */
 .svcpage-blocks > .svcpage-block + .svcpage-block {
   border-top: 1px solid var(--c-border);
@@ -298,6 +313,118 @@
 
 
 /* --------------------------------------------------
+   治療スケジュール（ステップカード横並びレイアウト）
+   カード・矢印を9列グリッドの直接の子要素にすることで、
+   カードの幅・高さを確実に揃える。
+   スマホでは1列グリッドになり縦並びに切り替わる。
+-------------------------------------------------- */
+.svcpage-schedule {
+  display: grid;
+  grid-template-columns: 1fr 22px 1fr 22px 1fr 22px 1fr 22px 1fr;
+  align-items: stretch;
+  margin-top: clamp(28px, 4vw, 40px);
+}
+
+.svcpage-schedule-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  min-height: 150px;
+  padding: clamp(20px, 3vw, 26px) clamp(10px, 2vw, 14px);
+  background: var(--c-ivory);
+  border: 1px solid var(--c-border-em);
+  border-radius: var(--r);
+  box-shadow: var(--shadow-sm);
+}
+
+.svcpage-schedule > .svcpage-schedule-card:last-child {
+  background: var(--c-em-light);
+  border-color: var(--c-em);
+}
+
+.svcpage-schedule-num {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--c-em-light);
+  border: 1px solid var(--c-em);
+  font-family: var(--font-en);
+  font-size: 1.0rem;
+  font-weight: 400;
+  color: var(--c-em-dark);
+}
+
+.svcpage-schedule > .svcpage-schedule-card:last-child .svcpage-schedule-num {
+  background: var(--c-em-dark);
+  border-color: var(--c-em-dark);
+  color: #fff;
+}
+
+.svcpage-schedule-tag {
+  font-family: var(--font-ja);
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--c-em-dark);
+}
+
+.svcpage-schedule-body {
+  font-size: 0.78rem;
+  color: var(--c-text-muted);
+  line-height: 1.6;
+}
+
+/* カード間の矢印コネクター */
+.svcpage-schedule-arrow {
+  align-self: center;
+  justify-self: center;
+  width: 100%;
+  height: 1px;
+  background: var(--c-border-em);
+  position: relative;
+}
+
+.svcpage-schedule-arrow::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-top: 1.5px solid var(--c-em);
+  border-right: 1.5px solid var(--c-em);
+  transform: translate(-2px, -50%) rotate(45deg);
+}
+
+@media (max-width: 760px) {
+  .svcpage-schedule {
+    grid-template-columns: 1fr;
+  }
+
+  .svcpage-schedule-arrow {
+    width: 1px;
+    height: clamp(18px, 5vw, 26px);
+    justify-self: center;
+  }
+
+  .svcpage-schedule-arrow::after {
+    right: auto;
+    top: auto;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, -1px) rotate(135deg);
+  }
+}
+
+
+/* --------------------------------------------------
    注意書き・補足テキスト
 -------------------------------------------------- */
 .svcpage-note {
@@ -341,6 +468,111 @@
 @media (max-width: 600px) {
   .svcpage-vaccine-list {
     column-count: 1;
+  }
+}
+
+
+/* --------------------------------------------------
+   目安表（TDS・ブリンクマン指数など）
+-------------------------------------------------- */
+.svcpage-table-wrap {
+  overflow-x: auto;
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r);
+  margin: 16px 0;
+}
+
+.svcpage-table {
+  width: 100%;
+  min-width: 380px;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+
+.svcpage-table thead th {
+  background: var(--c-em-dark);
+  color: #fff;
+  font-weight: 500;
+  padding: 12px 14px;
+  text-align: left;
+  letter-spacing: 0.04em;
+}
+
+.svcpage-table tbody th {
+  background: var(--c-em-light);
+  color: var(--c-em-dark);
+  font-weight: 500;
+  padding: 12px 14px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.svcpage-table tbody td {
+  padding: 12px 14px;
+  color: var(--c-text-muted);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.svcpage-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.svcpage-table-note {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--c-text-muted);
+  line-height: 1.7;
+}
+
+
+/* --------------------------------------------------
+   料金カード（2枚並び）
+-------------------------------------------------- */
+.svcpage-cost-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 18px 0;
+}
+
+.svcpage-cost-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  padding: clamp(20px, 3vw, 26px) clamp(12px, 2vw, 18px);
+  background: var(--c-white);
+  border: 1px solid var(--c-border-em);
+  border-radius: var(--r);
+  box-shadow: var(--shadow-sm);
+}
+
+.svcpage-cost-card-label {
+  font-size: 0.8rem;
+  color: var(--c-text-muted);
+  line-height: 1.5;
+}
+
+.svcpage-cost-card-price {
+  font-family: var(--font-en);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--c-em-dark);
+}
+
+.svcpage-cost-card-price small {
+  font-family: var(--font-ja);
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--c-text-muted);
+  margin-left: 4px;
+}
+
+@media (max-width: 480px) {
+  .svcpage-cost-cards {
+    grid-template-columns: 1fr;
   }
 }
 
