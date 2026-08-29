@@ -211,6 +211,13 @@
   margin-right: 4px;
 }
 
+.svcpage-block-list-note {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 0.78rem;
+  color: var(--c-text-muted);
+}
+
 /* ブロック間の区切り線（縦並び時のみ） */
 .svcpage-blocks > .svcpage-block + .svcpage-block {
   border-top: 1px solid var(--c-border);
